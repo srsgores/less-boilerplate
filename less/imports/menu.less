@@ -1,0 +1,27 @@
+/*------------------------------------------------------------------------------------------------------------------------
+	Author: Sean Goresht
+	www: http://seangoresht.com/
+	github: https://github.com/srsgores
+	twitter: http://twitter.com/S.Goresht
+	
+	Licensed under the GNU Public License
+	
+	=============================================================================
+	Filename:  menu
+	=============================================================================
+	
+--------------------------------------------------------------------------------------------------------------------- */
+.menu {
+	&:first-child a {
+		.border-radius-right(0);
+	}
+	&:last-child a {
+		.border-radius-left(0);
+	}
+	li {
+		a {
+			border-right: @border @borderColour;
+			background: fade(@secondaryColour, 40%);
+		}
+	}
+}

@@ -1,0 +1,253 @@
+/*------------------------------------------------------------------------------------------------------------------------
+	Author: Sean Goresht
+	www: http://seangoresht.com/
+	github: https://github.com/srsgores
+	twitter: http://twitter.com/S.Goresht
+
+	Licensed under the GNU Public License
+
+	=============================================================================
+	Filename:  style.less
+	=============================================================================
+
+--------------------------------------------------------------------------------------------------------------------- */
+
+@import "imports/variables.less";
+@import "imports/mixins.less";
+@import "icomoon/icomoon.less";
+@import "imports/grids.less";
+@import "imports/loaders.less";
+@import "imports/menu.less";
+
+/* Layout
+----------------------------------------------------------------------------------------------------*/
+
+.width20, .width25, .width33, .width50, #sidebar-a, #sidebar-b, .float-left {
+	float: left;
+	min-height: 1px;
+}
+
+.width20 {
+	width: 20%;
+}
+
+.width25 {
+	width: 25%;
+}
+
+.width33 {
+	width: 33%;
+}
+
+.width50 {
+	width: 50%;
+}
+
+/* Modules
+----------------------------------------------------------------------------------------------------*/
+
+#top-a, #top-b, #bottom-a, #bottom-b, #main {
+	background: @moduleBackground;
+}
+
+#content {
+	.box-shadow(inset 0 0 26px rgba(238, 238, 238, 0.31));
+	.module { //done like this to avoid absolute modules getting caught
+		.border-box;
+		border: 1px solid #CCC;
+		border-bottom-color: #9E9E9E;
+		.box-shadow(inset 0 0 @borderRadius #FFF);
+	}
+}
+
+/* System
+----------------------------------------------------------------------------------------------------*/
+
+body {
+	.box-shadow(inset 0 73px 420px #FFF);
+	font-family: OpenSansLight, Helvetica, sans-serif;
+	max-width: 1140px;
+	margin: 0 auto;
+	color: @textColour;
+	background: @bodyBackground;
+	line-height: @baseLineHeight;
+	font-family: @baseFontFamily;
+}
+
+p {
+	line-height: @baseLineHeight;
+	padding-bottom: @padding;
+}
+
+
+/* Type */
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: @headingFontWeight;
+}
+
+
+.headingsX(@index) when (@index > 0) {
+	(~"h@{index}") {
+		font-size: ((@em * @multiplierLarge) - ((@index * ((@em * @multiplier) / 6 ))));
+		&.title {
+			font-size: ((@em * @multiplier) - ((@index * ((@em * @multiplierSmall) / 6 ))) + (@em * @multiplier)) * @multiplier;
+		}
+	}
+	.headingsX(@index - 1);
+}
+.headingsX(0) {}
+.headingsX(6);
+
+a {
+	color: @linkColour;
+	text-decoration: none;
+	&:hover {
+		color: @linkColourHover;
+	}
+	&:visited {
+		color: @linkColourVisited;
+	}
+}
+.button, button, .btn, input[type="submit"], a.submit, .item header div a {
+
+	background: @buttonPrimaryColour;
+	border: @border;
+	cursor: pointer;
+
+	font-size: @fontSizeMedium;
+	font-weight: 400;
+
+	margin: 0 @margin 0 0;
+	padding: @borderRadiusLarge @padding;
+	text-shadow: 0 1px 0 #fff;
+	text-decoration: none;
+
+	#gradient > .vertical(#ededed, #d9d9d9);
+	.box-shadow(inset 0 1px 0 rgba(255, 255, 255, 1), 0 1px 4px rgba(150, 150, 150, 0.5));
+	.border-radius(@borderRadiusLarge);
+
+	&:hover, &:focus, &.loading {
+		background: #2F5163;
+		border-color: #333;
+		color: #fff;
+		text-shadow: 0 1px 1px #111;
+		.box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 1px 4px rgba(150, 150, 150, 0.5));
+		#gradient > .vertical(lighten(#2F5163, 10%), #2F5163);
+
+		ul.dropdown-menu {
+			display: block;
+		}
+	}
+
+	&:active {
+		border-color: #000;
+		.box-shadow(inset 0 0 @borderRadiusLarge #000);
+	}
+
+	&.dropdown-toggle {
+		.right-icon(@icon-arrow-down-2);
+		ul {
+			display: none;
+			position: absolute;
+		}
+	}
+
+}
+
+.actions, .form-actions, .toolbar, .btn-group, .actions input {
+	border-top: 1px solid @borderColour;
+	background: rgba(217, 217, 217, 0.2);
+	padding: @margin 0;
+
+	input, .btn, button {
+		margin: 0 -1px 0 0;
+		&:last-child {
+			.border-radius-left(0);
+		}
+		&:first-child {
+			.border-radius-right(0);
+		}
+	}
+}
+
+
+.toolbar, .btn-group, .actions input {
+	position: relative;
+	margin: 0;
+
+	li {
+
+		.inline-block;
+		&:first-child a {
+			.border-radius-left(@borderRadius);
+		}
+		&:last-child a {
+			.border-radius-right(@borderRadius);
+		}
+		a {
+			font-size: @fontSizeSmall;
+			font-weight: 400;
+			margin-right: -1px;
+		}
+	}
+}
+
+/* Put anything that needs margin here */
+.box, .alert, .pagination ul, .dataTables_paginate {
+	margin: @margin;
+}
+
+/* Put anything that needs padding here */
+
+.box, #top-a, #top-b, #bottom-a, #bottom-b, #main, #content, #content .module, .well-large, #lightbox-title-over, .menu-dropdown li a, .breadcrumbs a {
+	.padding-fix;
+	padding: @padding;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, p, h1, h2, h3, h4, h5, h6, blockquote, pre, address, cite, code, del, dfn, img, q, dl, ul, fieldset, form, legend, table, caption, summary, audio, video, input, select, textarea {
+	margin-bottom: @margin; //spaced only at bottom by default
+}
+
+/* =============================================================================
+Border Radius
+========================================================================== */
+nav, button, .btn, .box, .rounded, pre, code, aside, menu, .nav, #top-a, #top-b, #bottom-a, #bottom-b, #main, #content, #maininner, #content .module, .well-large, #lightbox-title-over, .menu, .menu li {
+	.border-radius(@borderRadius);
+}
+
+/* Anything with border radius small */
+input, select, textarea {
+	.border-radius(@borderRadiusSmall);
+}
+/* inline block stuff */
+nav, nav, nav li, .toolbar, .toolbar input, .toolbar li, .toolbar li input, .btn-group, .btn-group input, .item .print, .item .email {
+	.inline-block;
+}
+
+/* centred stuff in block layout */
+
+.actions, .form-actions, .toolbar, .btn-group, .actions input, footer {
+	.centred;
+}
+/* =============================================================================
+Borders
+========================================================================== */
+
+.bordered, .box, #top-a, #top-b, #bottom-a, #bottom-b, #main, #maininner {
+	border: @border;
+}
+
+.shadowed {
+	.box-shadow(@shadow);
+}
+
+.border-bottom, legend, header, footer, article, section {
+	border-bottom: @borderStyle @borderColour;
+}
+
+//Stuff to hide by default (and then show with media queries?)
+#menu-responsive {
+	display: none;
+}
+@import "imports/media-queries.less";
