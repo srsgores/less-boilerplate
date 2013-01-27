@@ -11,65 +11,25 @@
 	=============================================================================
 
 --------------------------------------------------------------------------------------------------------------------- */
-
 @import "imports/variables.less";
 @import "imports/mixins.less";
 @import "icomoon/icomoon.less";
+@import "imports/utilities.less";
+
+@import "imports/reset.less";
+@import "imports/normalize.less";
+
 @import "imports/grids.less";
 @import "imports/loaders.less";
 @import "imports/menu.less";
 
-/* Layout
-----------------------------------------------------------------------------------------------------*/
-
-.width20, .width25, .width33, .width50, #sidebar-a, #sidebar-b, .float-left {
-	float: left;
-	min-height: 1px;
-}
-
-.width20 {
-	width: 20%;
-}
-
-.width25 {
-	width: 25%;
-}
-
-.width33 {
-	width: 33%;
-}
-
-.width50 {
-	width: 50%;
-}
-
-/* Modules
-----------------------------------------------------------------------------------------------------*/
-
-#top-a, #top-b, #bottom-a, #bottom-b, #main {
-	background: @moduleBackground;
-}
-
-#content {
-	.box-shadow(inset 0 0 26px rgba(238, 238, 238, 0.31));
-	.module { //done like this to avoid absolute modules getting caught
-		.border-box;
-		border: 1px solid #CCC;
-		border-bottom-color: #9E9E9E;
-		.box-shadow(inset 0 0 @borderRadius #FFF);
-	}
-}
-
-/* System
-----------------------------------------------------------------------------------------------------*/
-
 body {
-	.box-shadow(inset 0 73px 420px #FFF);
-	font-family: OpenSansLight, Helvetica, sans-serif;
+	font-family: @sansFontFamily;
 	max-width: 1140px;
 	margin: 0 auto;
 	color: @textColour;
-	background: @bodyBackground;
+	background: @bodyBackgroundColour;
+	background: @bodyBackgroundImage;
 	line-height: @baseLineHeight;
 	font-family: @baseFontFamily;
 }
@@ -83,7 +43,7 @@ p {
 /* Type */
 
 h1, h2, h3, h4, h5, h6 {
-	font-weight: @headingFontWeight;
+	font-weight: @headingsFontWeight;
 }
 
 
@@ -109,7 +69,7 @@ a {
 		color: @linkColourVisited;
 	}
 }
-.button, button, .btn, input[type="submit"], a.submit, .item header div a {
+.button, button, .btn, input[type="submit"] {
 
 	background: @buttonPrimaryColour;
 	border: @border;
@@ -134,23 +94,11 @@ a {
 		text-shadow: 0 1px 1px #111;
 		.box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 1px 4px rgba(150, 150, 150, 0.5));
 		#gradient > .vertical(lighten(#2F5163, 10%), #2F5163);
-
-		ul.dropdown-menu {
-			display: block;
-		}
 	}
 
 	&:active {
 		border-color: #000;
 		.box-shadow(inset 0 0 @borderRadiusLarge #000);
-	}
-
-	&.dropdown-toggle {
-		.right-icon(@icon-arrow-down-2);
-		ul {
-			display: none;
-			position: absolute;
-		}
 	}
 
 }
@@ -187,7 +135,7 @@ a {
 		}
 		a {
 			font-size: @fontSizeSmall;
-			font-weight: 400;
+			font-weight: @headingsFontWeight;
 			margin-right: -1px;
 		}
 	}
@@ -200,7 +148,7 @@ a {
 
 /* Put anything that needs padding here */
 
-.box, #top-a, #top-b, #bottom-a, #bottom-b, #main, #content, #content .module, .well-large, #lightbox-title-over, .menu-dropdown li a, .breadcrumbs a {
+.box {
 	.padding-fix;
 	padding: @padding;
 }
@@ -212,7 +160,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* =============================================================================
 Border Radius
 ========================================================================== */
-nav, button, .btn, .box, .rounded, pre, code, aside, menu, .nav, #top-a, #top-b, #bottom-a, #bottom-b, #main, #content, #maininner, #content .module, .well-large, #lightbox-title-over, .menu, .menu li {
+nav, button, .btn, .box, .rounded, pre, code, aside, menu, .nav, .menu li {
 	.border-radius(@borderRadius);
 }
 
@@ -221,7 +169,7 @@ input, select, textarea {
 	.border-radius(@borderRadiusSmall);
 }
 /* inline block stuff */
-nav, nav, nav li, .toolbar, .toolbar input, .toolbar li, .toolbar li input, .btn-group, .btn-group input, .item .print, .item .email {
+nav, nav, nav li, .toolbar, .toolbar input, .toolbar li, .toolbar li input, .btn-group, .btn-group input {
 	.inline-block;
 }
 
@@ -234,7 +182,7 @@ nav, nav, nav li, .toolbar, .toolbar input, .toolbar li, .toolbar li input, .btn
 Borders
 ========================================================================== */
 
-.bordered, .box, #top-a, #top-b, #bottom-a, #bottom-b, #main, #maininner {
+.bordered, .box {
 	border: @border;
 }
 
@@ -246,8 +194,4 @@ Borders
 	border-bottom: @borderStyle @borderColour;
 }
 
-//Stuff to hide by default (and then show with media queries?)
-#menu-responsive {
-	display: none;
-}
 @import "imports/media-queries.less";

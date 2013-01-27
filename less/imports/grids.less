@@ -1,0 +1,93 @@
+/* Layout
+----------------------------------------------------------------------------------------------------*/
+.row {
+	padding: 0 (@line/2)/@em;
+	width: 100%;
+	.border-box; //margin: remember that this will be exclusive to media queries still, as it depends on the resolution!
+	overflow: hidden;
+	&.container {
+	/*margin: 0 @column;*/
+		border-bottom: 1px solid #2E2E2E;
+		.box-shadow(inset 0px -15px 29px -15px #000);
+	}
+	.onecol {
+		width: 8.333333333333332%;
+	}
+	.twocol {
+		width: 16.666666666666664%;
+	}
+	.threecol {
+		width: 25%;
+	}
+	.fourcol {
+		width: 33.33333333333333%;
+	}
+	.fivecol {
+		width: 41.666666666666664%;
+	}
+	.sixcol {
+		width: 50%;
+	}
+	.sevencol {
+		width: 58.33333333333333%;
+	}
+	.eightcol {
+		width: 66.66666666666666%;
+	}
+	.ninecol {
+		width: 75%;
+	}
+	.tencol {
+		width: 83.33333333333333%;
+	}
+	.elevencol {
+		width: 91.66666666666666%;
+	}
+	.twelvecol {
+		width: 100%;
+	}
+}
+
+.onecol,
+.twocol,
+.threecol,
+.fourcol,
+.fivecol,
+.sixcol,
+.sevencol,
+.eightcol,
+.ninecol,
+.tencol,
+.elevencol,
+.twelvecol,.width20, .width25, .width33, .width50, {
+	float: left;
+	min-height: 1px;
+	.transition-all(@transition-time);
+	.border-box;
+}
+
+.last {
+	margin-right: 0;
+}
+
+/* =============================================================================
+Yootheme Grid
+========================================================================== */
+
+.width20 {
+	width: 20%;
+}
+.width25 {
+	width: 25%;
+}
+.width33 {
+	width: 33%;
+}
+.width50 {
+	width: 50%;
+}
+
+.width100 {
+	width: 100%;
+}
+

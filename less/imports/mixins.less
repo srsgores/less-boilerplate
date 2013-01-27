@@ -20,10 +20,15 @@
 /* =============================================================================
 Site-wide rules
 ========================================================================== */
+
+.pie() when (@pie = true) {
+	background: url(@pieDirectory);
+}
 .padding-fix {
 	-moz-background-clip: padding;
 	-webkit-background-clip: padding-box;
 	background-clip: padding-box;
+	.pie();
 }
 
 .border-radius(@borderRadius){
@@ -269,6 +274,7 @@ Site-wide rules
 	-khtml-box-shadow: @shadow;
 	-o-box-shadow: @shadow;
 	box-shadow: @shadow;
+	.pie()
 }
 
 .box-shadow(@shadow, @shadow2){
@@ -277,6 +283,7 @@ Site-wide rules
 	-khtml-box-shadow: @shadow, @shadow2;
 	-o-box-shadow: @shadow, @shadow2;
 	box-shadow: @shadow, @shadow2;
+	.pie()
 }
 
 .box-shadow(@shadow, @shadow2, @shadow3){
@@ -285,6 +292,7 @@ Site-wide rules
 	-khtml-box-shadow: @shadow, @shadow2, @shadow3;
 	-o-box-shadow: @shadow, @shadow2, @shadow3;
 	box-shadow: @shadow, @shadow2, @shadow3;
+	.pie()
 }
 
 .box-shadow(@shadow, @shadow2, @shadow3, @shadow4){
@@ -293,6 +301,7 @@ Site-wide rules
 	-khtml-box-shadow: @shadow, @shadow2, @shadow3, @shadow4;
 	-o-box-shadow: @shadow, @shadow2, @shadow3, @shadow4;
 	box-shadow: @shadow, @shadow2, @shadow3, @shadow4;
+	.pie()
 }
 
 
@@ -302,6 +311,7 @@ Site-wide rules
 	-khtml-box-shadow: @shadow, @shadow2, @shadow3, @shadow4;
 	-o-box-shadow: @shadow, @shadow2, @shadow3, @shadow4;
 	box-shadow: @shadow, @shadow2, @shadow3, @shadow4;
+	.pie()
 }
 
 .box-shadow(@shadow, @shadow2, @shadow3, @shadow4, @shadow5){
@@ -310,6 +320,7 @@ Site-wide rules
 	-khtml-box-shadow: @shadow, @shadow2, @shadow3, @shadow4, @shadow5;
 	-o-box-shadow: @shadow, @shadow2, @shadow3, @shadow4, @shadow5;
 	box-shadow: @shadow, @shadow2, @shadow3, @shadow4, @shadow5;
+	.pie()
 }
 
 .box-shadow(@shadow, @shadow2, @shadow3, @shadow4, @shadow5, @shadow6){
@@ -318,6 +329,7 @@ Site-wide rules
 	-khtml-box-shadow: @shadow, @shadow2, @shadow3, @shadow4, @shadow5, @shadow6;
 	-o-box-shadow: @shadow, @shadow2, @shadow3, @shadow4, @shadow5, @shadow6;
 	box-shadow: @shadow, @shadow2, @shadow3, @shadow4, @shadow5, @shadow6;
+	.pie()
 }
 
 // Transitions
@@ -464,6 +476,7 @@ Site-wide rules
 
 // Gradients
 #gradient {
+	.pie();
 	.horizontal(@startColor: #555, @endColor: #333){
 		background-color: @endColor;
 		background-image: -moz-linear-gradient(left, @startColor, @endColor); // FF 3.6+
