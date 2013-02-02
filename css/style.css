@@ -1591,40 +1591,40 @@ table {
   box-shadow: inset 0px -15px 29px -15px #000000;
   background: url("PIE.htc");
 }
-.coltwelve {
+.row .twelvecol {
   width: 100.00000000000001%;
 }
-.coleleven {
+.row .elevencol {
   width: 91.35000000000001%;
 }
-.colten {
+.row .tencol {
   width: 82.7%;
 }
-.colnine {
+.row .ninecol {
   width: 74.05000000000001%;
 }
-.coleight {
+.row .eightcol {
   width: 65.4%;
 }
-.colseven {
+.row .sevencol {
   width: 56.75000000000001%;
 }
-.colsix {
+.row .sixcol {
   width: 48.10000000000001%;
 }
-.colfive {
+.row .fivecol {
   width: 39.45%;
 }
-.colfour {
+.row .fourcol {
   width: 30.8%;
 }
-.colthree {
+.row .threecol {
   width: 22.150000000000002%;
 }
-.coltwo {
+.row .twocol {
   width: 13.5%;
 }
-.colone {
+.row .onecol {
   width: 4.8500000000000005%;
 }
 .onecol,
