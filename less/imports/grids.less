@@ -10,17 +10,31 @@
 		border-bottom: @border @borderColour;
 		.box-shadow(inset 0px -15px 29px -15px #000);
 	}
-
-	.setGrid(@index) when (@index >= 1) {
-		(~".@{col-name-@{index}}@{col-identifier}") {
-			width: @col-unit * @index - @col-margin-right;
+	.generate-grid(@column-selector-number-at-end) when (@column-selector-number-at-end = true) {
+		.setGrid(@index) when (@index >= 1) {
+			(~".@{col-identifier}@{col-name-@{index}}") {
+				width: @col-unit * @index - @col-margin-right;
+			}
+			.setGrid(@index - 1);
 		}
-		.setGrid(@index - 1);
+		.setGrid(0) {}
+		.setGrid(@num-cols);
 	}
-	.setGrid(0) {}
-	.setGrid(@num-cols);
+	.generate-grid(@column-selector-number-at-end) when (@column-selector-number-at-end = false) {
+		.setGrid(@index) when (@index >= 1) {
+			(~".@{col-name-@{index}}@{col-identifier}") {
+				width: @col-unit * @index - @col-margin-right;
+			}
+			.setGrid(@index - 1);
+		}
+		.setGrid(0) {}
+		.setGrid(@num-cols);
+	}
 }
 
+
+//init grid system
+.row > .generate-grid(@column-selector-number-at-end);
 .onecol,
 .twocol,
 .threecol,
