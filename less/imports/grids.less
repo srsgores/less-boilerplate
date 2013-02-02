@@ -2,50 +2,23 @@
 ----------------------------------------------------------------------------------------------------*/
 .row {
 	padding: 0 (@line/2)/@em;
-	width: 100%;
+	width: @rowWidth;
 	.border-box; //margin: remember that this will be exclusive to media queries still, as it depends on the resolution!
 	overflow: hidden;
 	&.container {
 	/*margin: 0 @column;*/
-		border-bottom: 1px solid #2E2E2E;
+		border-bottom: @border @borderColour;
 		.box-shadow(inset 0px -15px 29px -15px #000);
 	}
-	.onecol {
-		width: 8.333333333333332%;
+
+	.setGrid(@index) when (@index >= 1) {
+		(~".@{col-name-@{index}}@{col-identifier}") {
+			width: @col-unit * @index - @col-margin-right;
+		}
+		.setGrid(@index - 1);
 	}
-	.twocol {
-		width: 16.666666666666664%;
-	}
-	.threecol {
-		width: 25%;
-	}
-	.fourcol {
-		width: 33.33333333333333%;
-	}
-	.fivecol {
-		width: 41.666666666666664%;
-	}
-	.sixcol {
-		width: 50%;
-	}
-	.sevencol {
-		width: 58.33333333333333%;
-	}
-	.eightcol {
-		width: 66.66666666666666%;
-	}
-	.ninecol {
-		width: 75%;
-	}
-	.tencol {
-		width: 83.33333333333333%;
-	}
-	.elevencol {
-		width: 91.66666666666666%;
-	}
-	.twelvecol {
-		width: 100%;
-	}
+	.setGrid(0) {}
+	.setGrid(@num-cols);
 }
 
 .onecol,
