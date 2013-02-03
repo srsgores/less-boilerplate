@@ -1,0 +1,197 @@
+/*------------------------------------------------------------------------------------------------------------------------
+	Author: Sean Goresht
+	www: http://seangoresht.com/
+	github: https://github.com/srsgores
+	twitter: http://twitter.com/S.Goresht
+
+	Licensed under the GNU Public License
+
+	=============================================================================
+	Filename:  style.less
+	=============================================================================
+
+--------------------------------------------------------------------------------------------------------------------- */
+@import "imports/variables.less";
+@import "imports/mixins.less";
+@import "icomoon/icomoon.less";
+@import "imports/utilities.less";
+
+@import "imports/reset.less";
+@import "imports/normalize.less";
+
+@import "imports/grids.less";
+@import "imports/loaders.less";
+@import "imports/menu.less";
+
+body {
+	font-family: @sansFontFamily;
+	max-width: 1140px;
+	margin: 0 auto;
+	color: @textColour;
+	background: @bodyBackgroundColour;
+	background: @bodyBackgroundImage;
+	line-height: @baseLineHeight;
+	font-family: @baseFontFamily;
+}
+
+p {
+	line-height: @baseLineHeight;
+	padding-bottom: @padding;
+}
+
+
+/* Type */
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: @headingsFontWeight;
+}
+
+
+.headingsX(@index) when (@index > 0) {
+	(~"h@{index}") {
+		font-size: ((@em * @multiplierLarge) - ((@index * ((@em * @multiplier) / 6 ))));
+		&.title {
+			font-size: ((@em * @multiplier) - ((@index * ((@em * @multiplierSmall) / 6 ))) + (@em * @multiplier)) * @multiplier;
+		}
+	}
+	.headingsX(@index - 1);
+}
+.headingsX(0) {}
+.headingsX(6);
+
+a {
+	color: @linkColour;
+	text-decoration: none;
+	&:hover {
+		color: @linkColourHover;
+	}
+	&:visited {
+		color: @linkColourVisited;
+	}
+}
+.button, button, .btn, input[type="submit"] {
+
+	background: @buttonPrimaryColour;
+	border: @border;
+	cursor: pointer;
+
+	font-size: @fontSizeMedium;
+	font-weight: 400;
+
+	margin: 0 @margin 0 0;
+	padding: @borderRadiusLarge @padding;
+	text-shadow: 0 1px 0 #fff;
+	text-decoration: none;
+
+	#gradient > .vertical(#ededed, #d9d9d9);
+	.box-shadow(inset 0 1px 0 rgba(255, 255, 255, 1), 0 1px 4px rgba(150, 150, 150, 0.5));
+	.border-radius(@borderRadiusLarge);
+
+	&:hover, &:focus, &.loading {
+		background: #2F5163;
+		border-color: #333;
+		color: #fff;
+		text-shadow: 0 1px 1px #111;
+		.box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 1px 4px rgba(150, 150, 150, 0.5));
+		#gradient > .vertical(lighten(#2F5163, 10%), #2F5163);
+	}
+
+	&:active {
+		border-color: #000;
+		.box-shadow(inset 0 0 @borderRadiusLarge #000);
+	}
+
+}
+
+.actions, .form-actions, .toolbar, .btn-group, .actions input {
+	border-top: 1px solid @borderColour;
+	background: rgba(217, 217, 217, 0.2);
+	padding: @margin 0;
+
+	input, .btn, button {
+		margin: 0 -1px 0 0;
+		&:last-child {
+			.border-radius-left(0);
+		}
+		&:first-child {
+			.border-radius-right(0);
+		}
+	}
+}
+
+
+.toolbar, .btn-group, .actions input {
+	position: relative;
+	margin: 0;
+
+	li {
+
+		.inline-block;
+		&:first-child a {
+			.border-radius-left(@borderRadius);
+		}
+		&:last-child a {
+			.border-radius-right(@borderRadius);
+		}
+		a {
+			font-size: @fontSizeSmall;
+			font-weight: @headingsFontWeight;
+			margin-right: -1px;
+		}
+	}
+}
+
+/* Put anything that needs margin here */
+.box, .alert, .pagination ul, .dataTables_paginate {
+	margin: @margin;
+}
+
+/* Put anything that needs padding here */
+
+.box {
+	.padding-fix;
+	padding: @padding;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, p, h1, h2, h3, h4, h5, h6, blockquote, pre, address, cite, code, del, dfn, img, q, dl, ul, fieldset, form, legend, table, caption, summary, audio, video, input, select, textarea {
+	margin-bottom: @margin; //spaced only at bottom by default
+}
+
+/* =============================================================================
+Border Radius
+========================================================================== */
+nav, button, .btn, .box, .rounded, pre, code, aside, menu, .nav, .menu li {
+	.border-radius(@borderRadius);
+}
+
+/* Anything with border radius small */
+input, select, textarea {
+	.border-radius(@borderRadiusSmall);
+}
+/* inline block stuff */
+nav, nav, nav li, .toolbar, .toolbar input, .toolbar li, .toolbar li input, .btn-group, .btn-group input {
+	.inline-block;
+}
+
+/* centred stuff in block layout */
+
+.actions, .form-actions, .toolbar, .btn-group, .actions input, footer {
+	.centred;
+}
+/* =============================================================================
+Borders
+========================================================================== */
+
+.bordered, .box {
+	border: @border;
+}
+
+.shadowed {
+	.box-shadow(@shadow);
+}
+
+.border-bottom, legend, header, footer, article, section {
+	border-bottom: @borderStyle @borderColour;
+}
+
+@import "imports/media-queries.less";

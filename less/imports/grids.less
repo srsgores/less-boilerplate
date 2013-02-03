@@ -1,0 +1,78 @@
+/* Layout
+----------------------------------------------------------------------------------------------------*/
+.row {
+	padding: 0 (@line/2)/@em;
+	width: @rowWidth;
+	.border-box; //margin: remember that this will be exclusive to media queries still, as it depends on the resolution!
+	overflow: hidden;
+	&.container {
+	/*margin: 0 @column;*/
+		border-bottom: @border @borderColour;
+		.box-shadow(inset 0px -15px 29px -15px #000);
+	}
+	.generate-grid(@column-selector-number-at-end) when (@column-selector-number-at-end = true) {
+		.setGrid(@index) when (@index >= 1) {
+			(~".@{col-identifier}@{col-name-@{index}}") {
+				width: @col-unit * @index - @col-margin-right;
+			}
+			.setGrid(@index - 1);
+		}
+		.setGrid(0) {}
+		.setGrid(@num-cols);
+	}
+	.generate-grid(@column-selector-number-at-end) when (@column-selector-number-at-end = false) {
+		.setGrid(@index) when (@index >= 1) {
+			(~".@{col-name-@{index}}@{col-identifier}") {
+				width: @col-unit * @index - @col-margin-right;
+			}
+			.setGrid(@index - 1);
+		}
+		.setGrid(0) {}
+		.setGrid(@num-cols);
+	}
+	.generate-grid(@column-selector-number-at-end);
+}
+
+.onecol,
+.twocol,
+.threecol,
+.fourcol,
+.fivecol,
+.sixcol,
+.sevencol,
+.eightcol,
+.ninecol,
+.tencol,
+.elevencol,
+.twelvecol,.width20, .width25, .width33, .width50, {
+	float: left;
+	min-height: 1px;
+	.transition-all(@transition-time);
+	.border-box;
+}
+
+.last {
+	margin-right: 0;
+}
+
+/* =============================================================================
+Yootheme Grid
+========================================================================== */
+
+.width20 {
+	width: 20%;
+}
+.width25 {
+	width: 25%;
+}
+.width33 {
+	width: 33%;
+}
+.width50 {
+	width: 50%;
+}
+
+.width100 {
+	width: 100%;
+}
+
