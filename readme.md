@@ -13,3 +13,7 @@ Included is a bare LESS directory structure, designed to provide you with the ba
 with nothing in them, so you can just dive right in
 * Already set up with Google Fonts.  Just replace the ``href`` in ``index.html`` to get the font you want, and adjust ``variables.less``
 * Includes Modernizr for polyfills, if needed
+
+## Demo
+
+Please visit (http://srsgores.github.com/less-boilerplate/)[http://srsgores.github.com/less-boilerplate/]
