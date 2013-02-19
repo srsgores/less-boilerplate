@@ -16,4 +16,4 @@ with nothing in them, so you can just dive right in
 
 ## Demo
 
-Please visit (http://srsgores.github.com/less-boilerplate/)[http://srsgores.github.com/less-boilerplate/]
+Please visit http://srsgores.github.com/less-boilerplate/
