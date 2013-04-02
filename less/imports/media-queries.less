@@ -20,6 +20,10 @@
 
 --------------------------------------------------------------------------------------------------------------------- */
 
+//imports - help for PHPStorm
+/*@import "variables.less";
+@import "mixins.less";*/
+
 /* --- main content ------------------------------------------------------------------------------------------------- */
 
 /* --- media queries ------------------------------------------------------------------------------------------------ */
@@ -32,11 +36,6 @@
 		white-space: normal;
 		//.btn-group-vertical;
 	}
-
-	.btn {
-		padding: 2.6% 5%;
-	}
-
 	.sidebar {
 		.btn-group {
 			.btn {
@@ -72,10 +71,6 @@
 	* {
 		-webkit-text-size-adjust: none;
 		-ms-text-size-adjust: none;
-	}
-
-	.github-ribbon {
-		display: none;
 	}
 }
 
@@ -135,7 +130,7 @@
 @media only screen and (max-width: 1023px) {
 
 	body {
-		line-height: 1.8;
+		line-height: unit(@baseLineHeight + @borderRadius);
 	}
 
 }
@@ -153,7 +148,7 @@
 	}
 	h1 {
 		&.title {
-			font-size: @em * 3;
+			font-size: (@em * 3);
 		}
 		&.shoutout {
 			font-size: 40%;

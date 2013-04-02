@@ -17,6 +17,10 @@
 
 --------------------------------------------------------------------------------------------------------------------- */
 
+//imports - help for PHPStorm
+/*@import "variables.less";
+@import "mixins.less";*/
+
 /* =============================================================================
 Site-wide rules
 ========================================================================== */
@@ -31,60 +35,65 @@ Site-wide rules
 	.pie();
 }
 
-.border-radius(@borderRadius){
+.border-radius(@borderRadius: @borderRadius){
 	-webkit-border-radius: @borderRadius;
+	-moz-border-radius: @borderRadius;
 	-khtml-border-radius: @borderRadius;
 	-o-border-radius: @borderRadius;
 	border-radius: @borderRadius;
 	.padding-fix;
 }
 
-.border-radius-left(@border-radius: @borderRadius){
-	-webkit-border-top-left-radius: @borderRadius;
-	-khtml-border-top-left-radius: @borderRadius;
-	-o-border-top-left-radius: @borderRadius;
-	border-top-left-radius: @borderRadius;
-	-webkit-border-bottom-left-radius: @borderRadius;
-	-khtml-border-bottom-left-radius: @borderRadius;
-	-o-border-bottom-left-radius: @borderRadius;
-	border-bottom-left-radius: @borderRadius;
+// Single Corner Border Radius
+.border-top-left-radius(@radius: @borderRadius) {
+	-webkit-border-top-left-radius: @radius;
+	-moz-border-radius-topleft: @radius;
+	-khtml-border-radius-topleft: @radius;
+	border-top-left-radius: @radius;
+	.padding-fix;
+}
+.border-top-right-radius(@radius: @borderRadius) {
+	-webkit-border-top-right-radius: @radius;
+	-moz-border-radius-topright: @radius;
+	-khtml-border-radius-topright: @radius;
+	border-top-right-radius: @radius;
+	.padding-fix;
+}
+.border-bottom-right-radius(@radius: @borderRadius) {
+	-webkit-border-bottom-right-radius: @radius;
+	-moz-border-radius-bottomright: @radius;
+	-khtml-border-radius-bottomright: @radius;
+	border-bottom-right-radius: @radius;
+	.padding-fix;
+}
+.border-bottom-left-radius(@radius: @borderRadius) {
+	-webkit-border-bottom-left-radius: @radius;
+	-moz-border-radius-bottomleft: @radius;
+	-khtml-border-radius-bottomleft: @radius;
+	border-bottom-left-radius: @radius;
 	.padding-fix;
 }
 
-.border-radius-top(@borderRadius){
-	-webkit-border-top-right-radius: @borderRadius;
-	-khtml-border-top-right-radius: @borderRadius;
-	-o-border-top-right-radius: @borderRadius;
-	border-top-right-radius: @borderRadius;
-	-webkit-border-top-left-radius: @borderRadius;
-	-khtml-border-top-left-radius: @borderRadius;
-	-o-border-top-left-radius: @borderRadius;
-	border-top-left-radius: @borderRadius;
-	.padding-fix;
+// Single Side Border Radius
+
+.border-radius-left(@radius: @borderRadius){
+	.border-top-left-radius(@radius);
+	.border-bottom-left-radius(@radius);
 }
 
-.border-radius-bottom(@borderRadius){
-	-webkit-border-bottom-right-radius: @borderRadius;
-	-khtml-border-bottom-right-radius: @borderRadius;
-	-o-border-bottom-right-radius: @borderRadius;
-	border-bottom-right-radius: @borderRadius;
-	-webkit-border-bottom-left-radius: @borderRadius;
-	-khtml-border-bottom-left-radius: @borderRadius;
-	-o-border-bottom-left-radius: @borderRadius;
-	border-bottom-left-radius: @borderRadius;
-	.padding-fix;
+.border-radius-top(@radius: @borderRadius){
+	.border-top-right-radius(@radius);
+	.border-top-left-radius(@radius);
 }
 
-.border-radius-right(@borderRadius){
-	-webkit-border-top-right-radius: @borderRadius;
-	-khtml-border-top-right-radius: @borderRadius;
-	-o-border-top-right-radius: @borderRadius;
-	border-top-right-radius: @borderRadius;
-	-webkit-border-bottom-right-radius: @borderRadius;
-	-khtml-border-bottom-right-radius: @borderRadius;
-	-o-border-bottom-right-radius: @borderRadius;
-	border-bottom-right-radius: @borderRadius;
-	.padding-fix;
+.border-radius-bottom(@radius: @borderRadius){
+	.border-bottom-right-radius(@radius);
+	.border-bottom-left-radius(@radius);
+}
+
+.border-radius-right(@radius: @borderRadius){
+	.border-top-right-radius(@radius);
+	.border-bottom-right-radius(@radius);
 }
 
 .transition-all(@transition-time){
@@ -268,67 +277,12 @@ Site-wide rules
 // --------------------------------------------------
 
 // Drop shadows
-.box-shadow(@shadow){
-	-webkit-box-shadow: @shadow;
-	-moz-box-shadow: @shadow;
-	-khtml-box-shadow: @shadow;
-	-o-box-shadow: @shadow;
-	box-shadow: @shadow;
-	.pie()
-}
-
-.box-shadow(@shadow, @shadow2){
-	-webkit-box-shadow: @shadow, @shadow2;
-	-moz-box-shadow: @shadow, @shadow2;
-	-khtml-box-shadow: @shadow, @shadow2;
-	-o-box-shadow: @shadow, @shadow2;
-	box-shadow: @shadow, @shadow2;
-	.pie()
-}
-
-.box-shadow(@shadow, @shadow2, @shadow3){
-	-webkit-box-shadow: @shadow, @shadow2, @shadow3;
-	-moz-box-shadow: @shadow, @shadow2, @shadow3;
-	-khtml-box-shadow: @shadow, @shadow2, @shadow3;
-	-o-box-shadow: @shadow, @shadow2, @shadow3;
-	box-shadow: @shadow, @shadow2, @shadow3;
-	.pie()
-}
-
-.box-shadow(@shadow, @shadow2, @shadow3, @shadow4){
-	-webkit-box-shadow: @shadow, @shadow2, @shadow3, @shadow4;
-	-moz-box-shadow: @shadow, @shadow2, @shadow3, @shadow4;
-	-khtml-box-shadow: @shadow, @shadow2, @shadow3, @shadow4;
-	-o-box-shadow: @shadow, @shadow2, @shadow3, @shadow4;
-	box-shadow: @shadow, @shadow2, @shadow3, @shadow4;
-	.pie()
-}
-
-
-.box-shadow(@shadow, @shadow2, @shadow3, @shadow4){
-	-webkit-box-shadow: @shadow, @shadow2, @shadow3, @shadow4;
-	-moz-box-shadow: @shadow, @shadow2, @shadow3, @shadow4;
-	-khtml-box-shadow: @shadow, @shadow2, @shadow3, @shadow4;
-	-o-box-shadow: @shadow, @shadow2, @shadow3, @shadow4;
-	box-shadow: @shadow, @shadow2, @shadow3, @shadow4;
-	.pie()
-}
-
-.box-shadow(@shadow, @shadow2, @shadow3, @shadow4, @shadow5){
-	-webkit-box-shadow: @shadow, @shadow2, @shadow3, @shadow4, @shadow5;
-	-moz-box-shadow: @shadow, @shadow2, @shadow3, @shadow4, @shadow5;
-	-khtml-box-shadow: @shadow, @shadow2, @shadow3, @shadow4, @shadow5;
-	-o-box-shadow: @shadow, @shadow2, @shadow3, @shadow4, @shadow5;
-	box-shadow: @shadow, @shadow2, @shadow3, @shadow4, @shadow5;
-	.pie()
-}
-
-.box-shadow(@shadow, @shadow2, @shadow3, @shadow4, @shadow5, @shadow6){
-	-webkit-box-shadow: @shadow, @shadow2, @shadow3, @shadow4, @shadow5, @shadow6;
-	-moz-box-shadow: @shadow, @shadow2, @shadow3, @shadow4, @shadow5, @shadow6;
-	-khtml-box-shadow: @shadow, @shadow2, @shadow3, @shadow4, @shadow5, @shadow6;
-	-o-box-shadow: @shadow, @shadow2, @shadow3, @shadow4, @shadow5, @shadow6;
-	box-shadow: @shadow, @shadow2, @shadow3, @shadow4, @shadow5, @shadow6;
+.box-shadow(...){
+	-webkit-box-shadow: @arguments;
+	-moz-box-shadow: @arguments;
+	-khtml-box-shadow: @arguments;
+	-o-box-shadow: @arguments;
+	box-shadow: @arguments;
 	.pie()
 }
 

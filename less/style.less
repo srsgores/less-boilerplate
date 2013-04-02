@@ -25,7 +25,7 @@
 
 body {
 	font-family: @sansFontFamily;
-	max-width: 1140px;
+	max-width: 71.25em;
 	margin: 0 auto;
 	color: @textColour;
 	background: @bodyBackgroundColour;
@@ -48,10 +48,10 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .headingsX(@index) when (@index > 0) {
-	(~"h@{index}") {
+	h@{index} {
 		font-size: ((@em * @multiplierLarge) - ((@index * ((@em * @multiplier) / 6 ))));
 		&.title {
-			font-size: ((@em * @multiplier) - ((@index * ((@em * @multiplierSmall) / 6 ))) + (@em * @multiplier)) * @multiplier;
+			font-size: (((@em * @multiplier) - ((@index * ((@em * @multiplierSmall) / 6 ))) + (@em * @multiplier)) * @multiplier);
 		}
 	}
 	.headingsX(@index - 1);
@@ -84,7 +84,7 @@ a {
 	text-decoration: none;
 
 	#gradient > .vertical(#ededed, #d9d9d9);
-	.box-shadow(inset 0 1px 0 rgba(255, 255, 255, 1), 0 1px 4px rgba(150, 150, 150, 0.5));
+	.box-shadow(inset 0 1px 0 rgba(255, 255, 255, 1), 0 1px @borderRadius rgba(150, 150, 150, 0.5));
 	.border-radius(@borderRadiusLarge);
 
 	&:hover, &:focus, &.loading {
@@ -104,7 +104,7 @@ a {
 }
 
 .actions, .form-actions, .toolbar, .btn-group, .actions input {
-	border-top: 1px solid @borderColour;
+	border-top: @borderWidth @borderStyle @borderColour;
 	background: rgba(217, 217, 217, 0.2);
 	padding: @margin 0;
 
@@ -191,7 +191,7 @@ Borders
 }
 
 .border-bottom, legend, header, footer, article, section {
-	border-bottom: @borderStyle @borderColour;
+	border-bottom: @borderWidth @borderStyle @borderColour;
 }
 
 @import "imports/media-queries.less";

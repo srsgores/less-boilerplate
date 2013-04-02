@@ -18,13 +18,13 @@ CSS loaders
 
 #ajaxloader1, #ajaxloader2, #ajaxloader3, #ajaxloader4
 {
-	width: 30px;
-	height: 30px;
-	margin: 20px auto;
-	border: 8px solid #0a0a0a;
+	width: 2em;
+	height: 2em;
+	margin: @margin auto;
+	border: @borderRadiusLarge @borderStyle @textColour;
 	border-right-color: transparent;
 	.border-radius(50%);
-	box-shadow: 0 0 25px 2px #eee;
+	.box-shadow(0 0 25px 2px #eee);
 	-webkit-animation: spin 1s linear infinite;
 	-moz-animation: spin 1s linear infinite;
 	-ms-animation: spin 1s linear infinite;
