@@ -41,13 +41,164 @@
 		<!-- use for emmet/zen coding -->
 		<!-- ul.nav>li*5>a[data-icon=] -->
 		<ul class = "nav">
-			<li><a href = "#">Home <i class="icon-home"></i></a></li>
+			<li><a href = "#">Home <i class = "icon-home"></i></a></li>
 			<li><a href = "#">About <i class = "icon-book-2"></i></a></li>
-			<li><a href = "#">Download <i class= "icon-download"></i></a></li>
-			<li><a href = "#">FAQ <i class= "icon-database"></i></a></li>
-			<li><a href = "#">Contact <i class="icon-mail"></i></a></li>
+			<li><a href = "#">Download <i class = "icon-download"></i></a></li>
+			<li><a href = "#">FAQ <i class = "icon-database"></i></a></li>
+			<li><a href = "#">Contact <i class = "icon-mail"></i></a></li>
 		</ul>
 	</nav>
+	<aside class = "box">
+		<form class = "box" id = "style-edit" action = "#">
+			<button class="btn toggle-style-edit pull-left">
+				Show <i class="icon-plus"></i>
+			</button>
+			<h1 class = "centred">Edit the Beast</h1>
+			<fieldset class = "box">
+				<legend>Type</legend>
+				<div class = "row">
+					<label for = "baseFontSize" class = "threecol">Base Font Size</label>
+					<input class = "ninecol last" id = "baseFontSize" value = "16" data-unit = "px" placeholder = "16"
+					type = "number"/>
+				</div>
+				<div class = "row">
+					<label class = "threecol" for = "fontSizeSmall">Small Font Size (%)</label>
+					<input id = "fontSizeSmall" placeholder = "85" data-unit = "%" class = "ninecol last" type =
+							"number"
+					value = "85"/>
+				</div>
+				<div class = "row">
+					<label class = "threecol" for = "fontSizeMedium">Medium Font Size (%)</label>
+					<input id = "fontSizeMedium" placeholder = "90" class = "ninecol last" data-unit = "%" type =
+							"number"
+					value = "90"/>
+				</div>
+				<div class = "row">
+					<label class = "threecol" for = "fontSizeLarge">Large Font Size (%)</label>
+					<input id = "fontSizeLarge" placeholder = "125" class = "ninecol last" type = "number" data-unit = "%"
+					value = "125"/>
+				</div>
+				<div class = "row">
+					<label class = "threecol" for = "fontSizeMini">Mini Font Size (%)</label>
+					<input id = "fontSizeMini" placeholder = "75" class = "ninecol last" data-unit = "%" type =
+							"number" value = "75"/>
+				</div>
+				<div class = "formfield row">
+					<label class = "threecol" for = "baseLineHeight">Base Line Height</label>
+					<input id = "baseLineHeight" placeholder = "Base Line Height" class = "ninecol last" type =
+							"number" value = "1.4"/>
+				</div>
+				<div class = "formfield row">
+					<label class = "threecol" for = "em">Base unit</label>
+					<input id = "em" placeholder = "Base unit" class = "ninecol last" type = "number" value =
+							"1" data-unit = "em"/>
+				</div>
+				<div class = "formfield row">
+					<label class = "threecol" for = "baseFontWeight">Base Font Weight</label>
+					<select id = "baseFontWeight" class = "ninecol last">
+						<option value = "300">300 - Thin</option>
+						<option value = "400">400 - Somewhat Thin</option>
+						<option value = "500" selected>500 - Thicker</option>
+						<option value = "600">600 - Real Thick</option>
+					</select>
+				</div>
+				<div class = "formfield row">
+					<label class = "threecol" for = "headingsFontWeight">Headings Font Weight</label>
+					<select id = "headingsFontWeight" class = "ninecol last">
+						<option value = "300" selected>300 - Thin</option>
+						<option value = "400">400 - Somewhat Thin</option>
+						<option value = "500">500 - Thicker</option>
+						<option value = "600">600 - Real Thick</option>
+					</select>
+				</div>
+			</fieldset>
+			<fieldset class = "box">
+				<legend>Multipliers</legend>
+				<div class = "formfield row">
+					<label class = "threecol" for = "multiplier">Base Multiplier</label>
+					<input id = "multiplier" placeholder = "Base Multiplier" class = "ninecol last" type = "number" value = "1.3"/>
+				</div>
+				<div class = "formfield row">
+					<label class = "threecol" for = "multiplierLarge">Large Multiplier
+						<code>Multiplier * x</code></label>
+					<input id = "multiplierLarge" placeholder = "Large Multiplier (Multiplier * x)" class = "ninecol last" type = "number" value = "2.1"/>
+				</div>
+				<div class = "formfield row">
+					<label class = "threecol" for = "multiplierSmall">Small Multiplier
+						<code>multiplier / x</code></label>
+					<input id = "multiplierSmall" placeholder = "Small Multiplier code" class = "ninecol last" type
+							= "text" value = "@multiplier / @multiplierLarge"/>
+				</div>
+			</fieldset>
+			<fieldset class = "box">
+				<legend>Grid</legend>
+				<div class = "formfield row">
+					<label class = "threecol" for = "num-cols">Number of Columns</label>
+					<input id = "num-cols" placeholder = "Number of Columns" class = "ninecol last" type = "number"
+					       value = "12"/>
+				</div>
+				<div class = "formfield row">
+					<label class = "threecol" for = "rowWidth">Row Width (%)</label>
+					<input id = "rowWidth" placeholder = "Row Width" class = "ninecol last" type = "number" value =
+							"100" data-unit = "%"/>
+				</div>
+				<div class = "formfield row">
+					<label class = "threecol" for = "container-lateral-padding">Container Lateral Padding</label>
+					<input id = "container-lateral-padding" placeholder = "Container Lateral Padding" class = "ninecol last" type = "text" value = "@em"/>
+				</div>
+				<div class = "formfield row">
+					<label class = "threecol" for = "col-margin-right">Column Right Margin</label>
+					<input id = "col-margin-right" placeholder = "Column Right Margin" class = "ninecol last" type = "text" value = "3.8%"/>
+				</div>
+			</fieldset>
+			<fieldset class = "box">
+				<legend>Basic Measurements</legend>
+				<div class = "formfield row">
+					<label class = "threecol" for = "padding">Base Padding</label>
+					<input id = "padding" placeholder = "Base Padding" class = "ninecol last" data-unit =
+							"%" type = "text"
+					       value =	"@em"/>
+				</div>
+				<div class = "formfield row">
+					<label class = "threecol" for = "margin">Base Margin</label>
+					<input id = "margin" placeholder = "Base Margin" class = "ninecol last" type = "text" value = "@em"/>
+				</div>
+				<div class = "formfield row">
+					<label class = "threecol" for = "borderRadius">Border Radius</label>
+					<input id = "borderRadius" placeholder = "Border Radius" class = "ninecol last" type = "text" value = "(margin / @multiplierLarge)"/>
+				</div>
+				<div class = "formfield row">
+					<label class = "threecol" for = "borderRadiusSmall">Small Border Radius</label>
+					<input id = "borderRadiusSmall" placeholder = "Small Border Radius" class = "ninecol last" type =
+							"text" value = "0.2em"/>
+				</div>
+				<div class = "formfield row">
+					<label class = "threecol" for = "borderRadiusLarge">Large Border Radius</label>
+					<input id = "borderRadiusLarge" placeholder = "Large Border Radius" class = "ninecol last" type =
+							"text" value = "0.8em"/>
+				</div>
+			</fieldset>
+			<fieldset class = "box">
+				<legend>Colours</legend>
+				<div class = "formfield row">
+					<label class = "threecol" for = "textColour">Text Colour</label>
+					<input id = "textColour" class = "ninecol last" type = "color" value = "#000000"/>
+				</div>
+				<div class = "formfield row">
+					<label class = "threecol" for = "primaryColour">Primary Colour</label>
+					<input id = "primaryColour" class = "ninecol last" type = "color" value = "#000000"/>
+				</div>
+				<div class = "formfield row">
+					<label class = "threecol" for = "secondaryColour">Secondary Colour</label>
+					<input id = "secondaryColour" class = "ninecol last" type = "color" value = "#DDDDDD"/>
+				</div>
+				<div class = "formfield row">
+					<label class = "threecol" for = "tertiaryColour">Tertiary Colour</label>
+					<input id = "tertiaryColour" class = "ninecol last" type = "color" value = "#CCCCCC"/>
+				</div>
+			</fieldset>
+		</form>
+	</aside>
 </header>
 
 <div class = "container visuallyhidden loading" id = "content">
@@ -92,8 +243,9 @@
 </footer>
 <script src = "js/components/jquery/jquery.min.js"></script>
 <script src = "js/loader.js"></script>
-<script src = "js/components/less.js/dist/less-1.4.0-beta.min.js"></script>
+<script src = "js/components/less.js/dist/less-1.3.3.min.js"></script>
 <script src = "js/main.js"></script>
+<script src = "js/demo.js"></script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <!-- 			<script>

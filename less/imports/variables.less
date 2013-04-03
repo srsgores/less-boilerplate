@@ -87,7 +87,7 @@
 
 @borderRadius: (@margin / @multiplierLarge);
 @borderRadiusSmall: @borderRadius * 0.75;
-@borderRadiusLarge: @borderRadius * 1.25;
+@borderRadiusLarge: @borderRadius * @multiplier;
 
 /* Transitions*/
 @transitionTime: 0.5s;
@@ -108,7 +108,7 @@ Colours
 /* =============================================================================
 CSS3 PIE settings
 ========================================================================== */
-@pie: true; //enable support for IE6-8 via CSS3 PIE?
+@pie: false; //enable support for IE6-8 via CSS3 PIE?
 @pieDirectory: "PIE.htc";
 
 /* =============================================================================

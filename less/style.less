@@ -22,7 +22,7 @@
 @import "imports/grids.less";
 @import "imports/loaders.less";
 @import "imports/menu.less";
-
+@import "demo.less";
 body {
 	font-family: @sansFontFamily;
 	max-width: 71.25em;
@@ -104,10 +104,16 @@ a {
 }
 
 .actions, .form-actions, .toolbar, .btn-group, .actions input {
+
 	border-top: @borderWidth @borderStyle @borderColour;
 	background: rgba(217, 217, 217, 0.2);
 	padding: @margin 0;
-
+	&.float-left, &.float-right {
+		background: transparent;
+		input, .btn, button {
+			float: left;
+		}
+	}
 	input, .btn, button {
 		margin: 0 -1px 0 0;
 		&:last-child {
@@ -133,7 +139,7 @@ a {
 		&:last-child a {
 			.border-radius-right(@borderRadius);
 		}
-		a {
+		a, button, input[type="submit"] {
 			font-size: @fontSizeSmall;
 			font-weight: @headingsFontWeight;
 			margin-right: -1px;
