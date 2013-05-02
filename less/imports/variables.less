@@ -12,10 +12,10 @@
 /*Type*/
 @baseFontSize: 16px;
 @baseFontFamily: "Open Sans", "sans-serif", "arial";
-@fontSizeSmall: 85%;
-@fontSizeMedium: 90%;
-@fontSizeLarge: 125%;
-@fontSizeMini: 75%;
+@fontSizeSmall: percentage(1.1 / @multiplier);
+@fontSizeMedium: percentage(1.2 / @multiplier);
+@fontSizeLarge: percentage(@multiplier);
+@fontSizeMini: percentage(1 / @multiplier);
 @baseLineHeight: 1.4;
 @em: 1em;
 @line: @em * @baseLineHeight;
@@ -66,9 +66,11 @@
 @col-name-23: "twentythree";
 @col-name-24: "twentyfour";
 
-@col-identifier-names: true;
+@col-identifier-named-numbers: false; //example(true): 3col; example(false): col3
 
-@column-selector-number-at-end: false;
+@column-selector-number-at-end: false; //example(true): threecol; example(false): colthree
+
+@container-max-width: 61em;
 
 /* Basic measurements */
 
@@ -130,7 +132,7 @@ Borders
 ========================================================================== */
 @borderStyle: ~"solid";
 @borderWidth: 1px;
-@borderColour: fadein(lighten(@textColour, 40%), 40%);
+@borderColour: lighten(@textColour, 40%);
 @border: @borderWidth @borderStyle @borderColour;
 
 // Grays
@@ -207,36 +209,9 @@ Borders
 @inputHeight: unit(@baseLineHeight + @paddingSmall);
 // base line-height + 8px vertical padding + 2px top/bottom border
 
-// Hr border colour
-// -------------------------
-@hrBorder: spin(@borderColour, -40);
-
 // Wells
 // -------------------------
 @wellBackground: fade(@bodyBackgroundColour, 30);
-
-// Navbar
-// -------------------------
-
-@navbarHeight: auto;
-@navbarBackground: fade(@primaryColour, 30%);
-
-@navbarBorder: darken(@navbarBackground, 12%);
-
-@navbarText: @gray;
-@navbarLinkColour: fade(spin(@linkColour, -45), 85%);
-@navbarLinkColourHover: @grayDark;
-@navbarLinkColourActive: @gray;
-@navbarLinkBackgroundHover: transparent;
-@navbarLinkBackgroundActive: darken(@navbarBackground, 5%);
-
-@navbarBrandColour: @navbarLinkColour;
-
-// Pagination
-// -------------------------
-@paginationBackground: fade(@primaryColour, 30%);
-@paginationBorderColour: @borderColour;
-@paginationActiveBackground: fadein(@paginationBackground, 60%);
 
 // Form states and alerts
 // -------------------------

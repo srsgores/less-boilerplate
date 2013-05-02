@@ -16,8 +16,7 @@
 CSS loaders
 ========================================================================== */
 
-#ajaxloader1, #ajaxloader2, #ajaxloader3, #ajaxloader4
-{
+.loader1, .loader2, .loader3, .loader4, .loader5 {
 	width: 2em;
 	height: 2em;
 	margin: @margin auto;
@@ -33,48 +32,47 @@ CSS loaders
 	position: absolute;
 	top: 50%;
 	left: 50%;
+
+	//for loading cursor
+	& + .container.loading {
+		cursor: wait;
+	}
 }
 
-#ajaxloader1::after {
+.loader1::after {
 	content: 'Loading...';
 	font-size: 0.8em;
 	font-weight: 300;
 }
 
-#ajaxloader2
-{
+.loader2 {
 	border-right: 0 none;
 }
 
-#ajaxloader3
-{
+.loader3 {
 	border-left-color: transparent;
+	&:after, &:after {
+		display: block;
+		content: " ";
+		width: 9px;
+		height: 9px;
+		border: 6px solid #fff;
+		margin: @borderRadius;
+		.border-radius(50%);
+	}
 }
 
-#ajaxloader4
-{
-	border-bottom-color: transparent;
-}
-
-#ajaxloader3::after, #ajaxloader4::after
-{
-	display: block;
-	content: " ";
-	width: 9px;
-	height: 9px;
-	border: 6px solid #fff;
-	margin: 4px;
-	.border-radius(50%);
-}
-
-#ajaxloader3::after
-{
+.loader3::after {
 	border-left-color: transparent;
 	border-right-color: transparent;
 }
+.loader4 {
+	border-bottom-color: transparent;
+}
 
-#ajaxloader4::after
-{
+
+
+.loader4::after {
 	width: 13px;
 	height: 13px;
 	margin: 1px;
@@ -83,37 +81,350 @@ CSS loaders
 	border-left-color: transparent;
 }
 
-@-webkit-keyframes spin
-{
-	from { -webkit-transform: rotate(0deg); opacity: 0.4; }
-	50%  { -webkit-transform: rotate(180deg); opacity: 1; }
-	to   { -webkit-transform: rotate(360deg); opacity: 0.4; }
-}
-
-@-moz-keyframes spin
-{
-	from { -moz-transform: rotate(0deg); opacity: 0.4; }
-	50%  { -moz-transform: rotate(180deg); opacity: 1; }
-	to   { -moz-transform: rotate(360deg); opacity: 0.4; }
-}
-
-@-ms-keyframes spin
-               {
-	               from { -ms-transform: rotate(0deg); opacity: 0.4; }
-50%  { -ms-transform: rotate(180deg); opacity: 1; }
-to   { -ms-transform: rotate(360deg); opacity: 0.4; }
+@-webkit-keyframes spin {
+	from {
+		-webkit-transform: rotate(0deg);
+		opacity: 0.4;
 	}
-
-@-o-keyframes spin
-{
-	from { -o-transform: rotate(0deg); opacity: 0.4; }
-	50%  { -o-transform: rotate(180deg); opacity: 1; }
-	to   { -o-transform: rotate(360deg); opacity: 0.4; }
+	50% {
+		-webkit-transform: rotate(180deg);
+		opacity: 1;
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+		opacity: 0.4;
+	}
 }
 
-@keyframes spin
-{
-	from { transform: rotate(0deg); opacity: 0.2; }
-	50%  { transform: rotate(180deg); opacity: 1; }
-	to   { transform: rotate(360deg); opacity: 0.2; }
+@-moz-keyframes spin {
+	from {
+		-moz-transform: rotate(0deg);
+		opacity: 0.4;
+	}
+	50% {
+		-moz-transform: rotate(180deg);
+		opacity: 1;
+	}
+	to {
+		-moz-transform: rotate(360deg);
+		opacity: 0.4;
+	}
+}
+
+@-ms-keyframes spin {
+	from {
+		-ms-transform: rotate(0deg);
+		opacity: 0.4;
+	}
+	50% {
+		-ms-transform: rotate(180deg);
+		opacity: 1;
+	}
+	to {
+		-ms-transform: rotate(360deg);
+		opacity: 0.4;
+	}
+}
+
+@-o-keyframes spin {
+	from {
+		-o-transform: rotate(0deg);
+		opacity: 0.4;
+	}
+	50% {
+		-o-transform: rotate(180deg);
+		opacity: 1;
+	}
+	to {
+		-o-transform: rotate(360deg);
+		opacity: 0.4;
+	}
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+		opacity: 0.2;
+	}
+	50% {
+		transform: rotate(180deg);
+		opacity: 1;
+	}
+	to {
+		transform: rotate(360deg);
+		opacity: 0.2;
+	}
+}
+
+/* =============================================================================
+Spinners from dropTheBit
+========================================================================== */
+.loader5 {
+	border-bottom: 1px solid rgba(0, 0, 0, .5);
+	border-top: 1px solid rgba(0, 0, 0, .3);
+	.inline-block();
+	.border-radius(2em);
+	.box-shadow(inset 0 0 10px rgba(0, 0, 0, .5));
+	&:before, &:after {
+		content: '?';
+		line-height: 3;
+		position: absolute;
+		text-align: left;
+		font-size: 2em;
+		font-weight: bold;
+	}
+	&:before {
+		color: rgba(0, 0, 0, .3);
+		animation: .6s .1s rotateLeft infinite linear;
+		-webkit-animation: .6s .1s rotateLeft infinite linear;
+		text-shadow: 22px -16px;
+	}
+	&:after {
+		color: rgba(0, 0, 0, .5);
+		animation: .6s rotateRight infinite linear;
+		-webkit-animation: .6s rotateRight infinite linear;
+		text-shadow: 23px -@em #111, 17px -21px rgba(0, 0, 0, .3), 8px @borderRadius rgba(0, 0, 0, .3);
+	}
+}
+
+@keyframes rotateRight {
+	0% {
+		transform: rotate(0deg);
+		transform-origin: 50% 50%;
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@-webkit-keyframes rotateRight {
+	0% {
+		-webkit-transform: rotate(0deg);
+		-webkit-transform-origin: 50% 50%;
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@keyframes rotateLeft {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(-360deg);
+	}
+}
+
+@-webkit-keyframes rotateLeft {
+	0% {
+		-webkit-transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(-360deg);
+	}
+}
+
+.loader6 {
+	.box-shadow(none);
+	border: 0;
+	&:before {
+	animation: .7s .05s rotateRight infinite linear;
+	-webkit-animation: .7s .05s rotateRight infinite linear;
+	}
+}
+
+
+@keyframes sp3Rorate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@-webkit-keyframes sp3Rorate {
+	0% {
+		-webkit-transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+.loader8 {
+	width: 2em;
+	height: 2em;
+	&:before, &:after {
+		content: '?';
+		font-size: 2em;
+		text-align: center;
+		width: @em;
+		height: @em;
+		position: absolute;
+		top: 0;
+		line-height: @em;
+		font-weight: bold;
+		color: #1A1A1A;
+	}
+	&:before {
+		left: 0;
+		animation: 1s sp4Frames infinite linear;
+	}
+	&:after {
+		left: @em;
+		animation: 1s .5s sp4Frames infinite linear;
+	}
+}
+
+@keyframes sp4Frames {
+	0% {
+		left: @em;
+	}
+	25% {
+		left: 10px;
+		font-size: 3.5em;
+		opacity: 1;
+	}
+	50% {
+		left: 0;
+	}
+	75% {
+		left: 10px;
+		font-size: @em;
+		opacity: 0.1;
+	}
+	100% {
+		left: @em;
+	}
+}
+
+.loader9 { //progress bar
+	width: 6em;
+	height: @borderRadius;
+	border: 2px solid transparent;
+	.box-shadow(0 0 0 1px rgba(0, 0, 0, 0.3));
+	.border-radius(@borderRadiusLarge);
+	overflow: hidden;
+	&:before {
+		content: '';
+		width: 0;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: -6em; //increase to fill progress
+		.box-shadow(0 0 6em 2em #111);
+	}
+}
+
+
+.loader10 {
+	width: @em;
+	height: @em;
+	border: @em solid rgba(0, 0, 0, 0);
+	.border-radius(2em);
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, .5) inset;
+	animation: 1s sp6Frames infinite linear;
+}
+
+@keyframes sp7Frames {
+	0% {
+		transform: rotate(0deg);
+	}
+	50% {
+		font-size: 3.6em;
+		opacity: 1;
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.loader12 {
+	border: @borderRadius solid #000;
+	border-color: #000 #000 transparent transparent;
+	.opacity(40);
+	.border-radius(2em);
+	animation: .5s rotateRight infinite linear;
+	-webkit-animation: .5s rotateRight infinite linear;
+	&:before {
+		content: '';
+		display: block;
+		width: 6px;
+		height: 6px;
+		margin: @borderRadius;
+		.border-radius(2em);
+		border: @borderRadius solid #000;
+		border-color:transparent transparent #000 #000;
+		animation: .22s rotateLeft infinite linear;
+		-webkit-animation: .22s rotateLeft infinite linear;
+	}
+}
+
+.loader13 {
+	.border-radius(2em);
+	overflow: hidden;
+	animation: .5s sp3Rorate infinite linear;
+	-webkit-animation: .5s sp3Rorate infinite linear;
+	&:before {
+		content: '';
+		display: block;
+		width: 2em;
+		height: 2em;
+		margin: @borderRadius;
+		.border-radius(2em);
+		.box-shadow(-10px 35px 25px 10px #000);
+	}
+}
+
+.loader14 {
+	height: 22px;
+	width: 85px;
+	overflow: hidden;
+	background-color: rgba(0, 0, 0, 0.3);
+	box-shadow: 0 0 3px rgba(0, 0, 0, .4) inset;
+	border-bottom: 1px solid #582E65;
+	.border-radius(@em);
+	&:before, &:after {
+		content: 'loading...';
+		display: block;
+		line-height: 2;
+		width: 6em;
+		color: #714C7C;
+		font-weight: bold;
+		position: absolute;
+		top: 0;
+		right: -6em;
+		height: 100%;
+		letter-spacing: -0.5px;
+		animation: 1.5s sp10Frames infinite linear;
+		-webkit-animation: 1.5s sp10Frames infinite linear;
+	}
+	&:before {
+		animation: 1.5s .75s sp10Frames infinite linear;
+		-webkit-animation: 1.5s .75s sp10Frames infinite linear;
+	}
+}
+
+@keyframes sp10Frames {
+	100% {
+		right: 6.25em;
+	}
+}
+
+@-webkit-keyframes sp10Frames {
+	100% {
+		right: 6.25em;
+	}
+}
+
+
+.loader16 {
+	width: 2em;
+	height: 2em;
+	.border-radius(2em);
+	border: 1px solid rgba(0, 0, 0, 0.6);
+	.box-shadow(inset -10px 0 0 10px rgba(0, 0, 0, 0.5));
+	animation: .5s rotateRight infinite linear;
 }

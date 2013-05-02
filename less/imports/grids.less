@@ -5,15 +5,19 @@
 	width: @rowWidth;
 	.border-box; //margin: remember that this will be exclusive to media queries still, as it depends on the resolution!
 	overflow: hidden;
-	&.container {
-	/*margin: 0 @column;*/
-		border-bottom: @border;
-		.box-shadow(inset 0px -15px 29px -15px #000);
-	}
 	.generate-grid(@column-selector-number-at-end) when (@column-selector-number-at-end = true) {
 		.setGrid(@index) when (@index >= 1) {
 			(~".@{col-identifier}@{col-name-@{index}}") {
 				width: (@col-unit * @index - @col-margin-right);
+				float: left;
+				margin-right: @col-margin-right;
+				min-height: 1px;
+				.transition-all(@transition-time);
+				.border-box;
+			}
+			//alternative to not having a .last class:
+			(~".@{col-identifier}@{col-name-@{index}}:last-child, .row .@{col-identifier}@{col-name-@{index}}.last") {
+				margin-right: 0;
 			}
 			.setGrid(@index - 1);
 		}
@@ -24,6 +28,53 @@
 		.setGrid(@index) when (@index >= 1) {
 			(~".@{col-name-@{index}}@{col-identifier}") {
 				width: (@col-unit * @index - @col-margin-right);
+				float: left;
+				min-height: 1px;
+				margin-right: @col-margin-right;
+				.transition-all(@transition-time);
+				.border-box;
+			}
+			//alternative to not having a .last class:
+			(~".@{col-name-@{index}}@{col-identifier}:last-child, .row .@{col-name-@{index}}@{col-identifier}.last") {
+				margin-right: 0;
+			}
+			.setGrid(@index - 1);
+		}
+		.setGrid(0) {}
+		.setGrid(@num-cols);
+	}
+	.generate-grid(@column-selector-number-at-end, @col-identifier-named-numbers) when (@col-identifier-named-numbers = true), (@column-selector-number-at-end = true) {
+		.setGrid(@index) when (@index >= 1) {
+			(~".@{index}@{col-identifier}") {
+				width: (@col-unit * @index - @col-margin-right);
+				float: left;
+				margin-right: @col-margin-right;
+				min-height: 1px;
+				.transition-all(@transition-time);
+				.border-box;
+			}
+			//alternative to not having a .last class:
+			(~".@{index}@{col-identifier}:last-child, .row .@{index}@{col-identifier}.last") {
+				margin-right: 0;
+			}
+			.setGrid(@index - 1);
+		}
+		.setGrid(0) {}
+		.setGrid(@num-cols);
+	}
+	.generate-grid(@column-selector-number-at-end, @col-identifier-named-numbers) when (@col-identifier-named-numbers = true), (@column-selector-number-at-end = false) {
+		.setGrid(@index) when (@index >= 1) {
+			(~".@{col-identifier}@{index}") {
+				width: (@col-unit * @index - @col-margin-right);
+				float: left;
+				min-height: 1px;
+				margin-right: @col-margin-right;
+				.transition-all(@transition-time);
+				.border-box;
+			}
+			//alternative to not having a .last class:
+			(~".@{col-identifier}@{index}:last-child, .row .@{col-identifier}@{index}.last") {
+				margin-right: 0;
 			}
 			.setGrid(@index - 1);
 		}
@@ -33,24 +84,7 @@
 	.generate-grid(@column-selector-number-at-end);
 }
 
-.onecol,
-.twocol,
-.threecol,
-.fourcol,
-.fivecol,
-.sixcol,
-.sevencol,
-.eightcol,
-.ninecol,
-.tencol,
-.elevencol,
-.twelvecol,.width20, .width25, .width33, .width50, {
-	float: left;
-	min-height: 1px;
-	.transition-all(@transition-time);
-	.border-box;
-}
-
+//last class for fallback, and for IE when needed.
 .last {
-	margin-right: 0;
+	margin-right: 0 !important;
 }
