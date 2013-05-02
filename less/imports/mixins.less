@@ -33,6 +33,7 @@ Site-wide rules
 	-webkit-background-clip: padding-box;
 	background-clip: padding-box;
 	.pie();
+	.border-box;
 }
 
 .border-radius(@borderRadius: @borderRadius){
@@ -287,13 +288,13 @@ Site-wide rules
 }
 
 // Transitions
-.transition(@transition){
-	-webkit-transition: @transition;
-	-moz-transition: @transition;
-	-ms-transition: @transition;
-	-khtml-transition: @transition;
-	-o-transition: @transition;
-	transition: @transition;
+.transition(...){
+	-webkit-transition: @arguments;
+	-moz-transition: @arguments;
+	-ms-transition: @arguments;
+	-khtml-transition: @arguments;
+	-o-transition: @arguments;
+	transition: @arguments;
 }
 
 // Transformations

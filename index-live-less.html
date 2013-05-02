@@ -31,7 +31,8 @@
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link href = 'http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel = "stylesheet">
 	<link rel = "stylesheet/less" type = "text/css" href = "less/style.less">
-	<script src = "js/modernizr.custom.min.js"></script>
+	<link rel = "stylesheet/less" type = "text/css" href = "less/demo.less">
+	<script src = "js/components/modernizr/modernizr.js"></script>
 </head>
 
 <body>
@@ -201,33 +202,83 @@
 	</aside>
 </header>
 
-<div class = "container visuallyhidden loading" id = "content">
-	<div class = "row">
-		<div class = "threecol">
-			<aside class = "sidebar-a box">
-				<h1>Sidebar A</h1>
-
-				<p>
-					This is an <code>aside</code> with the class of <code>sidebar-a</code>.
-				</p>
-			</aside>
-		</div>
-		<div class = "sixcol">
-			<article role = "main">
-				<h1>Hello world!</h1>
-
-				<p>This is HTML5 Boilerplate.</p>
-			</article>
-		</div>
-		<div class = "threecol last">
-			<aside class = "sidebar-b box">
-				<h1>Sidebar B</h1>
-
-				<p>
-					This is an <code>aside</code> with the class of <code>sidebar-b</code>.
-				</p>
-			</aside>
-		</div>
+<div class = "container visuallyhidden loading">
+	<article id= "content">
+		<section class="overview">
+			<div class="centred row">
+				<h1>Introducing LESS&copy; HTML5 Boilerplate</h1>
+				<h2>A simple, intuitive, responsive framework for building next-gen web applications</h2>
+			</div>
+		</section>
+		<section class="features">
+			<div class="centred row">
+				<h1>What makes it so great?</h1>
+			</div>
+			<div class="row">
+				<div class = "fourcol">
+					<div class="centred">
+						<i class="icon-refresh feature-icon"></i>
+					</div>
+					<h2>LESS is More</h2>
+					<p>You get ultimate control over your UI.  Start from easy standards,
+						as promoted by the HTML5 boilerplate, gain a native feel on mobile devices with HTML5
+						input types, and use cutting-edge technologies.  Engage in responsive design from the
+						outset, watch your designs scale with <code>em</code>s (rather than <code>px</code>s), and
+						do CSS the proper way with an emphasis on grouped selectors.</p>
+				</div>
+				<div class = "fourcol">
+					<div class="centred">
+						<i class="icon-film-2 feature-icon"></i>
+					</div>
+					<h2>Vector FTW</h2>
+					<p>Customize your own icon font using Icomoon.  Use up to 300 customizable icons,
+						all in the form of a font that works with all browsers.  Import any vectors from
+						Illustrator or Photoshop.</p>
+				</div>
+				<div class = "fourcol">
+					<div class="centred">
+						<i class="icon-pencil-2 feature-icon"></i>
+					</div>
+					<h2>Customizable</h2>
+					<p>Using Twitter's Bower, LESS Boilerplate allows you to get your project set up in seconds,
+						while always keeping the libraries you use up to date.  Simply install Bower, and do
+						<code>bower install</code>, and you'll be all set up.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class = "fourcol">
+					<div class="centred">
+						<i class="icon-refresh feature-icon"></i>
+					</div>
+					<h2>100% Flexible Grid System</h2>
+					<p>Built on top of LESS, LESS Boilerplate can meld into any scenario.  Using this as your UI
+						Framework, you can modify row counts, columns, column class prefix and suffixes,
+						and even the margins between!  Using Bootstrap?  LESS Boilerplate can be configured to use
+						the <strong>exact same grid classes as Bootstrap</strong>.</p>
+						<a class = "btn btn-primary" href = "#">Customize Grid <i class="icon-grid-view"></i></a>
+				</div>
+				<div class = "fourcol">
+					<div class="centred">
+						<i class="icon-film-2 feature-icon"></i>
+					</div>
+					<h2>3 Colours to Rule Them All</h2>
+					<p>Make customization easy for your users.  Using LESS's colour functions,
+						the framework is set to work with three colours: main, secondary, and primary.  Of course,
+						you still have the option of hard-coding your colours in... but the framework leaves you
+						with good examples of how to build a dynamic site for your client.</p>
+				</div>
+				<div class = "fourcol">
+					<div class="centred">
+						<i class="icon-pencil-2 feature-icon"></i>
+					</div>
+					<h2>Responsive</h2>
+					<p>Try resizing your browser.  LESS Boilerplate is built responsively,
+						with responsive design in mind.  Columns fold over, and your site is guaranteed to work on
+						any device</p>
+				</div>
+			</div>
+		</section>
+	</article>
 	</div>
 </div>
 
