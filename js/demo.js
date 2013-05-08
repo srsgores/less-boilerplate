@@ -9,21 +9,36 @@
  This file is responsible for allowing real-time style previews using LESS.js
 
  --------------------------------------------------------------------------------------------------------------------- */
+
+//fallback for older browsers!
+if ((Modernizr.inputtypes.number == false) || (Modernizr.inputtypes.range == false)) {
+	$.webshims.polyfill("forms forms-ext");
+	alert("Your browser doesn't support HTML5 number inputs.  It's probably a wise idea to upgrade to a newer browser like Chrome...");
+}
+
 jQuery(document).ready(function ($)
 {
+	if (Modernizr.mq("only all") == false) {
+		$.getScript("//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js");
+	}
+
 	var formFieldTag = ".formfield",
 		fieldsetTag = "fieldset"
-		wrapperDiv = "<a href='#' title='Expand/contract' class = 'show-fieldset'><i class='icon-menu'></i> </a>",
+	wrapperDiv = "<a href='#' title='Expand/contract' class = 'show-fieldset centred'><i class='icon-menu'></i> </a>",
 		formContainer = "#style-edit";
 
-	function checkLess () {
-		if (typeof less == "undefined") {
+	function checkLess()
+	{
+		if (typeof less == "undefined")
+		{
 			return false;
 		}
-		else {
+		else
+		{
 			return true;
 		}
-		}
+	}
+
 	function updateVars()
 	{
 		if (checkLess() == true)
@@ -35,33 +50,56 @@ jQuery(document).ready(function ($)
 					$id = "@" + $(this).attr("id"),
 					$value = $(this).val();
 				console.log("about to set value of " + $value + " for variable " + $id);
-				if (typeof $dataUnit != "undefined") {
+				if (typeof $dataUnit != "undefined")
+				{
 					less.modifyVars({$id: $value + $dataUnit});
 				}
-				else {
+				else
+				{
 					less.modifyVars({$id: $value});
 				}
 			});
 		}
 	}
-	function addExpandButton() {
-		var $fieldsets = $(fieldsetTag).each(function() {
+
+	function addExpandButton()
+	{
+		var $fieldsets = $(fieldsetTag).each(function ()
+		{
 			$(this).append(wrapperDiv).children().not($(".show-fieldset, legend")).slideToggle("slow");
 		});
 		$(".show-fieldset").on('click', function (e)
 		{
 			$(this).find("i").toggleClass("icon-grid-view icon-menu");
 			$(this).parent().children().not($(this).add("legend")).slideToggle("slow");
+			return false;
 		});
 	}
-	function toggleStyleEdit() {
-		var $formFields = $(formFieldTag);
-		var $toggleButtons = $(".toggle-style-edit").on('click', function (e)
+
+	function toggleStyleEdit()
+	{
+		var $formFields = $(formFieldTag),
+			$fieldsets = $(fieldsetTag).toggle();
+		var $toggleButton = $(".toggle-all").on('click', function (e)
 		{
 			$formFields.slideToggle("slow");
 			$(this).find("i").toggleClass("icon-minus icon-plus");
+			return false;
+		}),
+		$revealStyleBox = $(".toggle-style-box").on("click", function (e)
+		{
+			$(this).find("i").toggleClass("icon-refresh");
+			$fieldsets.toggle("slow");
+			if (!$fieldsets.is(":visible")) {
+				$(this).attr("disabled", "disabled");
+			}
+			else {
+				$(this).removeAttr("disabled");
+			}
+			return false;
 		});
 	}
+
 	updateVars();
 	addExpandButton();
 	toggleStyleEdit();

@@ -1,9 +1,30 @@
 .show-fieldset {
 	font-size: 2em;
 	cursor: pointer;
-	padding: 0 13%;
+	display: block;
 }
 
 .feature-icon {
 	font-size: 7em;
+}
+
+.overview {
+	padding: 10% 0;
+
+	h1 {
+		line-height: 2;
+		padding: @padding 0;
+		font-size: 4em;
+		border-bottom: 2px dotted #CCC;
+		border-top: 2px dotted #CCC;
+	}
+
+	.toolbar {
+		border-top: none;
+		background: none;
+	}
+}
+
+section {
+	.box-shadow(~"inset 0 -3em 6em -3em rgba(143, 143, 143, 0.65)");
 }

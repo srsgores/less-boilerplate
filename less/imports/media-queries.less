@@ -139,33 +139,35 @@
 
 @media handheld, only screen and (max-width: 47.9375em) { //query at 767px
 
-	.row, body, .container {
+	.row, body {
 		width: 100%;
 		min-width: 0;
 		margin-left: 0;
 		margin-right: 0;
 		padding-left: 0;
+		padding-right: 0;
+	}
+	.container {
+		padding: 0 @padding;
 	}
 	h1 {
 		&.title {
 			font-size: (@em * 3);
 		}
-		&.shoutout {
-			font-size: 40%;
-		}
 	}
 
-	.row .onecol, .row .twocol, .row .threecol, .row .fourcol, .row .fivecol, .row .sixcol, .row .sevencol, .row .eightcol, .row .ninecol, .row .tencol, .row .elevencol, .row .twelvecol, .width20, .width25, .width33, .width50, .width100, #toolbar ul.social {
+	.row .onecol, .row .twocol, .row .threecol, .row .fourcol, .row .fivecol, .row .sixcol, .row .sevencol, .row .eightcol, .row .ninecol, .row .tencol, .row .elevencol, .row .twelvecol {
 		width: auto;
 		float: none;
 		margin-left: 0;
 		margin-right: 0;
-		padding-left: @padding;
-		padding-right: @padding;
 	}
 
 	img {
 		width: 100%;
-		height: 100%;
+	}
+
+	.box, .alert, .pagination ul, .dataTables_paginate {
+		margin: @margin 0;
 	}
 }
