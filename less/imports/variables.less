@@ -162,17 +162,6 @@ Borders
 @linkColourHover: darken(@linkColour, 15%);
 @linkColourVisited: spin(@linkColourHover, 10);
 
-// Tables
-// -------------------------
-@tableBackgroundColour: fade(@bodyBackgroundColour, 20%);
-// overall background-colour
-@tableBackgroundAccent: fade(spin(@bodyBackgroundColour, 50), 70%);
-// for striping
-@tableBackgroundHover: saturate(fadein(@tableBackgroundColour, 40%), 40%);
-// for hover
-@tableBorder: @border;
-// table and cell border
-
 // Buttons
 // -------------------------
 @btnBackground: @bodyBackgroundColour;
@@ -198,20 +187,6 @@ Borders
 
 @btnInverseBackground: #444;
 @btnInverseBackgroundHighlight: @grayDarker;
-
-// Forms
-// -------------------------
-@inputBackgroundColour: fade(@bodyBackgroundColour, 40%);
-@inputBorderColour: saturate(@borderColour, 40%);
-@inputBorderRadius: @borderRadius;
-@inputDisabledBackgroundColour: @grayLighter;
-@formActionsBackground: desaturate(@inputBackgroundColour, 50%);
-@inputHeight: unit(@baseLineHeight + @paddingSmall);
-// base line-height + 8px vertical padding + 2px top/bottom border
-
-// Wells
-// -------------------------
-@wellBackground: fade(@bodyBackgroundColour, 30);
 
 // Form states and alerts
 // -------------------------

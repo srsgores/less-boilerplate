@@ -86,7 +86,7 @@ a {
 	#gradient > .vertical(#ededed, #d9d9d9);
 	.box-shadow(inset 0 1px 0 rgba(255, 255, 255, 1), 0 1px @borderRadius rgba(150, 150, 150, 0.5));
 	.border-radius(@borderRadiusLarge);
-	.transition(~"text-shadow, box-shadow, border-color, background, color @{transition-time}, @{transition-time}, @{transition-time}, @{transition-time}, @{transition-time}, ease");
+	#transition > .transition(~"text-shadow, box-shadow, border-color, background, color @{transition-time}, @{transition-time}, @{transition-time}, @{transition-time}, @{transition-time}, ease");
 
 	&:hover, &:focus, &.loading {
 		background: #2F5163;
@@ -111,17 +111,18 @@ a {
 	padding: @margin 0;
 	&.float-left, &.float-right {
 		background: transparent;
-		input, .btn, button {
+		input[type="submit"], .btn, button {
 			float: left;
 		}
 	}
 	input, .btn, button {
 		margin: 0 -1px 0 0;
+		.border-radius(0);
 		&:last-child {
-			.border-radius-left(0);
+			.border-radius-right(@borderRadius);
 		}
 		&:first-child {
-			.border-radius-right(0);
+			.border-radius-left(@borderRadius);
 		}
 	}
 }
@@ -132,7 +133,6 @@ a {
 	margin: 0;
 
 	li {
-
 		.inline-block;
 		&:first-child a {
 			.border-radius-left(@borderRadius);
