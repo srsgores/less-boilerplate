@@ -34,10 +34,9 @@
 </head>
 
 <body>
-<div class = "loader1"></div>
 
-<div class = "container visuallyhidden loading">
-<header class = "row centred">
+<div class = "container loading">
+<header class = "row centred delay-10 hidden">
 	<nav role = "main">
 		<!-- use for emmet/zen coding -->
 		<!-- ul.nav>li*5>a[data-icon=] -->
@@ -52,7 +51,7 @@
 </header>
 
 
-	<div class = "row">
+	<div class = "row delay-2 hidden">
 		<div class = "threecol">
 			<aside class = "sidebar-a box">
 				<h1>Sidebar A</h1>
@@ -79,18 +78,19 @@
 			</aside>
 		</div>
 	</div>
-</div>
 
-<footer class = "row centred">
-	<nav role = "secondary">
-		<ul>
-			<li><a data-icon = "" href = "#">Link 1</a></li>
-			<li><a data-icon = "" href = "#">Link 2</a></li>
-			<li><a data-icon = "" href = "#">Link 3</a></li>
-			<li><a data-icon = "" href = "#">Link 4</a></li>
-		</ul>
-	</nav>
-</footer>
+	<footer class = "row centred delay-5 hidden">
+		<nav role = "secondary">
+			<ul>
+				<li><a data-icon = "" href = "#">Link 1</a></li>
+				<li><a data-icon = "" href = "#">Link 2</a></li>
+				<li><a data-icon = "" href = "#">Link 3</a></li>
+				<li><a data-icon = "" href = "#">Link 4</a></li>
+			</ul>
+		</nav>
+	</footer>
+</div>
+<div class = "loader1 hidden"></div>
 
 <!-- For jQuery CDN -->
 <!--<script src = "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->

@@ -1840,12 +1840,20 @@ CSS loaders
   position: absolute;
   top: 50%;
   left: 50%;
+  -webkit-transition: top 2s ease;
+  -moz-transition: top 2s ease;
+  -ms-transition: top 2s ease;
+  -o-transition: top 2s ease;
+  transition: top 2s ease;
 }
-.loader1 + .container.loading,
-.loader2 + .container.loading,
-.loader3 + .container.loading,
-.loader4 + .container.loading,
-.loader5 + .container.loading {
+.loader1.hidden,
+.loader2.hidden,
+.loader3.hidden,
+.loader4.hidden,
+.loader5.hidden {
+  top: -200%;
+}
+.container.loading {
   cursor: wait;
 }
 .loader1::after {
@@ -2479,10 +2487,243 @@ Fonts
 .show-fieldset {
   font-size: 2em;
   cursor: pointer;
-  padding: 0 13%;
+  display: block;
 }
 .feature-icon {
   font-size: 7em;
+}
+.overview {
+  padding: 5% 0;
+}
+.overview h1 {
+  line-height: 2;
+  padding: 1em 0;
+  font-size: 4em;
+  border-bottom: 2px dotted #CCC;
+  border-top: 2px dotted #CCC;
+}
+.overview .toolbar {
+  border-top: none;
+  background: none;
+}
+section {
+  -webkit-box-shadow: inset 0 -3em 6em -3em rgba(143, 143, 143, 0.65);
+  -moz-box-shadow: inset 0 -3em 6em -3em rgba(143, 143, 143, 0.65);
+  -khtml-box-shadow: inset 0 -3em 6em -3em rgba(143, 143, 143, 0.65);
+  -o-box-shadow: inset 0 -3em 6em -3em rgba(143, 143, 143, 0.65);
+  box-shadow: inset 0 -3em 6em -3em rgba(143, 143, 143, 0.65);
+}
+#content ol,
+#content ul {
+  margin: 1em 2em;
+}
+.hidden {
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+}
+.showing {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+}
+/* transition delays */
+.delay-10 {
+  -webkit-transition: all 2s ease 3s;
+  -moz-transition: all 2s ease 3s;
+  -ms-transition: all 2s ease 3s;
+  -o-transition: all 2s ease 3s;
+  transition: all 2s ease 3s;
+}
+.delay-9 {
+  -webkit-transition: all 2s ease 2.6999999999999997s;
+  -moz-transition: all 2s ease 2.6999999999999997s;
+  -ms-transition: all 2s ease 2.6999999999999997s;
+  -o-transition: all 2s ease 2.6999999999999997s;
+  transition: all 2s ease 2.6999999999999997s;
+}
+.delay-8 {
+  -webkit-transition: all 2s ease 2.4s;
+  -moz-transition: all 2s ease 2.4s;
+  -ms-transition: all 2s ease 2.4s;
+  -o-transition: all 2s ease 2.4s;
+  transition: all 2s ease 2.4s;
+}
+.delay-7 {
+  -webkit-transition: all 2s ease 2.1s;
+  -moz-transition: all 2s ease 2.1s;
+  -ms-transition: all 2s ease 2.1s;
+  -o-transition: all 2s ease 2.1s;
+  transition: all 2s ease 2.1s;
+}
+.delay-6 {
+  -webkit-transition: all 2s ease 1.7999999999999998s;
+  -moz-transition: all 2s ease 1.7999999999999998s;
+  -ms-transition: all 2s ease 1.7999999999999998s;
+  -o-transition: all 2s ease 1.7999999999999998s;
+  transition: all 2s ease 1.7999999999999998s;
+}
+.delay-5 {
+  -webkit-transition: all 2s ease 1.5s;
+  -moz-transition: all 2s ease 1.5s;
+  -ms-transition: all 2s ease 1.5s;
+  -o-transition: all 2s ease 1.5s;
+  transition: all 2s ease 1.5s;
+}
+.delay-4 {
+  -webkit-transition: all 2s ease 1.2s;
+  -moz-transition: all 2s ease 1.2s;
+  -ms-transition: all 2s ease 1.2s;
+  -o-transition: all 2s ease 1.2s;
+  transition: all 2s ease 1.2s;
+}
+.delay-3 {
+  -webkit-transition: all 2s ease 0.8999999999999999s;
+  -moz-transition: all 2s ease 0.8999999999999999s;
+  -ms-transition: all 2s ease 0.8999999999999999s;
+  -o-transition: all 2s ease 0.8999999999999999s;
+  transition: all 2s ease 0.8999999999999999s;
+}
+.delay-2 {
+  -webkit-transition: all 2s ease 0.6s;
+  -moz-transition: all 2s ease 0.6s;
+  -ms-transition: all 2s ease 0.6s;
+  -o-transition: all 2s ease 0.6s;
+  transition: all 2s ease 0.6s;
+}
+.delay-1 {
+  -webkit-transition: all 2s ease 0.3s;
+  -moz-transition: all 2s ease 0.3s;
+  -ms-transition: all 2s ease 0.3s;
+  -o-transition: all 2s ease 0.3s;
+  transition: all 2s ease 0.3s;
+}
+.btn.huge {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+  padding: 1em 0;
+  font-size: 2em;
+  position: relative;
+}
+.btn.huge > i {
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -ms-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+  text-shadow: 0 -0.4em 0.5em #ffffff, 0 0 0.3em rgba(221, 221, 221, 0.45), 0 0 1.3em rgba(63, 63, 63, 0.79);
+  position: absolute;
+  padding-left: 1em;
+  font-size: 1.3em;
+}
+.btn.huge:hover > i {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+  position: absolute;
+  font-size: 3em;
+  padding: 2%;
+  top: -27%;
+  color: rgba(255, 255, 255, 0.58);
+  text-shadow: 0 -0.4em 0.5em #ffffff, 0 1px #ffffff, 0 0 0.1em rgba(63, 63, 63, 0.68);
+}
+.download-area {
+  margin: 3em 0;
+}
+@media handheld, only screen and (max-width: 47.9375em) {
+  .btn,
+  .download-area .btn.huge {
+    display: block;
+    width: 100%;
+  }
+  .container .actions,
+  .container .form-actions,
+  .container .toolbar,
+  .container .btn-group {
+    width: 100%;
+  }
+  .container .actions input,
+  .container .form-actions input,
+  .container .toolbar input,
+  .container .btn-group input,
+  .container .actions .btn,
+  .container .form-actions .btn,
+  .container .toolbar .btn,
+  .container .btn-group .btn,
+  .container .actions button,
+  .container .form-actions button,
+  .container .toolbar button,
+  .container .btn-group button {
+    margin: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -khtml-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .container .actions input:last-child,
+  .container .form-actions input:last-child,
+  .container .toolbar input:last-child,
+  .container .btn-group input:last-child,
+  .container .actions .btn:last-child,
+  .container .form-actions .btn:last-child,
+  .container .toolbar .btn:last-child,
+  .container .btn-group .btn:last-child,
+  .container .actions button:last-child,
+  .container .form-actions button:last-child,
+  .container .toolbar button:last-child,
+  .container .btn-group button:last-child {
+    -webkit-border-bottom-right-radius: 0.3663003663003662em;
+    -moz-border-radius-bottomright: 0.3663003663003662em;
+    -khtml-border-radius-bottomright: 0.3663003663003662em;
+    border-bottom-right-radius: 0.3663003663003662em;
+    -webkit-border-bottom-left-radius: 0.3663003663003662em;
+    -moz-border-radius-bottomleft: 0.3663003663003662em;
+    -khtml-border-radius-bottomleft: 0.3663003663003662em;
+    border-bottom-left-radius: 0.3663003663003662em;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .container .actions input:first-child,
+  .container .form-actions input:first-child,
+  .container .toolbar input:first-child,
+  .container .btn-group input:first-child,
+  .container .actions .btn:first-child,
+  .container .form-actions .btn:first-child,
+  .container .toolbar .btn:first-child,
+  .container .btn-group .btn:first-child,
+  .container .actions button:first-child,
+  .container .form-actions button:first-child,
+  .container .toolbar button:first-child,
+  .container .btn-group button:first-child {
+    -webkit-border-top-right-radius: 0.3663003663003662em;
+    -moz-border-radius-topright: 0.3663003663003662em;
+    -khtml-border-radius-topright: 0.3663003663003662em;
+    border-top-right-radius: 0.3663003663003662em;
+    -webkit-border-top-left-radius: 0.3663003663003662em;
+    -moz-border-radius-topleft: 0.3663003663003662em;
+    -khtml-border-radius-topleft: 0.3663003663003662em;
+    border-top-left-radius: 0.3663003663003662em;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
 }
 body {
   /*max-width: 71.25em;*/
@@ -2493,6 +2734,11 @@ body {
   background: url("http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/subtle_dots.png");
   line-height: 1.4;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+.container {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 p {
   line-height: 1.4;
@@ -2659,6 +2905,7 @@ input[type="submit"]:active {
 .btn-group.float-right,
 .actions input.float-right {
   background: transparent;
+  margin: 0 -1px 0 0;
 }
 .actions.float-left input[type="submit"],
 .form-actions.float-left input[type="submit"],
@@ -2707,42 +2954,12 @@ input[type="submit"]:active {
 .toolbar button,
 .btn-group button,
 .actions input button {
-  margin: 0 -1px 0 0;
+  margin: 0 -0.3663003663003662em 0 0;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -khtml-border-radius: 0;
   -o-border-radius: 0;
   border-radius: 0;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-.actions input:last-child,
-.form-actions input:last-child,
-.toolbar input:last-child,
-.btn-group input:last-child,
-.actions input input:last-child,
-.actions .btn:last-child,
-.form-actions .btn:last-child,
-.toolbar .btn:last-child,
-.btn-group .btn:last-child,
-.actions input .btn:last-child,
-.actions button:last-child,
-.form-actions button:last-child,
-.toolbar button:last-child,
-.btn-group button:last-child,
-.actions input button:last-child {
-  -webkit-border-top-right-radius: 0.3663003663003662em;
-  -moz-border-radius-topright: 0.3663003663003662em;
-  -khtml-border-radius-topright: 0.3663003663003662em;
-  border-top-right-radius: 0.3663003663003662em;
-  -webkit-border-bottom-right-radius: 0.3663003663003662em;
-  -moz-border-radius-bottomright: 0.3663003663003662em;
-  -khtml-border-radius-bottomright: 0.3663003663003662em;
-  border-bottom-right-radius: 0.3663003663003662em;
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
@@ -2773,6 +2990,36 @@ input[type="submit"]:active {
   -moz-border-radius-bottomleft: 0.3663003663003662em;
   -khtml-border-radius-bottomleft: 0.3663003663003662em;
   border-bottom-left-radius: 0.3663003663003662em;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.actions input:last-child,
+.form-actions input:last-child,
+.toolbar input:last-child,
+.btn-group input:last-child,
+.actions input input:last-child,
+.actions .btn:last-child,
+.form-actions .btn:last-child,
+.toolbar .btn:last-child,
+.btn-group .btn:last-child,
+.actions input .btn:last-child,
+.actions button:last-child,
+.form-actions button:last-child,
+.toolbar button:last-child,
+.btn-group button:last-child,
+.actions input button:last-child {
+  -webkit-border-top-right-radius: 0.3663003663003662em;
+  -moz-border-radius-topright: 0.3663003663003662em;
+  -khtml-border-radius-topright: 0.3663003663003662em;
+  border-top-right-radius: 0.3663003663003662em;
+  -webkit-border-bottom-right-radius: 0.3663003663003662em;
+  -moz-border-radius-bottomright: 0.3663003663003662em;
+  -khtml-border-radius-bottomright: 0.3663003663003662em;
+  border-bottom-right-radius: 0.3663003663003662em;
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
@@ -3150,19 +3397,19 @@ section {
 /* Mobile */
 @media handheld, only screen and (max-width: 47.9375em) {
   .row,
-  body,
-  .container {
+  body {
     width: 100%;
     min-width: 0;
     margin-left: 0;
     margin-right: 0;
     padding-left: 0;
+    padding-right: 0;
+  }
+  .container {
+    padding: 0 1em;
   }
   h1.title {
     font-size: 3em;
-  }
-  h1.shoutout {
-    font-size: 40%;
   }
   .row .onecol,
   .row .twocol,
@@ -3175,22 +3422,19 @@ section {
   .row .ninecol,
   .row .tencol,
   .row .elevencol,
-  .row .twelvecol,
-  .width20,
-  .width25,
-  .width33,
-  .width50,
-  .width100,
-  #toolbar ul.social {
+  .row .twelvecol {
     width: auto;
     float: none;
     margin-left: 0;
     margin-right: 0;
-    padding-left: 1em;
-    padding-right: 1em;
   }
   img {
     width: 100%;
-    height: 100%;
+  }
+  .box,
+  .alert,
+  .pagination ul,
+  .dataTables_paginate {
+    margin: 1em 0;
   }
 }

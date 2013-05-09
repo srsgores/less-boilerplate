@@ -122,12 +122,12 @@ a {
 	input, .btn, button {
 		margin: 0 -@borderRadius 0 0;
 		.border-radius(0);
-		&:last-child {
-			.border-radius-right(@borderRadius);
-		}
 		&:first-child {
 			.border-radius-left(@borderRadius);
 		}
+		&:last-child {
+			.border-radius-right(@borderRadius);
+		 }
 	}
 }
 

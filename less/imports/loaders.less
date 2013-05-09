@@ -32,11 +32,15 @@ CSS loaders
 	position: absolute;
 	top: 50%;
 	left: 50%;
-
-	//for loading cursor
-	& + .container.loading {
-		cursor: wait;
+	#transition > .transition(top 2s ease);
+	&.hidden {
+		top: -200%;
 	}
+}
+
+//for loading cursor
+.container.loading {
+	cursor: wait;
 }
 
 .loader1::after {
