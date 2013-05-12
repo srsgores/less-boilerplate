@@ -26,7 +26,8 @@
 }
 
 section {
-	.box-shadow(~"inset 0 -3em 6em -3em rgba(143, 143, 143, 0.65)");
+	.box-shadow(~"inset 0 -3em 6em -4em rgba(143, 143, 143, 0.65)");
+	padding-left: 3em;
 }
 
 #content {
@@ -41,6 +42,14 @@ section {
 
 .showing {
 	.opacity(100);
+}
+
+.show-edit-container {
+	position: fixed;
+	left: -4em;
+	top: 50%;
+	#transform .rotate(90deg);
+	font-size: @fontSizeLarge;
 }
 /* transition delays */
 @delay-maximum: 10;
@@ -93,20 +102,6 @@ section {
 		margin-top: -1px;
 	}
 	.container {
-		.actions, .form-actions, .toolbar, .btn-group {
-			width: @rowWidth;
-			input, .btn, button {
-				margin: 0;
-				.border-radius-top(0);
-				.border-radius-bottom(0);
-				&:first-child {
-					.border-radius-top(@borderRadius);
-				}
-				&:last-child {
-					 .border-radius-bottom(@borderRadius);
-				}
-			}
-		}
 		input:not([type]), input[type="color"], input[type="email"], input[type="number"], input[type="password"], input[type="tel"], input[type="url"], input[type="text"] {
 			width: @rowWidth;
 		}
@@ -116,5 +111,115 @@ section {
 				font-size: 3em;
 			}
 		}
+	}
+    .show-edit-container {
+		position: static;
+		#transform .rotate(0deg);
+    }
+    section {
+	    padding: 0;
+    }
+}
+
+/* =============================================================================
+Code (Using Prism)
+========================================================================== */
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: @padding;
+	margin: @paddingSmall 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: fade(@borderColour, 30%);
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	.border-radius(@borderRadius);
+}
+
+.token {
+	&.comment, &.prolog, &.doctype, &.cdata {
+		color: slategray;
+	}
+	&.punctuation {
+		color: #999;
+	}
+	&.property,
+	&.tag,
+	&.boolean,
+	&.number {
+		color: #905;
+	}
+
+	&.property,
+	&.tag,
+	&.boolean,
+	&.number {
+		color: #905;
+	}
+
+	&.selector,
+	&.attr-name,
+	&.string {
+		color: #690;
+	}
+
+	&.atrule,
+	&.attr-value,
+	&.keyword {
+		color: #07a;
+	}
+
+
+	&.regex,
+	&.important {
+		color: #e90;
+	}
+
+	&.important {
+		font-weight: bold;
+	}
+
+	&.entity {
+		cursor: help;
+	}
+}
+
+.namespace {
+	.opacity(70);
+}
+
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: fade(@bodyBackgroundColour, 50);
+}
+
+/* =============================================================================
+Tables
+========================================================================== */
+table {
+	width: @rowWidth;
+	border: @border;
+	padding: @padding;
+	margin-bottom: @margin;
+	thead {
+
 	}
 }

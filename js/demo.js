@@ -49,7 +49,7 @@ jQuery(document).ready(function ($)
 				var $dataUnit = $(this).attr("data-unit"),
 					$id = "@" + $(this).attr("id"),
 					$value = $(this).val();
-				console.log("about to set value of " + $value + " for variable " + $id);
+				console.log("about to set value of " + $value + $dataUnit + " for variable " + $id);
 				if (typeof $dataUnit != "undefined")
 				{
 					less.modifyVars({$id: $value + $dataUnit});
@@ -79,7 +79,8 @@ jQuery(document).ready(function ($)
 	function toggleStyleEdit()
 	{
 		var $formFields = $(formFieldTag),
-			$fieldsets = $(fieldsetTag).toggle();
+			$fieldsets = $(fieldsetTag).toggle(),
+			$styleEditContainer = $("#style-edit-container").toggle();
 		var $toggleButton = $(".toggle-all").on('click', function (e)
 		{
 			$formFields.slideToggle("slow");
@@ -98,10 +99,30 @@ jQuery(document).ready(function ($)
 			}
 			return false;
 		});
+
+		var $toggleContainerButton = $(".show-edit-container").on("click", function (e)
+		{
+			$styleEditContainer.toggle("slow");
+			$(this).find("i").toggleClass("icon-plus icon-minus");
+		});
+	}
+
+	function generateCSS() {
+		var $resultsArea = '<textarea class="results row">Data here</textarea>';
+		var $generateButtons = $(".generate-less-css").on("click", function (e)
+		{
+			var olderResults = $(".results");
+			olderResults.remove();
+			($(this)).parent().parent().append($resultsArea);
+			//then get the CSS here
+			return false;
+		});
+
 	}
 
 	updateVars();
 	addExpandButton();
 	toggleStyleEdit();
+	generateCSS();
 });
 

@@ -147,8 +147,32 @@
 		padding-left: 0;
 		padding-right: 0;
 	}
+
 	.container {
 		padding: 0 @padding;
+		.actions, .form-actions, .toolbar, .btn-group, .actions input {
+			width: @rowWidth;
+			input, .btn, button {
+				display: block;
+				margin: -1px 0 0 0;
+				width: @rowWidth;
+				&:last-child {
+					.border-radius-right(0);
+					.border-radius-bottom(@borderRadius);
+				}
+				&:first-child {
+					.border-radius-left(0);
+					.border-radius-top(@borderRadius);
+				}
+			}
+		}
+		button, input.btn {
+			margin: @margin 0;
+		}
+	}
+
+	input, textarea, keygen, select, button, isindex {
+		width: @rowWidth;
 	}
 	h1 {
 		&.title {
@@ -170,4 +194,6 @@
 	.box, .alert, .pagination ul, .dataTables_paginate {
 		margin: @margin 0;
 	}
+
+
 }
