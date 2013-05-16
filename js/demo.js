@@ -23,9 +23,11 @@ jQuery(document).ready(function ($)
 	}
 
 	var formFieldTag = ".formfield",
-		fieldsetTag = "fieldset"
+		fieldsetTag = "fieldset",
 	wrapperDiv = "<a href='#' title='Expand/contract' class = 'show-fieldset centred'><i class='icon-menu'></i> </a>",
-		formContainer = "#style-edit";
+		htmlBody = $("html, body");
+		formContainer = "#style-edit",
+		styleEditContainer = $("#style-edit-container");
 
 	function checkLess()
 	{
@@ -75,12 +77,15 @@ jQuery(document).ready(function ($)
 			return false;
 		});
 	}
+	function scrollToEdit() {
+		htmlBody.animate({scrollTop: styleEditContainer.offset().top}, 800);
+	}
 
 	function toggleStyleEdit()
 	{
 		var $formFields = $(formFieldTag),
-			$fieldsets = $(fieldsetTag).toggle(),
-			$styleEditContainer = $("#style-edit-container").toggle();
+			$fieldsets = $(fieldsetTag).toggle();
+			styleEditContainer.toggle();
 		var $toggleButton = $(".toggle-all").on('click', function (e)
 		{
 			$formFields.slideToggle("slow");
@@ -102,8 +107,11 @@ jQuery(document).ready(function ($)
 
 		var $toggleContainerButton = $(".show-edit-container").on("click", function (e)
 		{
-			$styleEditContainer.toggle("slow");
+			styleEditContainer.toggle("slow");
 			$(this).find("i").toggleClass("icon-plus icon-minus");
+			if (styleEditContainer.is(":visible")) {
+				scrollToEdit();
+			}
 		});
 	}
 
