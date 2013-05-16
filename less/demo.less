@@ -45,11 +45,13 @@ section {
 }
 
 .show-edit-container {
-	position: fixed;
-	left: -4em;
-	top: 50%;
-	#transform .rotate(90deg);
-	font-size: @fontSizeLarge;
+	&.fixed-left {
+		position: fixed;
+		left: -4em;
+		top: 50%;
+		#transform .rotate(90deg);
+		font-size: @fontSizeLarge;
+	}
 }
 /* transition delays */
 @delay-maximum: 10;
@@ -222,4 +224,8 @@ table {
 	thead {
 
 	}
+}
+
+.large {
+	font-size: 15em;
 }

@@ -76,7 +76,7 @@
 						class="icon-file-download"></i></a>
 			</div>
 		</section>
-		<button class="show-edit-container"><i class="icon-plus"></i>&nbsp;&nbsp;Demo
+		<button class="show-edit-container fixed-left"><i class="icon-plus"></i>&nbsp;&nbsp;Demo
 			Builder</button>
 		<aside class = "box" id = "style-edit-container">
 
@@ -191,9 +191,8 @@
 					<legend>Basic Measurements</legend>
 					<div class = "formfield row">
 						<label class = "threecol" for = "padding">Base Padding</label>
-						<input id = "padding" placeholder = "Base Padding" class = "ninecol last" data-unit =
-								"%" type = "text"
-						       value =	"@em"/>
+						<input id = "padding" placeholder = "Base Padding" class = "ninecol last" type = "text" value
+								=	"@em"/>
 					</div>
 					<div class = "formfield row">
 						<label class = "threecol" for = "margin">Base Margin</label>
@@ -245,7 +244,7 @@
 			<div class="row">
 				<div class = "fourcol">
 					<div class="centred">
-						<i class="icon-refresh feature-icon"></i>
+						<i class="icon-plus-3 feature-icon"></i>
 						<h2>LESS is More</h2>
 					</div>
 					<p>You get ultimate control over your UI.  Start from easy standards,
@@ -256,7 +255,7 @@
 				</div>
 				<div class = "fourcol">
 					<div class="centred">
-						<i class="icon-film-2 feature-icon"></i>
+						<i class="icon-droplet feature-icon"></i>
 						<h2>Vector FTW</h2>
 					</div>
 					<p>Customize your own icon font using Icomoon.  Use up to 300 customizable icons,
@@ -269,7 +268,7 @@
 						<h2>Customizable</h2>
 					</div>
 
-					<p>Using Twitter's Bower, LESS Boilerplate allows you to get your project set up in seconds,
+					<p>Using Twitter's <a href = "http://bower.io/" target="_blank">Bower</a>, LESS Boilerplate allows you to get your project set up in seconds,
 						while always keeping the libraries you use up to date.  Simply install Bower, and do
 						<code>bower install</code>, and you'll be all set up.</p>
 				</div>
@@ -277,7 +276,7 @@
 			<div class="row">
 				<div class = "fourcol">
 					<div class="centred">
-						<i class="icon-refresh feature-icon"></i>
+						<i class="icon-grid-view feature-icon"></i>
 						<h2>100% Flexible Grid System</h2>
 					</div>
 
@@ -285,11 +284,12 @@
 						Framework, you can modify row counts, columns, column class prefix and suffixes,
 						and even the margins between!  Using Bootstrap?  LESS Boilerplate can be configured to use
 						the <strong>exact same grid classes as Bootstrap</strong>.</p>
-						<a class = "btn btn-primary" href = "#">Customize Grid <i class="icon-grid-view"></i></a>
+						<a class = "btn btn-primary show-edit-container" href = "#">Customize
+							Grid <i class="icon-grid-view"></i></a>
 				</div>
 				<div class = "fourcol">
 					<div class="centred">
-						<i class="icon-film-2 feature-icon"></i>
+						<i class="icon-basket-2 feature-icon"></i>
 						<h2>3 Colours to Rule Them All</h2>
 					</div>
 
@@ -300,13 +300,56 @@
 				</div>
 				<div class = "fourcol">
 					<div class="centred">
-						<i class="icon-pencil-2 feature-icon"></i>
+						<i class="icon-mobile-2 feature-icon"></i>
 						<h2>Responsive</h2>
 					</div>
 
 					<p>Try resizing your browser.  LESS Boilerplate is built responsively,
 						with responsive design in mind.  Columns fold over, and your site is guaranteed to work on
 						any device</p>
+				</div>
+			</div>
+		</section>
+		<section id="what-you-get">
+			<header class="centred">
+				<h1>What You Get</h1>
+			</header>
+			<div class="row">
+				<div class="sixcol">
+					<div class="centred">
+						<i class="icon-accessibility feature-icon large"></i>
+						<h1>ARIA-Compliant Markup</h1>
+					</div>
+					<p>Extend your site's accessibility by using the new ARIA roles so that those with screen
+						readers can better understand the structuring of your site.  LESS Boilerplate ships with a
+						default HTML markup with the main ARIA roles: <code>main</code> and <code>nav</code>.</p>
+				</div>
+				<div class="sixcol last">
+					<div class="centred">
+						<i class="icon-html5 feature-icon large"></i>
+						<h1>HTML5-Valid <small>boilerplate markup</small></h1>
+					</div>
+					<p>You can start your next project knowing that the markup and default styles used in LESS
+						boilerplate are HTML5-valid.  Instead of styling for older browsers (like Bootstrap),
+						we style using the recommended W3C recommendations.  Older browsers fall back using
+						Modernizr or the HTML5 shim.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="sixcol">
+					<div class="centred">
+						<i class="icon-css3 feature-icon large"></i>
+					</div>
+					<p>CSS3 markup will give your app a new look and feel.</p>
+				</div>
+				<div class="sixcol last">
+					<div class="centred">
+						<i class="icon-chrome feature-icon large"></i>
+					</div>
+					<p>LESS Boilerplate is designed with UX in mind.  Using HTML5 elements like the
+					<code>noscript</code> tag, ensure your users have javascript-enabled browsers.  Using
+					<strong>loader.js</strong>, you ensure your app doesn't get an <em>breaking</em> feel
+					when non-javascript-enabled browsers try to access your site.</p>
 				</div>
 			</div>
 		</section>
