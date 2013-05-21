@@ -1,0 +1,274 @@
+.show-fieldset {
+	font-size: 2em;
+	cursor: pointer;
+	display: block;
+}
+
+.feature-icon {
+	font-size: 7em;
+}
+
+.overview {
+	padding: 5% 0;
+
+	h1 {
+		line-height: 2;
+		padding: @padding 0;
+		font-size: 4em;
+		border-bottom: 2px dotted #CCC;
+		border-top: 2px dotted #CCC;
+	}
+
+	.toolbar {
+		border-top: none;
+		background: none;
+	}
+}
+
+section {
+	.box-shadow(~"inset 0 -3em 6em -4em rgba(143, 143, 143, 0.65)");
+	padding-left: 3em;
+}
+
+header {
+	padding: @paddingLarge 0;
+}
+#content {
+	ol, ul {
+		margin: @margin 2em;
+	}
+}
+
+.hidden {
+	.opacity(0);
+}
+
+.showing {
+	.opacity(100);
+}
+
+.show-edit-container {
+	&.fixed-left {
+		position: fixed;
+		left: -4em;
+		top: 50%;
+		#transform .rotate(90deg);
+		font-size: @fontSizeLarge;
+	}
+}
+/* transition delays */
+@delay-maximum: 10;
+@delay-increment: 0.3;
+.delays(@index) when (@index > 0) {
+	.delay-@{index} {
+		@time: @index * @delay-increment;
+		#transition > .transition(~"all 2s ease @{time}s");
+	}
+	.delays(@index - 1);
+}
+.delays(0) {}
+.delays(@delay-maximum);
+
+.btn.huge {
+	width: (@rowWidth / 2);
+	display: block;
+	margin: 0 auto;
+	padding: @padding 0;
+	font-size: 2em;
+	position: relative;
+
+	& > i {
+		.transition-all(@transition-time);
+		text-shadow: 0 -0.4em 0.5em rgb(255, 255, 255), 0 0 0.3em rgba(221, 221, 221, 0.45), 0 0 1.3em rgba(63, 63, 63, 0.79);
+		position: absolute;
+		padding-left: @padding;
+		font-size: 1.3em;
+	}
+	&:hover > i {
+		#transform > .rotate(180deg);
+		position: absolute;
+		font-size: 3em;
+		padding: 2%;
+		top: -27%;
+		color: rgba(255, 255, 255, 0.58);
+		text-shadow: 0 -0.4em 0.5em #FFF, 0 1px #FFF, 0 0 0.1em rgba(63, 63, 63, 0.68);
+	}
+}
+
+.download-area {
+	margin: 3em 0;
+}
+
+@media handheld, only screen and (max-width: 47.9375em) { //query at 767px
+	.btn, .download-area .btn.huge {
+		display: block;
+		width: @rowWidth;
+		.centred;
+		margin-top: -1px;
+	}
+	.container {
+		input:not([type]), input[type="color"], input[type="email"], input[type="number"], input[type="password"], input[type="tel"], input[type="url"], input[type="text"] {
+			width: @rowWidth;
+		}
+
+		.overview {
+			h1 {
+				font-size: 3em;
+			}
+		}
+	}
+    .show-edit-container.fixed-left {
+		position: static;
+		#transform .rotate(0deg);
+    }
+    section {
+	    padding: 0;
+    }
+}
+
+/* =============================================================================
+Code (Using Prism)
+========================================================================== */
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: @padding;
+	margin: @paddingSmall 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: fade(@borderColour, 30%);
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	.border-radius(@borderRadius);
+}
+
+.token {
+	&.comment, &.prolog, &.doctype, &.cdata {
+		color: slategray;
+	}
+	&.punctuation {
+		color: #999;
+	}
+	&.property,
+	&.tag,
+	&.boolean,
+	&.number {
+		color: #905;
+	}
+
+	&.property,
+	&.tag,
+	&.boolean,
+	&.number {
+		color: #905;
+	}
+
+	&.selector,
+	&.attr-name,
+	&.string {
+		color: #690;
+	}
+
+	&.atrule,
+	&.attr-value,
+	&.keyword {
+		color: #07a;
+	}
+
+
+	&.regex,
+	&.important {
+		color: #e90;
+	}
+
+	&.important {
+		font-weight: bold;
+	}
+
+	&.entity {
+		cursor: help;
+	}
+}
+
+.namespace {
+	.opacity(70);
+}
+
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: fade(@bodyBackgroundColour, 50);
+}
+
+/* =============================================================================
+Tables
+========================================================================== */
+table {
+	width: @rowWidth;
+	border: @border;
+	padding: @padding;
+	margin-bottom: @margin;
+	thead {
+
+	}
+}
+
+.large {
+	font-size: 15em;
+}
+
+//example module
+.module {
+	position: relative;
+	.box;
+	&.feature-star {
+		&:after {
+			position: absolute;
+			font-family: "icomoon";
+			content: @icon-star;
+			font-size: @fontSizeLarge;
+			color: spin(@textColour, 40);
+			#transition > .transition(all @transition-time ease);
+			text-shadow: 0 0 @borderRadius spin(lighten(@textColour, 40), 40%);
+			top: 0;
+			left: @borderRadius;
+		}
+		&:hover {
+			&:after {
+				font-size: (@fontSizeLarge * 4);
+				left: 4%;
+				#transform > .rotate(-90deg);
+				content: @icon-star-2;
+			}
+		}
+	}
+}
+
+.question {
+	h3 {
+		font-size: @fontSizeLarge;
+		.box-shadow(inset 0 -1em 6em -3em #000);
+	}
+}
+
+header {
+	&.centred {
+		line-height: 2;
+	}
+}
