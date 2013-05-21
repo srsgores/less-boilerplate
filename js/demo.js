@@ -127,10 +127,19 @@ jQuery(document).ready(function ($)
 		});
 
 	}
+	
+	function initFAQAccordion() {
+		var $questions = $(".question h3"), $answers = $(".answer").toggle();
+		$questions.on("click", function (e)
+		{
+			$(this).parent().find(".answer").toggle("slow");
+		});
+	}
 
 	updateVars();
 	addExpandButton();
 	toggleStyleEdit();
 	generateCSS();
+	initFAQAccordion();
 });
 

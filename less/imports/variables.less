@@ -105,7 +105,7 @@ Colours
 @codeColour: lighten(@textColour, 60%);
 //background colour.  Should be the opposite of primary colour for good results
 @bodyBackgroundImage: url("http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/subtle_dots.png");
-@bodyBackgroundColour: spin(@textColour, 180); //inverse of text coliour
+@bodyBackgroundColour: negation(@textColour, #FFF); //inverse of text coliour
 
 /* =============================================================================
 CSS3 PIE settings
