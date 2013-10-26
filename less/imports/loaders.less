@@ -29,7 +29,7 @@ CSS loaders
 	-ms-animation: spin 1s linear infinite;
 	-o-animation: spin 1s linear infinite;
 	animation: spin 1s linear infinite;
-	position: absolute;
+	&:extend(.absolute);;
 	top: 50%;
 	left: 50%;
 	#transition > .transition(top 2s ease);
@@ -56,7 +56,7 @@ CSS loaders
 .loader3 {
 	border-left-color: transparent;
 	&:after, &:after {
-		display: block;
+		&:extend(.block);
 		content: " ";
 		width: 9px;
 		height: 9px;
@@ -172,7 +172,7 @@ Spinners from dropTheBit
 	&:before, &:after {
 		content: '?';
 		line-height: 3;
-		position: absolute;
+		&:extend(.absolute);;
 		text-align: left;
 		font-size: 2em;
 		font-weight: bold;
@@ -266,7 +266,7 @@ Spinners from dropTheBit
 		text-align: center;
 		width: @em;
 		height: @em;
-		position: absolute;
+		&:extend(.absolute);;
 		top: 0;
 		line-height: @em;
 		font-weight: bold;
@@ -315,7 +315,7 @@ Spinners from dropTheBit
 		content: '';
 		width: 0;
 		height: 100%;
-		position: absolute;
+		&:extend(.absolute);;
 		top: 0;
 		left: -6em; //increase to fill progress
 		.box-shadow(0 0 6em 2em #111);
@@ -354,7 +354,7 @@ Spinners from dropTheBit
 	-webkit-animation: .5s rotateRight infinite linear;
 	&:before {
 		content: '';
-		display: block;
+		&:extend(.block);
 		width: 6px;
 		height: 6px;
 		margin: @borderRadius;
@@ -373,7 +373,7 @@ Spinners from dropTheBit
 	-webkit-animation: .5s sp3Rorate infinite linear;
 	&:before {
 		content: '';
-		display: block;
+		&:extend(.block);
 		width: 2em;
 		height: 2em;
 		margin: @borderRadius;
@@ -392,12 +392,12 @@ Spinners from dropTheBit
 	.border-radius(@em);
 	&:before, &:after {
 		content: 'loading...';
-		display: block;
+		&:extend(.block);
 		line-height: 2;
 		width: 6em;
 		color: #714C7C;
 		font-weight: bold;
-		position: absolute;
+		&:extend(.absolute);;
 		top: 0;
 		right: -6em;
 		height: 100%;

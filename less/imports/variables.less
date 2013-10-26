@@ -39,41 +39,20 @@
 @container-lateral-padding: @em;
 @col-margin-right: 3.8%;
 @col-unit: ((@rowWidth + @col-margin-right) / @num-cols);
-@col-identifier: "col";
+@col-identifier: col;
 
-@col-name-1: "one";
-@col-name-2: "two";
-@col-name-3: "three";
-@col-name-4: "four";
-@col-name-5: "five";
-@col-name-6: "six";
-@col-name-7: "seven";
-@col-name-8: "eight";
-@col-name-9: "nine";
-@col-name-10: "ten";
-@col-name-11: "eleven";
-@col-name-12: "twelve";
-@col-name-13: "thirteen";
-@col-name-14: "fourteen";
-@col-name-15: "fifteen";
-@col-name-16: "sixteen";
-@col-name-17: "seventeen";
-@col-name-18: "eighteen";
-@col-name-19: "nineteen";
-@col-name-20: "twenty";
-@col-name-21: "twentyone";
-@col-name-22: "twentytwo";
-@col-name-23: "twentythree";
-@col-name-24: "twentyfour";
+@col-names: one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve,thirteen,fourteen,fifteen,sixteen,seventeen,eighteen,nineteen,twenty,twentyone,twentytwo,twentythree,twentyfour;
 
-@col-identifier-named-numbers: false; //example(true): 3col; example(false): col3
+@col-identifier-named-numbers: true; //example(true): 3col; example(false): col3
 
-@column-selector-number-at-end: false; //example(true): threecol; example(false): colthree
+@column-selector-number-at-end: true; //example(true): threecol; example(false): colthree
 
 @container-max-width: 61em;
 
 /* Basic measurements */
 
+@measurements: mini, small, normal, large, extra-large;
+@measurementLevels: 4; //add extra levels to give yourself more customization in measurements.  Must be length of measurements
 @padding: @em;
 @paddingLarge: @padding * @multiplier;
 @paddingSmall: @padding / @multiplier;
@@ -130,7 +109,7 @@ Buttons
 /* =============================================================================
 Borders
 ========================================================================== */
-@borderStyle: ~"solid";
+@borderStyle: solid;
 @borderWidth: 1px;
 @borderColour: lighten(@textColour, 65%);
 @border: @borderWidth @borderStyle @borderColour;

@@ -1,42 +1,51 @@
 /* Layout
 ----------------------------------------------------------------------------------------------------*/
+
+.col {
+	float: left;
+	margin-right: @col-margin-right;
+	min-height: 1px;
+	&:extend(.transition-all);
+	&:extend(.border-box);
+}
+
+//last class for fallback, and for IE when needed.
+.last {
+	margin-right: 0;
+}
+
 .row {
 	padding: 0 ((@line/2)/@em);
 	width: @rowWidth;
-	.border-box; //margin: remember that this will be exclusive to media queries still, as it depends on the resolution!
+	&:extend(.border-box); //margin: remember that this will be exclusive to media queries still, as it depends on the resolution!
 	overflow: hidden;
-	.generate-grid(@column-selector-number-at-end) when (@column-selector-number-at-end = true) {
+	.generate-grid(@column-selector-number-at-end, @col-identifier-named-numbers) when (@column-selector-number-at-end = true), (@col-identifier-named-numbers = false) {
+		//bootstrap syntax
+		//ex: span1, span2, etc.
 		.setGrid(@index) when (@index >= 1) {
-			(~".@{col-identifier}@{col-name-@{index}}") {
+			.@{col-identifier}@{index} {
 				width: (@col-unit * @index - @col-margin-right);
-				float: left;
-				margin-right: @col-margin-right;
-				min-height: 1px;
-				.transition-all(@transition-time);
-				.border-box;
+				&:extend(.col);
 			}
 			//alternative to not having a .last class:
-			(~".@{col-identifier}@{col-name-@{index}}:last-child, .row .@{col-identifier}@{col-name-@{index}}.last") {
-				margin-right: 0;
+			.@{col-identifier}@{index}:last-child, .row .@{col-identifier}@{index}.last {
+				&:extend(.last);
 			}
 			.setGrid(@index - 1);
 		}
 		.setGrid(0) {}
 		.setGrid(@num-cols);
 	}
-	.generate-grid(@column-selector-number-at-end) when (@column-selector-number-at-end = false) {
+	.generate-grid(@column-selector-number-at-end, @col-identifier-named-numbers) when (@column-selector-number-at-end = false), (@col-identifier-named-numbers = false) {
+		//ex: _1col
 		.setGrid(@index) when (@index >= 1) {
-			(~".@{col-name-@{index}}@{col-identifier}") {
+			._@{index}@{col-identifier} {
 				width: (@col-unit * @index - @col-margin-right);
-				float: left;
-				min-height: 1px;
-				margin-right: @col-margin-right;
-				.transition-all(@transition-time);
-				.border-box;
+				&:extend(.col);
 			}
 			//alternative to not having a .last class:
-			(~".@{col-name-@{index}}@{col-identifier}:last-child, .row .@{col-name-@{index}}@{col-identifier}.last") {
-				margin-right: 0;
+			._@{index}@{col-identifier}:last-child, .row ._@{index}@{col-identifier}.last {
+				&:extend(.last);
 			}
 			.setGrid(@index - 1);
 		}
@@ -44,18 +53,16 @@
 		.setGrid(@num-cols);
 	}
 	.generate-grid(@column-selector-number-at-end, @col-identifier-named-numbers) when (@col-identifier-named-numbers = true), (@column-selector-number-at-end = true) {
+		//ex: sixcol
 		.setGrid(@index) when (@index >= 1) {
-			(~".@{index}@{col-identifier}") {
+			@name: extract(@col-names, @index); //gives something like "six"
+			.@{name}@{col-identifier} {
 				width: (@col-unit * @index - @col-margin-right);
-				float: left;
-				margin-right: @col-margin-right;
-				min-height: 1px;
-				.transition-all(@transition-time);
-				.border-box;
+				&:extend(.col);
 			}
 			//alternative to not having a .last class:
-			(~".@{index}@{col-identifier}:last-child, .row .@{index}@{col-identifier}.last") {
-				margin-right: 0;
+			.@{name}@{col-identifier}:last-child, .row .@{name}@{col-identifier}.last {
+				&:extend(.last);
 			}
 			.setGrid(@index - 1);
 		}
@@ -63,28 +70,21 @@
 		.setGrid(@num-cols);
 	}
 	.generate-grid(@column-selector-number-at-end, @col-identifier-named-numbers) when (@col-identifier-named-numbers = true), (@column-selector-number-at-end = false) {
+		//ex: colsix
 		.setGrid(@index) when (@index >= 1) {
-			(~".@{col-identifier}@{index}") {
+			@name: extract(@col-names, @index); //gives something like "six"
+			.@{col-identifier}@{name} {
 				width: (@col-unit * @index - @col-margin-right);
-				float: left;
-				min-height: 1px;
-				margin-right: @col-margin-right;
-				.transition-all(@transition-time);
-				.border-box;
+				&:extend(.col);
 			}
 			//alternative to not having a .last class:
-			(~".@{col-identifier}@{index}:last-child, .row .@{col-identifier}@{index}.last") {
-				margin-right: 0;
+			.@{col-identifier}@{name}:last-child, .row .@{col-identifier}@{name}.last {
+				&:extend(.last);
 			}
 			.setGrid(@index - 1);
 		}
 		.setGrid(0) {}
 		.setGrid(@num-cols);
 	}
-	.generate-grid(@column-selector-number-at-end);
-}
-
-//last class for fallback, and for IE when needed.
-.last {
-	margin-right: 0 !important;
+	.generate-grid(@column-selector-number-at-end, @col-identifier-named-numbers);
 }

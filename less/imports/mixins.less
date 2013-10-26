@@ -17,26 +17,10 @@
 
 --------------------------------------------------------------------------------------------------------------------- */
 
-//imports - help for PHPStorm
-/*@import "variables.less";
-@import "mixins.less";*/
-
 /* =============================================================================
 Site-wide rules
 ========================================================================== */
-
-.pie() when (@pie = true) {
-	background: url(@pieDirectory);
-}
-.padding-fix {
-	-moz-background-clip: padding;
-	-webkit-background-clip: padding-box;
-	background-clip: padding-box;
-	.pie();
-	.border-box;
-}
-
-.border-radius(@borderRadius: @borderRadius){
+.border-radius(@borderRadius: @borderRadius) {
 	-webkit-border-radius: @borderRadius;
 	-moz-border-radius: @borderRadius;
 	-khtml-border-radius: @borderRadius;
@@ -44,6 +28,7 @@ Site-wide rules
 	border-radius: @borderRadius;
 	.padding-fix;
 }
+
 // Single Corner Border Radius
 .border-top-left-radius(@radius: @borderRadius) {
 	-webkit-border-top-left-radius: @radius;
@@ -52,6 +37,7 @@ Site-wide rules
 	border-top-left-radius: @radius;
 	.padding-fix;
 }
+
 .border-top-right-radius(@radius: @borderRadius) {
 	-webkit-border-top-right-radius: @radius;
 	-moz-border-radius-topright: @radius;
@@ -59,6 +45,7 @@ Site-wide rules
 	border-top-right-radius: @radius;
 	.padding-fix;
 }
+
 .border-bottom-right-radius(@radius: @borderRadius) {
 	-webkit-border-bottom-right-radius: @radius;
 	-moz-border-radius-bottomright: @radius;
@@ -66,6 +53,7 @@ Site-wide rules
 	border-bottom-right-radius: @radius;
 	.padding-fix;
 }
+
 .border-bottom-left-radius(@radius: @borderRadius) {
 	-webkit-border-bottom-left-radius: @radius;
 	-moz-border-radius-bottomleft: @radius;
@@ -76,22 +64,22 @@ Site-wide rules
 
 // Single Side Border Radius
 
-.border-radius-left(@radius: @borderRadius){
+.border-radius-left(@radius: @borderRadius) {
 	.border-top-left-radius(@radius);
 	.border-bottom-left-radius(@radius);
 }
 
-.border-radius-top(@radius: @borderRadius){
+.border-radius-top(@radius: @borderRadius) {
 	.border-top-right-radius(@radius);
 	.border-top-left-radius(@radius);
 }
 
-.border-radius-bottom(@radius: @borderRadius){
+.border-radius-bottom(@radius: @borderRadius) {
 	.border-bottom-right-radius(@radius);
 	.border-bottom-left-radius(@radius);
 }
 
-.border-radius-right(@radius: @borderRadius){
+.border-radius-right(@radius: @borderRadius) {
 	.border-top-right-radius(@radius);
 	.border-bottom-right-radius(@radius);
 }
@@ -110,12 +98,14 @@ Site-wide rules
 	-o-border-image-source: @url;
 	border-image-source: @url;
 }
+
 .border-image-slice(...) {
 	-webkit-border-image-slice: @arguments;
 	-moz-border-image-slice: @arguments;
 	-o-border-image-slice: @arguments;
 	border-image-slice: @arguments;
 }
+
 .border-image-width(...) {
 	-webkit-border-image-width: @arguments;
 	-moz-border-image-width: @arguments;
@@ -145,37 +135,6 @@ Site-wide rules
 	background-origin: @arguments;
 }
 
-/* =============================================================================
-Transitions and Transforms
-========================================================================== */
-.transition-all(@time:@transition-time){
-	-webkit-transition: all @time linear;
-	-moz-transition: all @time linear;
-	-ms-transition: all @time linear;
-	-o-transition: all @time linear;
-	transition: all @time linear;
-}
-
-.right-icon(@icon-ascii){
-	content: @icon-ascii;
-	font-size: 1.2em;
-	font-family: "FontAwesome";
-	float: right;
-}
-
-.left-icon(@icon-ascii){
-	content: @icon-ascii;
-	font-size: 1.2em;
-	font-family: "FontAwesome";
-	float: left;
-}
-
-.border-box {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	.pie();
-}
 // UTILITY MIXINS
 // --------------------------------------------------
 
@@ -194,17 +153,57 @@ Transitions and Transforms
 	}
 }
 
-// Webkit-style focus
-// ------------------
-.tab-focus(){ // Default
-	outline: thin dotted fade(@textColour, 40%); // Webkit
-	outline: @paddingMini auto -webkit-focus-ring-color;
-	outline-offset: -2px;
+// Sizing shortcuts
+// -------------------------
+.size(@height, @width) {
+	width: @width;
+	height: @height;
 }
 
-// Center-align a block level element
+.square(@size) {
+	.size(@size, @size);
+}
+
+// Placeholder
+// -------------------------
+.placeholder(@textColour: @textColour, @fontFamily: @baseFontFamily, @fontSize: @baseFontSize) {
+	&::-webkit-input-placeholder {
+		color: @textColour;
+		font-family: @fontFamily;
+		font-size: @baseFontSize;
+	}
+
+	&:-moz-placeholder {
+		/* Firefox 18- */
+		color: @textColour;
+		font-family: @fontFamily;
+		font-size: @baseFontSize;
+	}
+
+	&::-moz-placeholder {
+		/* Firefox 19+ */
+		color: @textColour;
+		font-family: @fontFamily;
+		font-size: @baseFontSize;
+	}
+
+	&:-ms-input-placeholder {
+		color: @textColour;
+		font-family: @fontFamily;
+		font-size: @baseFontSize;
+	}
+}
+
+.text-size-adjust(@value: none) {
+	-moz-text-size-adjust: @value;
+	-webkit-text-size-adjust: @value;
+	-ms-text-size-adjust: @value;
+	text-size-adjust: @value;
+}
+
+// Centre-align a block level element
 // ----------------------------------
-.center-block(){
+.centre-block() {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -212,7 +211,7 @@ Transitions and Transforms
 
 // IE7 inline-block
 // ----------------
-.ie7-inline-block(){
+.ie7-inline-block() {
 	*display: inline; /* IE7 inline-block hack */
 	*zoom: 1;
 	stop: being-broken;
@@ -224,75 +223,12 @@ Transitions and Transforms
 	vertical-align: @alignment;
 	.ie7-inline-block();
 }
-// IE7 likes to collapse whitespace on either side of the inline-block elements.
-// Ems because we're attempting to match the width of a space character. Left
-// version is for form buttons, which typically come after other elements, and
-// right version is for icons, which come before. Applying both is ok, but it will
-// mean that space between those elements will be .6em (~2 space characters) in IE7,
-// instead of the 1 space in other browsers.
-.ie7-restore-left-whitespace(){
-	*margin-left: .3em;
-
-	&:first-child {
-		*margin-left: 0;
-	}
-}
-
-.ie7-restore-right-whitespace(){
-	*margin-right: .3em;
-
-	&:last-child {
-		*margin-left: 0;
-	}
-}
-
-// Sizing shortcuts
-// -------------------------
-.size(@height, @width){
-	width: @width;
-	height: @height;
-}
-
-.square(@size){
-	.size(@size, @size);
-}
-
-// Placeholder text
-// -------------------------
-.placeholder(@colour: fade(@textColour, 40%)){
-	:-moz-placeholder {
-		color: @colour;
-	}
-	::-webkit-input-placeholder {
-		color: @colour;
-	}
-}
-
-// Text overflow
-// -------------------------
-// Requires inline-block or block for proper styling
-.text-overflow(){
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
-
-// CSS image replacement
-// -------------------------
-// Source: https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757
-.hide-text {
-	font: 0/0 a;
-	color: transparent;
-	text-shadow: none;
-	background-color: transparent;
-	border: 0;
-}
 
 // CSS3 PROPERTIES
 // --------------------------------------------------
 
 // Drop shadows
-.box-shadow(...){
+.box-shadow(...) {
 	-webkit-box-shadow: @arguments;
 	-moz-box-shadow: @arguments;
 	-khtml-box-shadow: @arguments;
@@ -303,35 +239,35 @@ Transitions and Transforms
 
 // Transitions
 #transition {
-	.transition(...){
+	.transition(...) {
 		-webkit-transition: @arguments;
 		-moz-transition: @arguments;
 		-ms-transition: @arguments;
 		-o-transition: @arguments;
 		transition: @arguments;
 	}
-	.transition-property(...){
+	.transition-property(...) {
 		-webkit-transition-property: @arguments;
 		-moz-transition-property: @arguments;
 		-ms-transition-property: @arguments;
 		-o-transition-property: @arguments;
 		transition-property: @arguments;
-	}	
-	.transition-duration(...){
+	}
+	.transition-duration(...) {
 		-webkit-transition-duration: @arguments;
 		-moz-transition-duration: @arguments;
 		-ms-transition-duration: @arguments;
 		-o-transition-duration: @arguments;
 		transition-duration: @arguments;
-	}	
-	.transition-timing-function(...){
+	}
+	.transition-timing-function(...) {
 		-webkit-transition-timing-function: @arguments;
 		-moz-transition-timing-function: @arguments;
 		-ms-transition-timing-function: @arguments;
 		-o-transition-timing-function: @arguments;
 		transition-timing-function: @arguments;
-	}	
-	.transition-delay(...){
+	}
+	.transition-delay(...) {
 		-webkit-transition-delay: @arguments;
 		-moz-transition-delay: @arguments;
 		-ms-transition-delay: @arguments;
@@ -439,7 +375,7 @@ Transitions and Transforms
 		transform-style: @style;
 	}
 
-	.translate(@x, @y){
+	.translate(@x, @y) {
 		-webkit-transform: translate(@x, @y);
 		-moz-transform: translate(@x, @y);
 		-ms-transform: translate(@x, @y);
@@ -447,14 +383,14 @@ Transitions and Transforms
 		transform: translate(@x, @y);
 	}
 
-	.rotate(@degrees){
+	.rotate(@degrees) {
 		-webkit-transform: rotate(@degrees);
 		-moz-transform: rotate(@degrees);
 		-ms-transform: rotate(@degrees);
 		-o-transform: rotate(@degrees);
 		transform: rotate(@degrees);
 	}
-	.perspective(...){
+	.perspective(...) {
 		-webkit-perspective: @arguments;
 		-moz-perspective: @arguments;
 		-ms-perspective: @arguments;
@@ -462,7 +398,7 @@ Transitions and Transforms
 		perspective: @arguments;
 	}
 
-	.scale(@ratio){
+	.scale(@ratio) {
 		-webkit-transform: scale(@ratio);
 		-moz-transform: scale(@ratio);
 		-ms-transform: scale(@ratio);
@@ -470,7 +406,7 @@ Transitions and Transforms
 		transform: scale(@ratio);
 	}
 
-	.skew(@x, @y){
+	.skew(@x, @y) {
 		-webkit-transform: skew(@x, @y);
 		-moz-transform: skew(@x, @y);
 		-ms-transform: skew(@x, @y);
@@ -478,7 +414,7 @@ Transitions and Transforms
 		transform: skew(@x, @y);
 	}
 
-	.translate3d(@x, @y, @z){
+	.translate3d(@x, @y, @z) {
 		-webkit-transform: translate(@x, @y, @z);
 		-moz-transform: translate(@x, @y, @z);
 		-ms-transform: translate(@x, @y, @z);
@@ -573,11 +509,12 @@ Transitions and Transforms
 		filter: drop-shadow(@arguments);
 	}
 }
+
 // Backface visibility
 // Prevent browsers from flickering when using CSS 3D transforms.
 // Default value is `visible`, but can be changed to `hidden
 // See git pull https://github.com/dannykeane/bootstrap.git backface-visibility for examples
-.backface-visibility(@visibility){
+.backface-visibility(@visibility) {
 	-webkit-backface-visibility: @visibility;
 	-moz-backface-visibility: @visibility;
 	-ms-backface-visibility: @visibility;
@@ -586,14 +523,14 @@ Transitions and Transforms
 
 // Background clipping
 // Heads up: FF 3.6 and under need "padding" instead of "padding-box"
-.background-clip(@clip){
+.background-clip(@clip) {
 	-webkit-background-clip: @clip;
 	-moz-background-clip: @clip;
 	background-clip: @clip;
 }
 
 // Background sizing
-.background-size(@size){
+.background-size(@size) {
 	-webkit-background-size: @size;
 	-moz-background-size: @size;
 	-o-background-size: @size;
@@ -601,7 +538,7 @@ Transitions and Transforms
 }
 
 // Box sizing
-.box-sizing(@boxmodel){
+.box-sizing(@boxmodel) {
 	-webkit-box-sizing: @boxmodel;
 	-moz-box-sizing: @boxmodel;
 	-ms-box-sizing: @boxmodel;
@@ -610,7 +547,7 @@ Transitions and Transforms
 
 // User select
 // For selecting text on the page
-.user-select(@select){
+.user-select(@select) {
 	-webkit-user-select: @select;
 	-moz-user-select: @select;
 	-ms-user-select: @select;
@@ -619,13 +556,13 @@ Transitions and Transforms
 }
 
 // Resize anything
-.resizable(@direction){
+.resizable(@direction) {
 	resize: @direction; // Options: horizontal, vertical, both
 	overflow: auto; // Safari fix
 }
 
 // CSS3 Content Columns
-.content-columns(@columnCount, @columnGap: @col-margin-right){
+.content-columns(@columnCount, @columnGap: @col-margin-right) {
 	-webkit-column-count: @columnCount;
 	-moz-column-count: @columnCount;
 	column-count: @columnCount;
@@ -635,7 +572,7 @@ Transitions and Transforms
 }
 
 // Opacity
-.opacity(@opacity){
+.opacity(@opacity) {
 	opacity: @opacity / 100;
 	filter: ~"alpha(opacity=@{opacity})";
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{opacity})";
@@ -646,10 +583,10 @@ Transitions and Transforms
 
 // Add an alphatransparency value to any background or border color (via Elyse Holladay)
 #translucent {
-	.background(@color: @white, @alpha: 1){
+	.background(@color: @white, @alpha: 1) {
 		background-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
 	}
-	.border(@color: @white, @alpha: 1){
+	.border(@color: @white, @alpha: 1) {
 		border-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
 		.background-clip(padding-box);
 	}
@@ -658,7 +595,7 @@ Transitions and Transforms
 // Gradients
 #gradient {
 	.pie();
-	.horizontal(@startColor: #555, @endColor: #333){
+	.horizontal(@startColor: #555, @endColor: #333) {
 		background-color: @endColor;
 		background-image: -moz-linear-gradient(left, @startColor, @endColor); // FF 3.6+
 		background-image: -ms-linear-gradient(left, @startColor, @endColor); // IE10
@@ -669,7 +606,7 @@ Transitions and Transforms
 		background-repeat: repeat-x;
 		filter: e(%("progid:DXImageTransform.Microsoft.gradient(startcolorstr='%d', endcolorstr='%d', GradientType=1)",@startColor,@endColor)); // IE9 and down
 	}
-	.vertical(@startColor: #555, @endColor: #333){
+	.vertical(@startColor: #555, @endColor: #333) {
 		background-color: mix(@startColor, @endColor, 60%);
 		background-image: -moz-linear-gradient(top, @startColor, @endColor); // FF 3.6+
 		background-image: -ms-linear-gradient(top, @startColor, @endColor); // IE10
@@ -680,7 +617,7 @@ Transitions and Transforms
 		background-repeat: repeat-x;
 		filter: e(%("progid:DXImageTransform.Microsoft.gradient(startcolorstr='%d', endcolorstr='%d', GradientType=0)",@startColor,@endColor)); // IE9 and down
 	}
-	.directional(@startColor: #555, @endColor: #333, @deg: 45deg){
+	.directional(@startColor: #555, @endColor: #333, @deg: 45deg) {
 		background-color: @endColor;
 		background-repeat: repeat-x;
 		background-image: -moz-linear-gradient(@deg, @startColor, @endColor); // FF 3.6+
@@ -689,7 +626,7 @@ Transitions and Transforms
 		background-image: -o-linear-gradient(@deg, @startColor, @endColor); // Opera 11.10
 		background-image: linear-gradient(@deg, @startColor, @endColor); // The standard
 	}
-	.vertical-three-colours(@startColor: #00b3ee, @midColor: #7a43b6, @colourstop: 50%, @endColor: #c3325f){
+	.vertical-three-colours(@startColor: #00b3ee, @midColor: #7a43b6, @colourstop: 50%, @endColor: #c3325f) {
 		background-color: mix(@midColor, @endColor, 80%);
 		background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), color-stop(@colourstop, @midColor), to(@endColor));
 		background-image: -webkit-linear-gradient(@startColor, @midColor @colourstop, @endColor);
@@ -700,7 +637,7 @@ Transitions and Transforms
 		background-repeat: no-repeat;
 		filter: e(%("progid:DXImageTransform.Microsoft.gradient(startcolorstr='%d', endcolorstr='%d', GradientType=0)",@startColor,@endColor)); // IE9 and down, gets no color-stop at all for proper fallback
 	}
-	.radial(@innerColor: #555, @outerColor: #333){
+	.radial(@innerColor: #555, @outerColor: #333) {
 		background-color: @outerColor;
 		background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(@innerColor), to(@outerColor));
 		background-image: -webkit-radial-gradient(circle, @innerColor, @outerColor);
@@ -709,7 +646,7 @@ Transitions and Transforms
 		background-image: -o-radial-gradient(circle, @innerColor, @outerColor);
 		background-repeat: no-repeat;
 	}
-	.striped(@color, @angle: -45deg){
+	.striped(@color, @angle: -45deg) {
 		background-color: @color;
 		background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, rgba(255, 255, 255, .15)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .15)), color-stop(.75, rgba(255, 255, 255, .15)), color-stop(.75, transparent), to(transparent));
 		background-image: -webkit-linear-gradient(@angle, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
@@ -720,11 +657,6 @@ Transitions and Transforms
 	}
 }
 
-// Reset filters for IE
-.reset-filter(){
-	filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
-}
-
 /* =============================================================================
 Fonts
 ========================================================================== */
@@ -732,17 +664,10 @@ Fonts
 #font {
 	.font-face(@fontName, @fontFile) {
 		src: url("@{fontFile}-webfont.eot");
-		src: url("@{fontFile}-webfont.eot?#iefix") format("embedded-opentype"),
-		url("@{fontFile}-webfont.woff") format("woff"),
-		url("@{fontFile}-webfont.ttf") format("truetype"),
-		url("@{fontFile}-webfont.svg#@{fontName}") format("svg");
+		src: url("@{fontFile}-webfont.eot?#iefix") format("embedded-opentype"), url("@{fontFile}-webfont.woff") format("woff"), url("@{fontFile}-webfont.ttf") format("truetype"), url("@{fontFile}-webfont.svg#@{fontName}") format("svg");
 		font-weight: normal;
 		font-style: normal;
 	}
-}
-
-.centred {
-	text-align: center;
 }
 
 .appearance(@argument:none) {

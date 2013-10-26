@@ -402,11 +402,11 @@
 				<pre class = "language-css"><code>
 					//example module
 					.module {
-					position: relative;
+					&:extend(.relative);;
 					.box;
 					&.feature-star {
 					&:after {
-					position: absolute;
+					&:extend(.absolute);;
 					font-family: "icomoon";
 					content: @icon-star-2;
 					font-size: @fontSizeLarge;
@@ -874,7 +874,7 @@
 <script src = "js/components/jquery/jquery.min.js"></script>
 <script src = "js/components/webshim/src/polyfiller.js"></script>
 <script src = "js/loader.js"></script>
-<script src = "js/components/less.js/dist/less-1.3.3.min.js"></script>
+<script src = "js/components/less.js/dist/less-1.5.0.min.js"></script>
 <script src = "js/main.js"></script>
 <script src = "js/demo.js"></script>
 <script src = "js/components/prism/prism.js"></script>
