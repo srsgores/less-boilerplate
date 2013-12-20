@@ -1,0 +1,49 @@
+/*------------------------------------------------------------------------------------------------------------------------
+	Author: Sean Goresht
+	www: http://seangoresht.com/
+	github: https://github.com/srsgores
+
+	twitter: http://twitter.com/S.Goresht
+
+	LESS Boilerplate
+	Licensed under the GNU Public License
+
+	=============================================================================
+	Filename:  type.less
+	=============================================================================
+	This file is responsible for all typography styles.
+--------------------------------------------------------------------------------------------------------------------- */
+p {
+	line-height: @baseLineHeight;
+	padding-bottom: @padding;
+}
+
+/* Type */
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: @headingsFontWeight;
+}
+
+
+.headingsX(@index) when (@index > 0) {
+	h@{index} {
+		font-size: ((@em * @multiplierLarge) - ((@index * ((@em * @multiplier) / 6 ))));
+		&.title {
+			font-size: (((@em * @multiplier) - ((@index * ((@em * @multiplierSmall) / 6 ))) + (@em * @multiplier)) * @multiplier);
+		}
+	}
+	.headingsX(@index - 1);
+}
+.headingsX(0) {}
+.headingsX(6);
+
+a {
+	color: @linkColour;
+	text-decoration: none;
+	&:hover {
+		color: @linkColourHover;
+	}
+	&:visited {
+		color: @linkColourVisited;
+	}
+}

@@ -1,0 +1,55 @@
+/*------------------------------------------------------------------------------------------------------------------------
+	Author: Sean Goresht
+	www: http://seangoresht.com/
+	github: https://github.com/srsgores
+
+	twitter: http://twitter.com/S.Goresht
+
+	LESS Boilerplate
+	Licensed under the GNU Public License
+
+	=============================================================================
+	Filename:  forms.less
+	=============================================================================
+	This file is responsible for any styles for forms.
+--------------------------------------------------------------------------------------------------------------------- */
+
+form {
+	&:extend(.box);
+	> fieldset {
+		&:extend(.bordered);
+		&:extend(.row-width);
+		&:extend(.border-box);
+		> .formfield {
+			input {
+				&[type="search"] {
+					padding: @paddingSmall @padding;
+				}
+			}
+		}
+	}
+}
+
+input {
+	&:not([type]), &[type="color"], &[type="email"], &[type="number"], &[type="password"], &[type="tel"], &[type="url"], &[type="text"] {
+		&:extend(.row-width);
+		padding: @paddingMini @paddingSmall;
+		text-overflow: ellipsis;
+		#transition > .transition(box-shadow, border @transition-time ease);
+		&[required] {
+			&:active, &:focus {
+				border: (@borderWidth * 2) @borderStyle @secondaryColour;
+				.box-shadow(0 0 @margin @secondaryColour);
+			}
+		}
+	}
+}
+
+.form-actions, .btn-group {
+	&:extend(.bordered-top);
+	background: fade-out(@tertiaryColour, 0.2);
+	&:extend(.normal-padding-top-bottom);
+	> input, > .btn, > button {
+		margin: 0 -@marginMini 0 0;
+	}
+}

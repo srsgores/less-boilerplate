@@ -1,3 +1,4 @@
+
 //
 // Variables
 // --------------------------------------------------
@@ -10,7 +11,7 @@
 @multiplierLargePercentage: @multiplierLarge * 10%;
 
 /*Type*/
-@baseFontSize: 16px;
+@baseFontSize: 80%; //body has 80% usually for 14px
 @baseFontFamily: "Open Sans", "sans-serif", "arial";
 @fontSizeSmall: percentage(1.1 / @multiplier);
 @fontSizeMedium: percentage(1.2 / @multiplier);
@@ -50,9 +51,23 @@
 @container-max-width: 61em;
 
 /* Basic measurements */
+/*.createProperty(@property; @size) {
+	.@{size}-@{property} { //.padding-large
+		@{property}: @{property}@{size}; //padding: @paddingLarge
+	}
+}
 
 @measurements: mini, small, normal, large, extra-large;
 @measurementLevels: 4; //add extra levels to give yourself more customization in measurements.  Must be length of measurements
+.generateSizes(@index, @property, @measurements) when (@index > @measurementLevels) {
+	//function that takes any property, and creates sized versions
+	.createProperty(@property, @measurements);
+	.generateSizes(@index - 1);
+}
+
+.generateSizes(@measurementLevels) {}
+.generateSizes();*/
+
 @padding: @em;
 @paddingLarge: @padding * @multiplier;
 @paddingSmall: @padding / @multiplier;
@@ -60,11 +75,11 @@
 
 @margin: @em;
 @marginLarge: @margin * @multiplier;
+@marginSmall: @margin / @multiplier;
+@marginMini: @margin / @multiplierLarge;
 
-@paddingPercentage: 6%;
-@paddingSmallPercentage: 1.6%;
-@paddingMiniPercentage: 0.3%;
-
+@margin: @em;
+@marginLarge: @margin * @multiplier;
 
 @borderRadius: (@margin / @multiplierLarge);
 @borderRadiusSmall: @borderRadius * 0.75;
@@ -72,7 +87,7 @@
 
 /* Transitions*/
 @transitionTime: 0.5s;
-
+@transitionFunction: ease;
 /* =============================================================================
 Colours
 ========================================================================== */
@@ -83,22 +98,14 @@ Colours
 @tertiaryColour: #CCC;
 @codeColour: lighten(@textColour, 60%);
 //background colour.  Should be the opposite of primary colour for good results
-@bodyBackgroundImage: url("http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/subtle_dots.png");
+@bodyBackgroundImage: "";
 @bodyBackgroundColour: negation(@textColour, #FFF); //inverse of text coliour
 
 /* =============================================================================
 CSS3 PIE settings
 ========================================================================== */
-@pie: false; //enable support for IE6-8 via CSS3 PIE?
-@pieDirectory: "PIE.htc";
-
-/* =============================================================================
-shadow
-========================================================================== */
-@shadow: 0 0 @marginLarge @textColour;
-
-/* Transitions */
-@transition-time: 0.5s;
+@pie: true; //enable support for IE6-8 via CSS3 PIE?
+@pieDirectory: "/PIE.htc";
 
 /* =============================================================================
 Buttons

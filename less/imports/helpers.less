@@ -14,33 +14,110 @@ Measurement Creator
 }*/
 
 /* =============================================================================
-Helpers
-========================================================================== */
-.pie() when (@pie = true) {
-	background: url(@pieDirectory);
-}
-
-.border-box {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	.pie();
-}
-
-.padding-fix {
-	-moz-background-clip: padding;
-	-webkit-background-clip: padding-box;
-	background-clip: padding-box;
-	.pie();
-}
-
-/* =============================================================================
 Transitions
 ========================================================================== */
 .transition-all {
 	#transition > .transition(all @transitionTime linear);
 }
 
+/* =============================================================================
+Type
+========================================================================== */
+.small {
+	font-size: @fontSizeSmall;
+}
+
+.medium {
+	font-size: @fontSizeMedium;
+}
+
+.large {
+	font-size: @fontSizeLarge;
+}
+
+/* =============================================================================
+Paddings
+========================================================================== */
+.padding-none {
+	padding: 0;
+}
+
+.normal-padding {
+	padding: @padding;
+}
+
+.normal-padding-top-bottom {
+	padding: @padding 0;
+}
+
+.normal-padding-left-right {
+	padding: 0 @padding;
+}
+
+.padding-small {
+	padding: @paddingSmall;
+}
+
+.padding-large {
+	padding: @paddingLarge
+}
+/* =============================================================================
+Margins
+========================================================================== */
+.margin-none {
+	margin: 0;
+}
+
+.normal-margin {
+	margin: @margin;
+}
+
+.normal-margin-bottom {
+	margin-bottom: @margin;
+}
+
+.normal-margin-top-bottom {
+	margin: @margin 0;
+}
+
+.normal-margin-left-right {
+	margin: 0 @margin;
+}
+
+.margin-small {
+	margin: @marginSmall;
+}
+
+.margin-large {
+	margin: @marginLarge
+}
+
+/* =============================================================================
+Border radius
+========================================================================== */
+.rounded {
+	.border-radius();
+}
+
+.rounded-left {
+	.border-radius-left();
+}
+
+.rounded-right {
+	.border-radius-right();
+}
+
+.rounded-none {
+	.border-radius(0);
+}
+
+.rounded-small {
+	.border-radius(@borderRadiusSmall);
+}
+
+.rounded-large {
+	.border-radius(@borderRadiusLarge);
+}
 /* =============================================================================
 Layout
 ========================================================================== */
@@ -59,7 +136,7 @@ Layout
 }
 
 .inline {
-@include inline-block();
+	.inline-block();
 }
 
 // IE7 likes to collapse whitespace on either side of the inline-block elements.
@@ -118,44 +195,35 @@ Text
 }
 
 /* =============================================================================
+Borders
+========================================================================== */
+.bordered {
+	border: @border;
+}
+
+.bordered-right {
+	border-right: @border;
+}
+
+.bordered-left {
+	border-left: @border;
+}
+
+.bordered-top {
+	border-top: @border;
+}
+
+.bordered-bottom {
+	border-bottom: @border;
+}
+
+.border-none {
+	border: 0;
+}
+
+/* =============================================================================
 Display
 ========================================================================== */
-
-/* Hide only visually, but have it available for screenreaders: by Jon Neal.
-www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden */
-.visuallyhidden {
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	&:extend(.absolute);;
-	width: 1px;
-	left: -500%;
-
-	&.focusable {
-		&:active, &:focus {
-			/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: drupal.org/node/897638 */
-			clip: auto;
-			height: auto;
-			margin: 0;
-			overflow: visible;
-			position: static;
-			width: auto;
-		}
-	}
-}
-
-/* For image replacement */
-.ir {
-	display: block;
-	text-indent: -99in;
-	overflow: hidden;
-	background-repeat: no-repeat;
-	text-align: left;
-	direction: ltr;
-}
 
 /* Hide for both screenreaders and browsers:
    css-discuss.incutio.com/wiki/Screenreader_Visibility */
@@ -194,33 +262,6 @@ Opacity/visibility
 }
 
 /* =============================================================================
-Borders
-========================================================================== */
-.bordered {
-	border: @border;
-}
-
-.bordered-right {
-	border-right: @border;
-}
-
-.bordered-left {
-	border-left: @border;
-}
-
-.bordered-top {
-	border-top: @border;
-}
-
-.bordered-bottom {
-	border-bottom: @border;
-}
-
-.border-none {
-	border: 0;
-}
-
-/* =============================================================================
 Floats
 ========================================================================== */
 .pull-left {
@@ -248,6 +289,45 @@ Positions
 
 .static {
 	position: static;
+}
+
+/* =============================================================================
+Display Hacks
+========================================================================== */
+/* Hide only visually, but have it available for screenreaders: by Jon Neal.
+www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden */
+.visuallyhidden {
+	&:extend(.border-none);
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	&:extend(.overflow-hidden);
+	&:extend(.padding-none);
+	&:extend(.absolute);;
+	width: 1px;
+	left: -500%;
+
+	&.focusable {
+		&:active, &:focus {
+			/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: drupal.org/node/897638 */
+			clip: auto;
+			height: auto;
+			&:extend(.margin-none);
+			&:extend(.overflow-visible);
+			&:extend(.static);
+			width: auto;
+		}
+	}
+}
+
+/* For image replacement */
+.ir {
+	&:extend(.block);
+	text-indent: -99in;
+	&:extend(.overflow-hidden);
+	background-repeat: no-repeat;
+	text-align: left;
+	direction: ltr;
 }
 
 /* =============================================================================

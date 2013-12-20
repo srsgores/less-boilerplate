@@ -17,6 +17,24 @@
 
 --------------------------------------------------------------------------------------------------------------------- */
 
+.pie() when (@pie = true) {
+	background: url(@pieDirectory);
+}
+
+.border-box {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	.pie();
+}
+
+.padding-fix {
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	.pie();
+}
+
 /* =============================================================================
 Site-wide rules
 ========================================================================== */
@@ -170,27 +188,27 @@ Site-wide rules
 	&::-webkit-input-placeholder {
 		color: @textColour;
 		font-family: @fontFamily;
-		font-size: @baseFontSize;
+		font-size: @fontSize;
 	}
 
 	&:-moz-placeholder {
 		/* Firefox 18- */
 		color: @textColour;
 		font-family: @fontFamily;
-		font-size: @baseFontSize;
+		font-size: @fontSize;
 	}
 
 	&::-moz-placeholder {
 		/* Firefox 19+ */
 		color: @textColour;
 		font-family: @fontFamily;
-		font-size: @baseFontSize;
+		font-size: @fontSize;
 	}
 
 	&:-ms-input-placeholder {
 		color: @textColour;
 		font-family: @fontFamily;
-		font-size: @baseFontSize;
+		font-size: @fontSize;
 	}
 }
 
@@ -201,10 +219,15 @@ Site-wide rules
 	text-size-adjust: @value;
 }
 
+.text-shadow(...) {
+	-webkit-text-shadow: @arguments;
+	-moz-text-shadow: @arguments;
+	text-shadow: @arguments;
+}
 // Centre-align a block level element
 // ----------------------------------
 .centre-block() {
-	display: block;
+	&:extend(.block);
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -283,6 +306,25 @@ Site-wide rules
 		-o-animation: @arguments;
 		-ms-animation: @arguments;
 		animation: @arguments;
+	}
+	.keyframes(@name, @from, @to, @vendor:"", @bind:"") {
+		@keyf: ~"@{bind}@@{vendor}keyframes @{name} { `'\n'`from ";
+		@{keyf} {
+			.from(@name, @from);
+		}
+		to {
+			.to(@name, @to);
+		}
+	}
+
+	.animation-keyframes(@name, @from, @to) {
+		@bind: "} `'\n'`";
+		#animation > .keyframes(@name, @from, @to, "-moz-");
+		#animation > .keyframes(@name, @from, @to, "-webkit-", @bind);
+		#animation > .keyframes(@name, @from, @to, "-o-", @bind);
+		#animation > .keyframes(@name, @from, @to, "-ms-", @bind);
+		#animation > .keyframes(@name, @from, @to, "", @bind);
+		@anim: ~"} `'\n'`";
 	}
 
 	.animation-delay(...) {
@@ -674,4 +716,36 @@ Fonts
 	-webkit-appearance: @argument;
 	-moz-appearance: @argument;
 	appearance: @argument;
+}
+
+/* =============================================================================
+Tabs
+========================================================================== */
+.tab-size(@indent-amount: 4) {
+	-moz-tab-size: @indent-amount;
+	-o-tab-size: @indent-amount;
+	tab-size: @indent-amount;
+}
+
+/* =============================================================================
+Hyphens
+========================================================================== */
+
+.word-break(@value: break-all, @alternate: break-word) {
+	-ms-word-break: @value;
+	word-break: @value;
+	word-break: @alternate;
+}
+.hyphens(@mode: auto) {
+	.word-break();
+	-webkit-hyphens: @mode;
+	-ms-hyphens: @mode;
+	-moz-hyphens: @mode;
+	hyphens: @mode;
+}
+
+.pointer-events(@argument:none) {
+	-ms-pointer-events: @arguments;
+	-webkit-pointer-events: @arguments;
+	pointer-events: @arguments;
 }

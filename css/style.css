@@ -11,82 +11,8 @@
 	=============================================================================
 
 --------------------------------------------------------------------------------------------------------------------- */
-/* Multipliers: Use to scale sizes as desired */
-/*Type*/
-/*Grid*/
-/* Basic measurements */
-/* Transitions*/
-/* =============================================================================
-Colours
-========================================================================== */
-/* =============================================================================
-CSS3 PIE settings
-========================================================================== */
-/* =============================================================================
-shadow
-========================================================================== */
-/* Transitions */
-/* =============================================================================
-Buttons
-========================================================================== */
-/* =============================================================================
-Borders
-========================================================================== */
-/*------------------------------------------------------------------------------------------------------------------------
-
-    Author: Sean Goresht
-    www: https://seangoresht.com/
-    github: https://github.com/srsgores
-
-    twitter: http://twitter.com/S.Goresht
-
-    Licensed under the GPL License
-    Date: August 10, 2012
-
-    ======================================
-    File:  mixins.less
-    ======================================
-    This file will allows for more readable code.  Use these by placing the . operator with the selected class you would like to apply.
-    Also, make sure to include this file: @include "mixins.less"
-
---------------------------------------------------------------------------------------------------------------------- */
-/* =============================================================================
-Site-wide rules
-========================================================================== */
-/* Border Image */
-/* Background Origin */
-.clearfix {
-  *zoom: 1;
-}
-.clearfix:before,
-.clearfix:after {
-  display: table;
-  content: "";
-}
-.clearfix:after {
-  clear: both;
-}
-/* =============================================================================
-Fonts
-========================================================================== */
-/* =============================================================================
-Measurement Creator
-========================================================================== */
-/*.generateMixins(@property, @directions: top, bottom, top-bottom, left, right, left-right) {
-	.setMeasurements(@index) when (@index > @measurementLevels) {
-		@size: extract(@measurements, @index); //now we have something like padding
-		//.paddingLarge: @paddingLarge;
-		@direction: extract(@directions, @index);
-		.@{property}-@{size}: @@{property}-@{size};
-		.setMeasurements(@index - 1);
-	}
-	.setMeasurements(@measurementLevels) {}
-	.setMeasurements();
-}*/
-/* =============================================================================
-Helpers
-========================================================================== */
-.border-box,
+input[type="checkbox"],
+input[type="radio"],
 .col,
 .row,
 .container,
@@ -129,16 +55,8 @@ Helpers
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  background: url("/PIE.htc");
 }
-.padding-fix {
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-}
-/* =============================================================================
-Transitions
-========================================================================== */
-.transition-all,
 .col,
 .row .col12,
 .row .col11,
@@ -182,241 +100,159 @@ Transitions
   -o-transition: all 0.5s linear;
   transition: all 0.5s linear;
 }
-/* =============================================================================
-Layout
-========================================================================== */
-.tab-focus {
-  outline: thin dotted rgba(0, 0, 0, 0.4);
-  outline: 0.3663003663003662em auto -webkit-focus-ring-color;
-  outline-offset: -2px;
+.loader1:after {
+  font-size: 92.3076923076923%;
 }
-.block,
-.loader3:after,
-.loader3:after,
-.loader12:before,
-.loader13:before,
-.loader14:before,
-.loader14:after {
-  display: block;
-}
-.inline {
-  
-}@include inline-block();
-/* =============================================================================
-Text
-========================================================================== */
-.text-overflow {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.hide-text {
-  font: 0/0 a;
-  color: transparent;
-  text-shadow: none;
-  background-color: transparent;
-  border: 0;
-}
-.centred {
-  text-align: center;
-}
-/* =============================================================================
-Display
-========================================================================== */
-/* Hide only visually, but have it available for screenreaders: by Jon Neal.
-www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden */
-.visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
+.visuallyhidden,
+legend,
+input[type="checkbox"],
+input[type="radio"],
+button::-moz-focus-inner,
+input::-moz-focus-inner {
   padding: 0;
-  width: 1px;
-  left: -500%;
+}
+.box {
+  padding: 1em;
+}
+article {
+  padding: 1em 0;
 }
 .visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-  /* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: drupal.org/node/897638 */
-  clip: auto;
-  height: auto;
+.visuallyhidden.focusable:focus,
+body,
+figure,
+button,
+input,
+select,
+textarea {
   margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto;
 }
-/* For image replacement */
-.ir {
+.box {
+  margin: 1em;
+}
+header,
+footer,
+aside {
+  margin-bottom: 1em;
+}
+.ir,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary,
+.loader3:after,
+.loader3:after {
   display: block;
-  text-indent: -99in;
-  overflow: hidden;
-  background-repeat: no-repeat;
-  text-align: left;
-  direction: ltr;
 }
-/* Hide for both screenreaders and browsers:
-   css-discuss.incutio.com/wiki/Screenreader_Visibility */
-.hidden {
-  display: none;
+audio,
+canvas,
+video,
+.loader5 {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: auto;
+  *display: inline;
+  *zoom: 1;
+  stop: being-broken;
 }
-.show-phone {
-  display: none;
-}
-/* =============================================================================
-Overflow
-========================================================================== */
-.overflow-visible {
-  overflow: visible;
-}
-.overflow-hidden {
-  overflow: hidden;
-}
-/* =============================================================================
-Opacity/visibility
-========================================================================== */
-.opacity-0 {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-}
-.opacity-05 {
-  opacity: 0.5;
-  filter: alpha(opacity=50);
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-}
-.opacity-1 {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-}
-/* =============================================================================
-Borders
-========================================================================== */
-.bordered,
-.button,
+fieldset,
 button,
-.btn,
-input[type="submit"],
-.bordered,
-.box,
-.button,
-button,
-.btn,
 input[type="submit"],
 .box {
   border: 1px solid #a6a6a6;
 }
-.bordered-right,
-.menu li a {
+.menu > li > a {
   border-right: 1px solid #a6a6a6;
 }
-.bordered-left {
-  border-left: 1px solid #a6a6a6;
-}
-.bordered-top {
-  border-top: 1px solid #a6a6a6;
-}
-.bordered-bottom,
-.border-bottom,
+.visuallyhidden,
 legend,
-header,
-footer,
-article,
-section {
-  border-bottom: 1px solid #a6a6a6;
-}
-.border-none {
+button::-moz-focus-inner,
+input::-moz-focus-inner,
+.loader6 {
   border: 0;
 }
-/* =============================================================================
-Floats
-========================================================================== */
-.pull-left,
-.actions.float-left input[type="submit"],
-.form-actions.float-left input[type="submit"],
-.toolbar.float-left input[type="submit"],
-.btn-group.float-left input[type="submit"],
-.actions input.float-left input[type="submit"],
-.actions.float-right input[type="submit"],
-.form-actions.float-right input[type="submit"],
-.toolbar.float-right input[type="submit"],
-.btn-group.float-right input[type="submit"],
-.actions input.float-right input[type="submit"],
-.actions.float-left .btn,
-.form-actions.float-left .btn,
-.toolbar.float-left .btn,
-.btn-group.float-left .btn,
-.actions input.float-left .btn,
-.actions.float-right .btn,
-.form-actions.float-right .btn,
-.toolbar.float-right .btn,
-.btn-group.float-right .btn,
-.actions input.float-right .btn,
-.actions.float-left button,
-.form-actions.float-left button,
-.toolbar.float-left button,
-.btn-group.float-left button,
-.actions input.float-left button,
-.actions.float-right button,
-.form-actions.float-right button,
-.toolbar.float-right button,
-.btn-group.float-right button,
-.actions input.float-right button {
+audio:not([controls]),
+[hidden] {
+  display: none;
+}
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  overflow: visible;
+}
+.visuallyhidden,
+.ir,
+svg:not(:root),
+.row {
+  overflow: hidden;
+}
+.col,
+.row .col12,
+.row .col11,
+.row .col10,
+.row .col9,
+.row .col8,
+.row .col7,
+.row .col6,
+.row .col5,
+.row .col4,
+.row .col3,
+.row .col2,
+.row .col1,
+.row .twelvecol,
+.row .elevencol,
+.row .tencol,
+.row .ninecol,
+.row .eightcol,
+.row .sevencol,
+.row .sixcol,
+.row .fivecol,
+.row .fourcol,
+.row .threecol,
+.row .twocol,
+.row .onecol,
+.row .coltwelve,
+.row .coleleven,
+.row .colten,
+.row .colnine,
+.row .coleight,
+.row .colseven,
+.row .colsix,
+.row .colfive,
+.row .colfour,
+.row .colthree,
+.row .coltwo,
+.row .colone {
   float: left;
 }
-.pull-right {
-  float: right;
-}
-/* =============================================================================
-Positions
-========================================================================== */
-.absolute,
 .visuallyhidden,
+.loader,
+.loader5:before,
+.loader5:after,
 .loader1,
 .loader2,
 .loader3,
 .loader4,
-.loader5,
-.loader5:before,
-.loader5:after,
-.loader8:before,
-.loader8:after,
-.loader9:before,
-.loader14:before,
-.loader14:after {
+.loader5 {
   position: absolute;
 }
-.fixed {
-  position: fixed;
-}
-.relative,
 sub,
-sup,
-.toolbar,
-.btn-group,
-.actions input {
+sup {
   position: relative;
 }
-.static {
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
   position: static;
 }
-/* =============================================================================
-Lists
-========================================================================== */
-.no-list-style {
-  list-style: none;
-}
-/* =============================================================================
-Links
-========================================================================== */
-.text-decoration-none {
+button,
+input[type="submit"] {
   text-decoration: none;
-}
-/* =============================================================================
-Widths
-========================================================================== */
-.row-width {
-  width: 100%;
 }
 /**
 * @package   yoo_master
@@ -1512,41 +1348,19 @@ table {
 /**
  * Correct `block` display not defined in IE 8/9.
  */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-nav,
-section,
-summary {
-  display: block;
-}
 /**
  * Correct `inline-block` display not defined in IE 8/9.
  */
-audio,
-canvas,
-video {
-  display: inline-block;
-}
 /**
  * Prevent modern browsers from displaying `audio` without controls.
  * Remove excess height in iOS 5 devices.
  */
 audio:not([controls]) {
-  display: none;
   height: 0;
 }
 /**
  * Address styling not present in IE 8/9.
  */
-[hidden] {
-  display: none;
-}
 /* ==========================================================================
    Base
    ========================================================================== */
@@ -1558,17 +1372,14 @@ audio:not([controls]) {
 html {
   font-family: sans-serif;
   /* 1 */
+  -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  /* 2 */
   -ms-text-size-adjust: 100%;
-  /* 2 */
+  text-size-adjust: 100%;
 }
 /**
  * Remove default margin.
  */
-body {
-  margin: 0;
-}
 /* ==========================================================================
    Links
    ========================================================================== */
@@ -1679,18 +1490,12 @@ img {
 /**
  * Correct overflow displayed oddly in IE 9.
  */
-svg:not(:root) {
-  overflow: hidden;
-}
 /* ==========================================================================
    Figures
    ========================================================================== */
 /**
  * Address margin not present in IE 8/9 and Safari 5.
  */
-figure {
-  margin: 0;
-}
 /* ==========================================================================
    Forms
    ========================================================================== */
@@ -1698,7 +1503,6 @@ figure {
  * Define consistent border, margin, and padding.
  */
 fieldset {
-  border: 1px solid #c0c0c0;
   margin: 0 0.1em;
   padding: 0.35em 0.625em 0.75em;
 }
@@ -1706,12 +1510,6 @@ fieldset {
  * 1. Correct `color` not being inherited in IE 8/9.
  * 2. Remove padding so people aren't caught out if they zero out fieldsets.
  */
-legend {
-  border: 0;
-  /* 1 */
-  padding: 0;
-  /* 2 */
-}
 /**
  * 1. Correct font family not being inherited in all browsers.
  * 2. Correct font size not being inherited in all browsers.
@@ -1725,8 +1523,6 @@ textarea {
   /* 1 */
   font-size: 100%;
   /* 2 */
-  margin: 0;
-  /* 3 */
 }
 /**
  * Address Firefox 4+ setting `line-height` on `input` using `!important` in
@@ -1748,7 +1544,8 @@ html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button;
-  /* 2 */
+  -moz-appearance: button;
+  appearance: button;
   cursor: pointer;
   /* 3 */
 }
@@ -1757,19 +1554,12 @@ input[type="submit"] {
  */
 button[disabled],
 html input[disabled] {
-  cursor: default;
+  cursor: not-allowed;
 }
 /**
  * 1. Address box sizing set to `content-box` in IE 8/9.
  * 2. Remove excess padding in IE 8/9.
  */
-input[type="checkbox"],
-input[type="radio"] {
-  box-sizing: border-box;
-  /* 1 */
-  padding: 0;
-  /* 2 */
-}
 /**
  * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
  * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
@@ -1777,28 +1567,26 @@ input[type="radio"] {
  */
 input[type="search"] {
   -webkit-appearance: textfield;
-  /* 1 */
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  /* 2 */
-  box-sizing: content-box;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  background: url("/PIE.htc");
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 /**
  * Remove inner padding and search cancel button in Safari 5 and Chrome
  * on OS X.
  */
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
 /**
  * Remove inner padding and border in Firefox 4+.
  */
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
 /**
  * 1. Remove default vertical scrollbar in IE 8/9.
  * 2. Improve readability and alignment in all browsers.
@@ -1858,7 +1646,6 @@ table {
 .row .colthree,
 .row .coltwo,
 .row .colone {
-  float: left;
   margin-right: 3.8%;
   min-height: 1px;
 }
@@ -1940,7 +1727,6 @@ table {
 .row {
   padding: 0 0.7em;
   width: 100%;
-  overflow: hidden;
 }
 .row .col12 {
   width: 100.00000000000001%;
@@ -2066,6 +1852,7 @@ table {
 /* =============================================================================
 CSS loaders
 ========================================================================== */
+.loader,
 .loader1,
 .loader2,
 .loader3,
@@ -2084,15 +1871,16 @@ CSS loaders
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  -webkit-box-shadow: 0 0 25px 2px #eeeeee;
-  -moz-box-shadow: 0 0 25px 2px #eeeeee;
-  -khtml-box-shadow: 0 0 25px 2px #eeeeee;
-  -o-box-shadow: 0 0 25px 2px #eeeeee;
-  box-shadow: 0 0 25px 2px #eeeeee;
+  -webkit-box-shadow: 0 0 1.5em 0.1em #dddddd;
+  -moz-box-shadow: 0 0 1.5em 0.1em #dddddd;
+  -khtml-box-shadow: 0 0 1.5em 0.1em #dddddd;
+  -o-box-shadow: 0 0 1.5em 0.1em #dddddd;
+  box-shadow: 0 0 1.5em 0.1em #dddddd;
+  background: url("/PIE.htc");
   -webkit-animation: spin 1s linear infinite;
   -moz-animation: spin 1s linear infinite;
-  -ms-animation: spin 1s linear infinite;
   -o-animation: spin 1s linear infinite;
+  -ms-animation: spin 1s linear infinite;
   animation: spin 1s linear infinite;
   top: 50%;
   left: 50%;
@@ -2102,19 +1890,14 @@ CSS loaders
   -o-transition: top 2s ease;
   transition: top 2s ease;
 }
-.loader1.hidden,
-.loader2.hidden,
-.loader3.hidden,
-.loader4.hidden,
-.loader5.hidden {
+.loader.hidden {
   top: -200%;
 }
 .container.loading {
   cursor: wait;
 }
-.loader1::after {
-  content: 'Loading...';
-  font-size: 0.8em;
+.loader1:after {
+  content: "Loading...";
   font-weight: 300;
 }
 .loader2 {
@@ -2138,22 +1921,85 @@ CSS loaders
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
+  background: url("/PIE.htc");
 }
-.loader3::after {
+.loader3:after {
   border-left-color: transparent;
   border-right-color: transparent;
 }
 .loader4 {
   border-bottom-color: transparent;
 }
-.loader4::after {
-  width: 13px;
-  height: 13px;
+.loader4:after {
+  width: 1em;
+  height: 1em;
   margin: 1px;
-  border-width: 8px;
+  border-width: 0.4761904761904761em;
   border-top-color: transparent;
   border-left-color: transparent;
 }
+.loader5 {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  -khtml-border-radius: 2em;
+  -o-border-radius: 2em;
+  border-radius: 2em;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  -khtml-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  background: url("/PIE.htc");
+}
+.loader5:before,
+.loader5:after {
+  content: "?";
+  line-height: 3;
+  text-align: left;
+  font-size: 2em;
+  font-weight: bold;
+}
+.loader5:before {
+  color: rgba(0, 0, 0, 0.3);
+  -webkit-animation: 0.6s 0.1s rotateLeft infinite linear;
+  -moz-animation: 0.6s 0.1s rotateLeft infinite linear;
+  -o-animation: 0.6s 0.1s rotateLeft infinite linear;
+  -ms-animation: 0.6s 0.1s rotateLeft infinite linear;
+  animation: 0.6s 0.1s rotateLeft infinite linear;
+  text-shadow: 92.3076923076923% -1em;
+}
+.loader5:after {
+  color: rgba(0, 0, 0, 0.5);
+  -webkit-animation: 0.6s rotateRight infinite linear;
+  -moz-animation: 0.6s rotateRight infinite linear;
+  -o-animation: 0.6s rotateRight infinite linear;
+  -ms-animation: 0.6s rotateRight infinite linear;
+  animation: 0.6s rotateRight infinite linear;
+  text-shadow: 23px -1em #111111, 17px -21px rgba(0, 0, 0, 0.3), 8px 0.3663003663003662em rgba(0, 0, 0, 0.3);
+}
+.loader6 {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -khtml-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  background: url("/PIE.htc");
+}
+.loader6:before {
+  -webkit-animation: 0.7s 0.05s rotateRight infinite linear;
+  -moz-animation: 0.7s 0.05s rotateRight infinite linear;
+  -o-animation: 0.7s 0.05s rotateRight infinite linear;
+  -ms-animation: 0.7s 0.05s rotateRight infinite linear;
+  animation: 0.7s 0.05s rotateRight infinite linear;
+}
+/* =============================================================================
+Loader Animations
+========================================================================== */
 @-webkit-keyframes spin {
   from {
     -webkit-transform: rotate(0deg);
@@ -2224,399 +2070,288 @@ CSS loaders
     opacity: 0.2;
   }
 }
-/* =============================================================================
-Spinners from dropTheBit
-========================================================================== */
-.loader5 {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-  border-top: 1px solid rgba(0, 0, 0, 0.3);
-  display: -moz-inline-stack;
-  display: inline-block;
-  vertical-align: auto;
-  *display: inline;
-  /* IE7 inline-block hack */
-  *zoom: 1;
-  stop: being-broken;
-  -webkit-border-radius: 2em;
-  -moz-border-radius: 2em;
-  -khtml-border-radius: 2em;
-  -o-border-radius: 2em;
-  border-radius: 2em;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-  -khtml-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-  -o-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+@-moz-keyframes rotateRight { 
+from  {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
 }
-.loader5:before,
-.loader5:after {
-  content: '?';
-  line-height: 3;
-  text-align: left;
-  font-size: 2em;
-  font-weight: bold;
+to {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
 }
-.loader5:before {
-  color: rgba(0, 0, 0, 0.3);
-  animation: .6s .1s rotateLeft infinite linear;
-  -webkit-animation: .6s .1s rotateLeft infinite linear;
-  text-shadow: 22px -16px;
+} 
+@-webkit-keyframes rotateRight { 
+from  {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
 }
-.loader5:after {
-  color: rgba(0, 0, 0, 0.5);
-  animation: .6s rotateRight infinite linear;
-  -webkit-animation: .6s rotateRight infinite linear;
-  text-shadow: 23px -1em #111111, 17px -21px rgba(0, 0, 0, 0.3), 8px 0.3663003663003662em rgba(0, 0, 0, 0.3);
+to {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
 }
-@keyframes rotateRight {
-  0% {
-    transform: rotate(0deg);
-    transform-origin: 50% 50%;
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+} 
+@-o-keyframes rotateRight { 
+from  {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
 }
-@-webkit-keyframes rotateRight {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -webkit-transform-origin: 50% 50%;
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
+to {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
 }
-@keyframes rotateLeft {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(-360deg);
-  }
+} 
+@-ms-keyframes rotateRight { 
+from  {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
 }
-@-webkit-keyframes rotateLeft {
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(-360deg);
-  }
+to {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
 }
-.loader6 {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  -khtml-box-shadow: none;
-  -o-box-shadow: none;
-  box-shadow: none;
-  border: 0;
+} 
+@keyframes rotateRight { 
+from  {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
 }
-.loader6:before {
-  animation: .7s .05s rotateRight infinite linear;
-  -webkit-animation: .7s .05s rotateRight infinite linear;
+to {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
 }
-@keyframes sp3Rorate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+@-moz-keyframes rotateLeft { 
+from  {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
 }
-@-webkit-keyframes sp3Rorate {
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
+to {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
 }
-.loader8 {
-  width: 2em;
-  height: 2em;
+} 
+@-webkit-keyframes rotateLeft { 
+from  {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
 }
-.loader8:before,
-.loader8:after {
-  content: '?';
-  font-size: 2em;
-  text-align: center;
-  width: 1em;
-  height: 1em;
-  top: 0;
-  line-height: 1em;
-  font-weight: bold;
-  color: #1A1A1A;
+to {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
 }
-.loader8:before {
-  left: 0;
-  animation: 1s sp4Frames infinite linear;
+} 
+@-o-keyframes rotateLeft { 
+from  {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
 }
-.loader8:after {
-  left: 1em;
-  animation: 1s .5s sp4Frames infinite linear;
+to {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
 }
-@keyframes sp4Frames {
-  0% {
-    left: 1em;
-  }
-  25% {
-    left: 10px;
-    font-size: 3.5em;
-    opacity: 1;
-  }
-  50% {
-    left: 0;
-  }
-  75% {
-    left: 10px;
-    font-size: 1em;
-    opacity: 0.1;
-  }
-  100% {
-    left: 1em;
-  }
+} 
+@-ms-keyframes rotateLeft { 
+from  {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
 }
-.loader9 {
-  width: 6em;
-  height: 0.3663003663003662em;
-  border: 2px solid transparent;
-  -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
-  -khtml-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
-  -o-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
-  -webkit-border-radius: 0.4761904761904761em;
-  -moz-border-radius: 0.4761904761904761em;
-  -khtml-border-radius: 0.4761904761904761em;
-  -o-border-radius: 0.4761904761904761em;
-  border-radius: 0.4761904761904761em;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  overflow: hidden;
+to {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
 }
-.loader9:before {
-  content: '';
-  width: 0;
-  height: 100%;
-  top: 0;
-  left: -6em;
-  -webkit-box-shadow: 0 0 6em 2em #111111;
-  -moz-box-shadow: 0 0 6em 2em #111111;
-  -khtml-box-shadow: 0 0 6em 2em #111111;
-  -o-box-shadow: 0 0 6em 2em #111111;
-  box-shadow: 0 0 6em 2em #111111;
+} 
+@keyframes rotateLeft { 
+from  {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
 }
-.loader10 {
-  width: 1em;
-  height: 1em;
-  border: 1em solid rgba(0, 0, 0, 0);
-  -webkit-border-radius: 2em;
-  -moz-border-radius: 2em;
-  -khtml-border-radius: 2em;
-  -o-border-radius: 2em;
-  border-radius: 2em;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5) inset;
-  animation: 1s sp6Frames infinite linear;
+to {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
 }
-@keyframes sp7Frames {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    font-size: 3.6em;
-    opacity: 1;
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+/*--------------------------------------------------------------------------------------------------------------------
+	Author: Sean Goresht
+	www: http://seangoresht.com/
+	github: https://github.com/srsgores
+
+	twitter: http://twitter.com/S.Goresht
+
+	LESS Boilerplate
+	Licensed under the GNU Public License
+
+	=============================================================================
+	Filename:  buttons.less
+	=============================================================================
+	This file is responsible for all button styles.
+--------------------------------------------------------------------------------------------------------------------- */
+button,
+input[type="submit"] {
+  background: #000000;
+  cursor: pointer;
+  color: #cccccc;
+  font-size: 92.3076923076923%;
+  font-weight: 500;
+  margin: 0 1em 0 0;
+  padding: 0.7692307692307692em 1em;
+  text-shadow: 0 1px 0 #000000;
+  -webkit-transition: background, box-shadow, background-image, border-color 0.5s, 0.5s, 0.5s, 0.5s ease;
+  -moz-transition: background, box-shadow, background-image, border-color 0.5s, 0.5s, 0.5s, 0.5s ease;
+  -ms-transition: background, box-shadow, background-image, border-color 0.5s, 0.5s, 0.5s, 0.5s ease;
+  -o-transition: background, box-shadow, background-image, border-color 0.5s, 0.5s, 0.5s, 0.5s ease;
+  transition: background, box-shadow, background-image, border-color 0.5s, 0.5s, 0.5s, 0.5s ease;
 }
-.loader12 {
-  border: 0.3663003663003662em solid #000000;
-  border-color: #000 #000 transparent transparent;
-  opacity: 0.4;
-  filter: alpha(opacity=40);
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
-  -webkit-border-radius: 2em;
-  -moz-border-radius: 2em;
-  -khtml-border-radius: 2em;
-  -o-border-radius: 2em;
-  border-radius: 2em;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  animation: .5s rotateRight infinite linear;
-  -webkit-animation: .5s rotateRight infinite linear;
-}
-.loader12:before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  margin: 0.3663003663003662em;
-  -webkit-border-radius: 2em;
-  -moz-border-radius: 2em;
-  -khtml-border-radius: 2em;
-  -o-border-radius: 2em;
-  border-radius: 2em;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  border: 0.3663003663003662em solid #000000;
-  border-color: transparent transparent #000 #000;
-  animation: .22s rotateLeft infinite linear;
-  -webkit-animation: .22s rotateLeft infinite linear;
-}
-.loader13 {
-  -webkit-border-radius: 2em;
-  -moz-border-radius: 2em;
-  -khtml-border-radius: 2em;
-  -o-border-radius: 2em;
-  border-radius: 2em;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  overflow: hidden;
-  animation: .5s sp3Rorate infinite linear;
-  -webkit-animation: .5s sp3Rorate infinite linear;
-}
-.loader13:before {
-  content: '';
-  width: 2em;
-  height: 2em;
-  margin: 0.3663003663003662em;
-  -webkit-border-radius: 2em;
-  -moz-border-radius: 2em;
-  -khtml-border-radius: 2em;
-  -o-border-radius: 2em;
-  border-radius: 2em;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  -webkit-box-shadow: -10px 35px 25px 10px #000000;
-  -moz-box-shadow: -10px 35px 25px 10px #000000;
-  -khtml-box-shadow: -10px 35px 25px 10px #000000;
-  -o-box-shadow: -10px 35px 25px 10px #000000;
-  box-shadow: -10px 35px 25px 10px #000000;
-}
-.loader14 {
-  height: 22px;
-  width: 85px;
-  overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4) inset;
-  border-bottom: 1px solid #582E65;
-  -webkit-border-radius: 1em;
-  -moz-border-radius: 1em;
-  -khtml-border-radius: 1em;
-  -o-border-radius: 1em;
-  border-radius: 1em;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-}
-.loader14:before,
-.loader14:after {
-  content: 'loading...';
-  line-height: 2;
-  width: 6em;
-  color: #714C7C;
-  font-weight: bold;
-  top: 0;
-  right: -6em;
-  height: 100%;
-  letter-spacing: -0.5px;
-  animation: 1.5s sp10Frames infinite linear;
-  -webkit-animation: 1.5s sp10Frames infinite linear;
-}
-.loader14:before {
-  animation: 1.5s .75s sp10Frames infinite linear;
-  -webkit-animation: 1.5s .75s sp10Frames infinite linear;
-}
-@keyframes sp10Frames {
-  100% {
-    right: 6.25em;
-  }
-}
-@-webkit-keyframes sp10Frames {
-  100% {
-    right: 6.25em;
-  }
-}
-.loader16 {
-  width: 2em;
-  height: 2em;
-  -webkit-border-radius: 2em;
-  -moz-border-radius: 2em;
-  -khtml-border-radius: 2em;
-  -o-border-radius: 2em;
-  border-radius: 2em;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.6);
-  -webkit-box-shadow: inset -10px 0 0 10px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: inset -10px 0 0 10px rgba(0, 0, 0, 0.5);
-  -khtml-box-shadow: inset -10px 0 0 10px rgba(0, 0, 0, 0.5);
-  -o-box-shadow: inset -10px 0 0 10px rgba(0, 0, 0, 0.5);
-  box-shadow: inset -10px 0 0 10px rgba(0, 0, 0, 0.5);
-  animation: .5s rotateRight infinite linear;
+button:hover,
+input[type="submit"]:hover,
+button:focus,
+input[type="submit"]:focus,
+button:active,
+input[type="submit"]:active {
+  background: #000000;
+  border-color: #000000;
+  color: #cccccc;
+  text-shadow: 0 1px #000000;
 }
 /*------------------------------------------------------------------------------------------------------------------------
 	Author: Sean Goresht
 	www: http://seangoresht.com/
 	github: https://github.com/srsgores
 	twitter: http://twitter.com/S.Goresht
-	
+
+	LESS Boilerplate
 	Licensed under the GNU Public License
-	
+
 	=============================================================================
 	Filename:  menu
 	=============================================================================
-	
+	This file is responsible for all menu styles.
 --------------------------------------------------------------------------------------------------------------------- */
-.menu:first-child a {
-  -webkit-border-top-right-radius: 0;
-  -moz-border-radius-topright: 0;
-  -khtml-border-radius-topright: 0;
-  border-top-right-radius: 0;
-  -webkit-border-bottom-right-radius: 0;
-  -moz-border-radius-bottomright: 0;
-  -khtml-border-radius-bottomright: 0;
-  border-bottom-right-radius: 0;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-}
-.menu:last-child a {
-  -webkit-border-top-left-radius: 0;
-  -moz-border-radius-topleft: 0;
-  -khtml-border-radius-topleft: 0;
-  border-top-left-radius: 0;
-  -webkit-border-bottom-left-radius: 0;
-  -moz-border-radius-bottomleft: 0;
-  -khtml-border-radius-bottomleft: 0;
-  border-bottom-left-radius: 0;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-}
-.menu li a {
+.menu > li > a {
   background: rgba(221, 221, 221, 0.4);
 }
-body {
-  /*max-width: 71.25em;*/
-  margin: 0 auto;
-  color: #000000;
-  background: url("http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/subtle_dots.png");
-  background: #ffffff;
-  line-height: 1.4;
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
-}
+/*------------------------------------------------------------------------------------------------------------------------
+	Author: Sean Goresht
+	www: http://seangoresht.com/
+	github: https://github.com/srsgores
+
+	twitter: http://twitter.com/S.Goresht
+
+	LESS Boilerplate
+	Licensed under the GNU Public License
+
+	=============================================================================
+	Filename:  type.less
+	=============================================================================
+	This file is responsible for all typography styles.
+--------------------------------------------------------------------------------------------------------------------- */
 p {
   line-height: 1.4;
   padding-bottom: 1em;
@@ -2676,468 +2411,23 @@ a:hover {
 a:visited {
   color: #595959;
 }
-.button,
-button,
-.btn,
-input[type="submit"] {
-  background: #000000;
-  cursor: pointer;
-  font-size: 92.3076923076923%;
-  font-weight: 400;
-  margin: 0 1em 0 0;
-  padding: 0.4761904761904761em 1em;
-  text-shadow: 0 1px 0 #fff;
-  text-decoration: none;
-  background-color: #e5e5e5;
-  background-image: -moz-linear-gradient(top, #ededed, #d9d9d9);
-  background-image: -ms-linear-gradient(top, #ededed, #d9d9d9);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ededed), to(#d9d9d9));
-  background-image: -webkit-linear-gradient(top, #ededed, #d9d9d9);
-  background-image: -o-linear-gradient(top, #ededed, #d9d9d9);
-  background-image: linear-gradient(top, #ededed, #d9d9d9);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr='#ededed', endcolorstr='#d9d9d9', GradientType=0);
-  -webkit-box-shadow: inset 0 1px 0 #ffffff 0 1px 0.3663003663003662em rgba(150, 150, 150, 0.5);
-  -moz-box-shadow: inset 0 1px 0 #ffffff 0 1px 0.3663003663003662em rgba(150, 150, 150, 0.5);
-  -khtml-box-shadow: inset 0 1px 0 #ffffff 0 1px 0.3663003663003662em rgba(150, 150, 150, 0.5);
-  -o-box-shadow: inset 0 1px 0 #ffffff 0 1px 0.3663003663003662em rgba(150, 150, 150, 0.5);
-  box-shadow: inset 0 1px 0 #ffffff 0 1px 0.3663003663003662em rgba(150, 150, 150, 0.5);
-  -webkit-border-radius: 0.4761904761904761em;
-  -moz-border-radius: 0.4761904761904761em;
-  -khtml-border-radius: 0.4761904761904761em;
-  -o-border-radius: 0.4761904761904761em;
-  border-radius: 0.4761904761904761em;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  -webkit-transition: background, box-shadow, background-image, border-color 0.5s, 0.5s, 0.5s, 0.5s ease;
-  -moz-transition: background, box-shadow, background-image, border-color 0.5s, 0.5s, 0.5s, 0.5s ease;
-  -ms-transition: background, box-shadow, background-image, border-color 0.5s, 0.5s, 0.5s, 0.5s ease;
-  -o-transition: background, box-shadow, background-image, border-color 0.5s, 0.5s, 0.5s, 0.5s ease;
-  transition: background, box-shadow, background-image, border-color 0.5s, 0.5s, 0.5s, 0.5s ease;
-}
-.button:hover,
-button:hover,
-.btn:hover,
-input[type="submit"]:hover,
-.button:focus,
-button:focus,
-.btn:focus,
-input[type="submit"]:focus,
-.button.loading,
-button.loading,
-.btn.loading,
-input[type="submit"].loading {
-  background: #2F5163;
-  border-color: #333;
-  color: #fff;
-  text-shadow: 0 1px 1px #111;
-  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25) 0 1px 4px rgba(150, 150, 150, 0.5);
-  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25) 0 1px 4px rgba(150, 150, 150, 0.5);
-  -khtml-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25) 0 1px 4px rgba(150, 150, 150, 0.5);
-  -o-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25) 0 1px 4px rgba(150, 150, 150, 0.5);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25) 0 1px 4px rgba(150, 150, 150, 0.5);
-  background-color: #396278;
-  background-image: -moz-linear-gradient(top, #3f6d86, #2f5163);
-  background-image: -ms-linear-gradient(top, #3f6d86, #2f5163);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3f6d86), to(#2f5163));
-  background-image: -webkit-linear-gradient(top, #3f6d86, #2f5163);
-  background-image: -o-linear-gradient(top, #3f6d86, #2f5163);
-  background-image: linear-gradient(top, #3f6d86, #2f5163);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr='#3f6d86', endcolorstr='#2f5163', GradientType=0);
-}
-.button:active,
-button:active,
-.btn:active,
-input[type="submit"]:active {
-  border-color: #000;
-  -webkit-box-shadow: inset 0 0 0.4761904761904761em #000000;
-  -moz-box-shadow: inset 0 0 0.4761904761904761em #000000;
-  -khtml-box-shadow: inset 0 0 0.4761904761904761em #000000;
-  -o-box-shadow: inset 0 0 0.4761904761904761em #000000;
-  box-shadow: inset 0 0 0.4761904761904761em #000000;
-}
-.actions,
-.form-actions,
-.toolbar,
-.btn-group,
-.actions input {
-  border-top: 1px solid #a6a6a6;
-  background: rgba(217, 217, 217, 0.2);
-  padding: 1em 0;
-}
-.actions.float-left,
-.form-actions.float-left,
-.toolbar.float-left,
-.btn-group.float-left,
-.actions input.float-left,
-.actions.float-right,
-.form-actions.float-right,
-.toolbar.float-right,
-.btn-group.float-right,
-.actions input.float-right {
-  background: transparent;
-  margin: 0 -1px 0 0;
-}
-.actions input,
-.form-actions input,
-.toolbar input,
-.btn-group input,
-.actions input input,
-.actions .btn,
-.form-actions .btn,
-.toolbar .btn,
-.btn-group .btn,
-.actions input .btn,
-.actions button,
-.form-actions button,
-.toolbar button,
-.btn-group button,
-.actions input button {
-  margin: 0 -0.3663003663003662em 0 0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -khtml-border-radius: 0;
-  -o-border-radius: 0;
-  border-radius: 0;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-}
-.actions input:first-child,
-.form-actions input:first-child,
-.toolbar input:first-child,
-.btn-group input:first-child,
-.actions input input:first-child,
-.actions .btn:first-child,
-.form-actions .btn:first-child,
-.toolbar .btn:first-child,
-.btn-group .btn:first-child,
-.actions input .btn:first-child,
-.actions button:first-child,
-.form-actions button:first-child,
-.toolbar button:first-child,
-.btn-group button:first-child,
-.actions input button:first-child {
-  -webkit-border-top-left-radius: 0.3663003663003662em;
-  -moz-border-radius-topleft: 0.3663003663003662em;
-  -khtml-border-radius-topleft: 0.3663003663003662em;
-  border-top-left-radius: 0.3663003663003662em;
-  -webkit-border-bottom-left-radius: 0.3663003663003662em;
-  -moz-border-radius-bottomleft: 0.3663003663003662em;
-  -khtml-border-radius-bottomleft: 0.3663003663003662em;
-  border-bottom-left-radius: 0.3663003663003662em;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-}
-.actions input:last-child,
-.form-actions input:last-child,
-.toolbar input:last-child,
-.btn-group input:last-child,
-.actions input input:last-child,
-.actions .btn:last-child,
-.form-actions .btn:last-child,
-.toolbar .btn:last-child,
-.btn-group .btn:last-child,
-.actions input .btn:last-child,
-.actions button:last-child,
-.form-actions button:last-child,
-.toolbar button:last-child,
-.btn-group button:last-child,
-.actions input button:last-child {
-  -webkit-border-top-right-radius: 0.3663003663003662em;
-  -moz-border-radius-topright: 0.3663003663003662em;
-  -khtml-border-radius-topright: 0.3663003663003662em;
-  border-top-right-radius: 0.3663003663003662em;
-  -webkit-border-bottom-right-radius: 0.3663003663003662em;
-  -moz-border-radius-bottomright: 0.3663003663003662em;
-  -khtml-border-radius-bottomright: 0.3663003663003662em;
-  border-bottom-right-radius: 0.3663003663003662em;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-}
-.toolbar,
-.btn-group,
-.actions input {
-  margin: 0;
-}
-.toolbar li,
-.btn-group li,
-.actions input li {
-  display: -moz-inline-stack;
-  display: inline-block;
-  vertical-align: auto;
-  *display: inline;
-  /* IE7 inline-block hack */
-  *zoom: 1;
-  stop: being-broken;
-}
-.toolbar li:first-child a,
-.btn-group li:first-child a,
-.actions input li:first-child a {
-  -webkit-border-top-left-radius: 0.3663003663003662em;
-  -moz-border-radius-topleft: 0.3663003663003662em;
-  -khtml-border-radius-topleft: 0.3663003663003662em;
-  border-top-left-radius: 0.3663003663003662em;
-  -webkit-border-bottom-left-radius: 0.3663003663003662em;
-  -moz-border-radius-bottomleft: 0.3663003663003662em;
-  -khtml-border-radius-bottomleft: 0.3663003663003662em;
-  border-bottom-left-radius: 0.3663003663003662em;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-}
-.toolbar li:last-child a,
-.btn-group li:last-child a,
-.actions input li:last-child a {
-  -webkit-border-top-right-radius: 0.3663003663003662em;
-  -moz-border-radius-topright: 0.3663003663003662em;
-  -khtml-border-radius-topright: 0.3663003663003662em;
-  border-top-right-radius: 0.3663003663003662em;
-  -webkit-border-bottom-right-radius: 0.3663003663003662em;
-  -moz-border-radius-bottomright: 0.3663003663003662em;
-  -khtml-border-radius-bottomright: 0.3663003663003662em;
-  border-bottom-right-radius: 0.3663003663003662em;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-}
-.toolbar li a,
-.btn-group li a,
-.actions input li a,
-.toolbar li button,
-.btn-group li button,
-.actions input li button,
-.toolbar li input[type="submit"],
-.btn-group li input[type="submit"],
-.actions input li input[type="submit"] {
-  font-size: 84.61538461538461%;
-  font-weight: 300;
-  margin-right: -1px;
-}
-/* Put anything that needs margin here */
-.box,
-.alert,
-.pagination ul,
-.dataTables_paginate {
-  margin: 1em;
-}
-/* Put anything that needs padding here */
-.box {
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  padding: 1em;
-}
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-blockquote,
-pre,
-address,
-cite,
-code,
-del,
-dfn,
-img,
-q,
-dl,
-ul,
-fieldset,
-form,
-legend,
-table,
-caption,
-summary,
-audio,
-video,
-input,
-select,
-textarea {
-  margin-bottom: 1em;
-}
-/* =============================================================================
-Border Radius
-========================================================================== */
-nav,
-button,
-.btn,
-.box,
-.rounded,
-pre,
-code,
-aside,
-menu,
-.nav,
-.menu li {
-  -webkit-border-radius: 0.3663003663003662em;
-  -moz-border-radius: 0.3663003663003662em;
-  -khtml-border-radius: 0.3663003663003662em;
-  -o-border-radius: 0.3663003663003662em;
-  border-radius: 0.3663003663003662em;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-}
-/* Anything with border radius small */
-input,
-select,
-textarea {
-  -webkit-border-radius: 0.27472527472527464em;
-  -moz-border-radius: 0.27472527472527464em;
-  -khtml-border-radius: 0.27472527472527464em;
-  -o-border-radius: 0.27472527472527464em;
-  border-radius: 0.27472527472527464em;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-}
-/* inline block stuff */
-nav,
-nav,
-nav li,
-.toolbar,
-.toolbar input,
-.toolbar li,
-.toolbar li input,
-.btn-group,
-.btn-group input {
-  display: -moz-inline-stack;
-  display: inline-block;
-  vertical-align: auto;
-  *display: inline;
-  /* IE7 inline-block hack */
-  *zoom: 1;
-  stop: being-broken;
-}
-/* centred stuff in block layout */
-.actions,
-.form-actions,
-.toolbar,
-.btn-group,
-.actions input,
-footer {
-  text-align: center;
-}
-/* =============================================================================
-Borders
-========================================================================== */
-.shadowed {
-  -webkit-box-shadow: 0 0 1.3em #000000;
-  -moz-box-shadow: 0 0 1.3em #000000;
-  -khtml-box-shadow: 0 0 1.3em #000000;
-  -o-box-shadow: 0 0 1.3em #000000;
-  box-shadow: 0 0 1.3em #000000;
-}
-/* ---------------------------------------------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------------------------------------------------
+	Author: Sean Goresht
+	www: http://seangoresht.com/
+	github: https://github.com/srsgores
 
-  88888888e.     d8b       88888888e.       d8b       8bc:..  88888    .8888888.    88888  888888888.        d8b
-  888888888b    d888b      888888888b      d888b      888888bb88888   d888888888b   88888  8888888888b      d888b
-  888888888D   d88888b     888888888D     d88888b     8888888888888  C88888888888D  88888  88888888888D    d88888b
-  88888888P   d8888888b    88888888P     d8888888b    8888888888888  C88888888888D  88888  88888888888D   d8888888b
-  888888P    d888888888b   88888888b    d888888888b   8888888888888   d888888888P   88888  8888888888b   d888888888b
-  88888     d88888888888b  888888888b  d88888888888b  8888888888888    '8888888'    88888  888888888'   d88888888888b
+	twitter: http://twitter.com/S.Goresht
 
-------------------------------------------------------------------------------------------------------------------------
 
-    Author: Rafal Bromirski
-    www: http://paranoida.com/
-    blog: http://lab.paranoida.com/
+	Licensed under the GNU Public License
 
-    twitter: http://twitter.com/paranoida
-    dribbble: http://dribbble.com/paranoida
-
-    Licensed under a MIT License
-
---------------------------------------------------------------------------------------------------------------------- */
-/*@import "variables.less";
-@import "mixins.less";*/
-/* --- main content ------------------------------------------------------------------------------------------------- */
-/* --- media queries ------------------------------------------------------------------------------------------------ */
-@media screen and (max-width: 1400px) {
-  .btn-group {
-    white-space: normal;
-  }
-  .sidebar .btn-group .btn {
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    -khtml-border-radius: 0;
-    -o-border-radius: 0;
-    border-radius: 0;
-    -moz-background-clip: padding;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-  }
-  .sidebar .btn-group:first-child {
-    -webkit-border-top-right-radius: 0.3663003663003662em;
-    -moz-border-radius-topright: 0.3663003663003662em;
-    -khtml-border-radius-topright: 0.3663003663003662em;
-    border-top-right-radius: 0.3663003663003662em;
-    -webkit-border-top-left-radius: 0.3663003663003662em;
-    -moz-border-radius-topleft: 0.3663003663003662em;
-    -khtml-border-radius-topleft: 0.3663003663003662em;
-    border-top-left-radius: 0.3663003663003662em;
-    -moz-background-clip: padding;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-  }
-  .sidebar .btn-group:last-child {
-    -webkit-border-bottom-right-radius: 0.3663003663003662em;
-    -moz-border-radius-bottomright: 0.3663003663003662em;
-    -khtml-border-radius-bottomright: 0.3663003663003662em;
-    border-bottom-right-radius: 0.3663003663003662em;
-    -webkit-border-bottom-left-radius: 0.3663003663003662em;
-    -moz-border-radius-bottomleft: 0.3663003663003662em;
-    -khtml-border-radius-bottomleft: 0.3663003663003662em;
-    border-bottom-left-radius: 0.3663003663003662em;
-    -moz-background-clip: padding;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-  }
-}
-@media screen and (max-width: 640px) {
-  /* to avoid the adjustment of fonts on iOS devices you should keep this line */
-  * {
-    -webkit-text-size-adjust: none;
-    -ms-text-size-adjust: none;
-  }
-}
-/* --- iPad --------------------------------------------------------------------------------------------------------- */
-/* --- iPhone 4(S) retina ------------------------------------------------------------------------------------------- */
-/* --- iPhone ------------------------------------------------------------------------------------------------------- */
-/* --- print (optional) --------------------------------------------------------------------------------------------- */
-@media screen and (max-width: 420px) {
-  p {
-    font-size: 1.3em;
-    line-height: 1.5;
-  }
-}
-/* Smaller screens */
-@media only screen and (max-width: 1023px) {
-  body {
-    line-height: 1.7663003663003662;
-  }
-}
+	=============================================================================
+	Filename:  media-queries.less
+	=============================================================================
+	This file is responsible for all responsiveness in the template.
+ --------------------------------------------------------------------------------------------------------------------- */
 /* Mobile */
-@media handheld, only screen and (max-width: 47.9375em) {
+@media handheld, only screen and (min-width: 767px) {
   .row,
   body {
     width: 100%;
@@ -3150,47 +2440,33 @@ Borders
   .container {
     padding: 0 1em;
   }
-  .container .actions,
   .container .form-actions,
   .container .toolbar,
-  .container .btn-group,
-  .container .actions input {
+  .container .btn-group {
     width: 100%;
   }
-  .container .actions input,
   .container .form-actions input,
   .container .toolbar input,
   .container .btn-group input,
-  .container .actions input input,
-  .container .actions .btn,
   .container .form-actions .btn,
   .container .toolbar .btn,
   .container .btn-group .btn,
-  .container .actions input .btn,
-  .container .actions button,
   .container .form-actions button,
   .container .toolbar button,
-  .container .btn-group button,
-  .container .actions input button {
+  .container .btn-group button {
     display: block;
     margin: -1px 0 0 0;
     width: 100%;
   }
-  .container .actions input:last-child,
   .container .form-actions input:last-child,
   .container .toolbar input:last-child,
   .container .btn-group input:last-child,
-  .container .actions input input:last-child,
-  .container .actions .btn:last-child,
   .container .form-actions .btn:last-child,
   .container .toolbar .btn:last-child,
   .container .btn-group .btn:last-child,
-  .container .actions input .btn:last-child,
-  .container .actions button:last-child,
   .container .form-actions button:last-child,
   .container .toolbar button:last-child,
-  .container .btn-group button:last-child,
-  .container .actions input button:last-child {
+  .container .btn-group button:last-child {
     -webkit-border-top-right-radius: 0;
     -moz-border-radius-topright: 0;
     -khtml-border-radius-topright: 0;
@@ -3210,22 +2486,17 @@ Borders
     -moz-background-clip: padding;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
+    background: url("/PIE.htc");
   }
-  .container .actions input:first-child,
   .container .form-actions input:first-child,
   .container .toolbar input:first-child,
   .container .btn-group input:first-child,
-  .container .actions input input:first-child,
-  .container .actions .btn:first-child,
   .container .form-actions .btn:first-child,
   .container .toolbar .btn:first-child,
   .container .btn-group .btn:first-child,
-  .container .actions input .btn:first-child,
-  .container .actions button:first-child,
   .container .form-actions button:first-child,
   .container .toolbar button:first-child,
-  .container .btn-group button:first-child,
-  .container .actions input button:first-child {
+  .container .btn-group button:first-child {
     -webkit-border-top-left-radius: 0;
     -moz-border-radius-topleft: 0;
     -khtml-border-radius-topleft: 0;
@@ -3245,9 +2516,11 @@ Borders
     -moz-background-clip: padding;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
+    background: url("/PIE.htc");
   }
   .container button,
-  .container input.btn {
+  .container .btn,
+  .container input[type="submit"] {
     margin: 1em 0;
   }
   input,
@@ -3261,18 +2534,43 @@ Borders
   h1.title {
     font-size: 3em;
   }
-  .row .onecol,
-  .row .twocol,
-  .row .threecol,
-  .row .fourcol,
-  .row .fivecol,
-  .row .sixcol,
-  .row .sevencol,
-  .row .eightcol,
-  .row .ninecol,
-  .row .tencol,
+  .col,
+  .row .col12,
+  .row .col11,
+  .row .col10,
+  .row .col9,
+  .row .col8,
+  .row .col7,
+  .row .col6,
+  .row .col5,
+  .row .col4,
+  .row .col3,
+  .row .col2,
+  .row .col1,
+  .row .twelvecol,
   .row .elevencol,
-  .row .twelvecol {
+  .row .tencol,
+  .row .ninecol,
+  .row .eightcol,
+  .row .sevencol,
+  .row .sixcol,
+  .row .fivecol,
+  .row .fourcol,
+  .row .threecol,
+  .row .twocol,
+  .row .onecol,
+  .row .coltwelve,
+  .row .coleleven,
+  .row .colten,
+  .row .colnine,
+  .row .coleight,
+  .row .colseven,
+  .row .colsix,
+  .row .colfive,
+  .row .colfour,
+  .row .colthree,
+  .row .coltwo,
+  .row .colone {
     width: auto;
     float: none;
     margin-left: 0;
@@ -3287,4 +2585,12 @@ Borders
   .dataTables_paginate {
     margin: 1em 0;
   }
+}
+body {
+  margin: 0 auto;
+  color: #000000;
+  background: "";
+  background: #ffffff;
+  line-height: 1.4;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }

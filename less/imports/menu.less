@@ -3,29 +3,22 @@
 	www: http://seangoresht.com/
 	github: https://github.com/srsgores
 	twitter: http://twitter.com/S.Goresht
-	
+
+	LESS Boilerplate
 	Licensed under the GNU Public License
-	
+
 	=============================================================================
 	Filename:  menu
 	=============================================================================
-	
+	This file is responsible for all menu styles.
 --------------------------------------------------------------------------------------------------------------------- */
-//imports - help for PHPStorm
-@import "variables.less";
-@import "mixins.less";
 
 .menu {
-	&:first-child a {
-		.border-radius-right(0);
-	}
-	&:last-child a {
-		.border-radius-left(0);
-	}
-	li {
-		a {
+	> li {
+		> a {
 			&:extend(.bordered-right);
 			background: fade(@secondaryColour, 40%);
 		}
 	}
+	//style menu here
 }

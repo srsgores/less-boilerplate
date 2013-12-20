@@ -1,143 +1,22 @@
-/* ---------------------------------------------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------------------------------------------------
+	Author: Sean Goresht
+	www: http://seangoresht.com/
+	github: https://github.com/srsgores
 
-  88888888e.     d8b       88888888e.       d8b       8bc:..  88888    .8888888.    88888  888888888.        d8b
-  888888888b    d888b      888888888b      d888b      888888bb88888   d888888888b   88888  8888888888b      d888b
-  888888888D   d88888b     888888888D     d88888b     8888888888888  C88888888888D  88888  88888888888D    d88888b
-  88888888P   d8888888b    88888888P     d8888888b    8888888888888  C88888888888D  88888  88888888888D   d8888888b
-  888888P    d888888888b   88888888b    d888888888b   8888888888888   d888888888P   88888  8888888888b   d888888888b
-  88888     d88888888888b  888888888b  d88888888888b  8888888888888    '8888888'    88888  888888888'   d88888888888b
+	twitter: http://twitter.com/S.Goresht
 
-------------------------------------------------------------------------------------------------------------------------
 
-    Author: Rafal Bromirski
-    www: http://paranoida.com/
-    blog: http://lab.paranoida.com/
+	Licensed under the GNU Public License
 
-    twitter: http://twitter.com/paranoida
-    dribbble: http://dribbble.com/paranoida
-
-    Licensed under a MIT License
-
---------------------------------------------------------------------------------------------------------------------- */
-
-//imports - help for PHPStorm
-/*@import "variables.less";
-@import "mixins.less";*/
-
-/* --- main content ------------------------------------------------------------------------------------------------- */
-
-/* --- media queries ------------------------------------------------------------------------------------------------ */
-
-@media screen and (max-width: 1600px) {
-}
-
-@media screen and (max-width: 1400px) {
-	.btn-group {
-		white-space: normal;
-		//.btn-group-vertical;
-	}
-	.sidebar {
-		.btn-group {
-			.btn {
-				.border-radius(0)
-			}
-			&:first-child {
-				.border-radius-top(@borderRadius);
-			}
-			&:last-child {
-				.border-radius-bottom(@borderRadius);
-			}
-		}
-	}
-}
-
-@media screen and (max-width: 1200px) {
-}
-
-@media screen and (max-width: 1024px) {
-}
-
-@media screen and (max-width: 1000px) {
-}
-
-@media screen and (max-width: 800px) {
-}
-
-@media screen and (max-width: 768px) {
-}
-
-@media screen and (max-width: 640px) {
-/* to avoid the adjustment of fonts on iOS devices you should keep this line */
-	* {
-		-webkit-text-size-adjust: none;
-		-ms-text-size-adjust: none;
-	}
-}
-
-@media screen and (max-width: 600px) {
-}
-
-@media screen and (max-width: 480px) {
-}
-
-@media screen and (max-width: 400px) {
-}
-
-@media screen and (max-width: 320px) {
-}
-
-/* --- iPad --------------------------------------------------------------------------------------------------------- */
-
-@media screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:portrait) {
-}
-
-@media screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:landscape) {
-}
-
-/* --- iPhone 4(S) retina ------------------------------------------------------------------------------------------- */
-
-@media screen and (-webkit-min-device-pixel-ratio: 1.5), screen and (min-device-pixel-ratio: 1.5) {
-
-}
-
-/* --- iPhone ------------------------------------------------------------------------------------------------------- */
-
-@media screen and (max-device-width: 640px) and (-webkit-device-pixel-ratio: 1), screen and (max-device-width: 640px) and (device-pixel-ratio: 1) {
-}
-
-/* --- print (optional) --------------------------------------------------------------------------------------------- */
-
-@media print {
-}
-
-@media screen and (max-width: 420px) {
-	p {
-		font-size: 1.3em;
-		line-height: 1.5;
-	}
-}
-
-@media screen and (max-width: 800px) {
-
-}
-
-@media screen and (max-width: 1200px) {
-
-}
-
-/* Smaller screens */
-
-@media only screen and (max-width: 1023px) {
-
-	body {
-		line-height: unit(@baseLineHeight + @borderRadius);
-	}
-
-}
+	=============================================================================
+	Filename:  media-queries.less
+	=============================================================================
+	This file is responsible for all responsiveness in the template.
+ --------------------------------------------------------------------------------------------------------------------- */
 
 /* Mobile */
 
-@media handheld, only screen and (max-width: 47.9375em) { //query at 767px
+@media handheld, only screen and (max-width: @container-max-width) { //query at 767px
 
 	.row, body {
 		width: 100%;
@@ -150,7 +29,7 @@
 
 	.container {
 		padding: 0 @padding;
-		.actions, .form-actions, .toolbar, .btn-group, .actions input {
+		.form-actions, .toolbar, .btn-group {
 			width: @rowWidth;
 			input, .btn, button {
 				display: block;
@@ -166,7 +45,7 @@
 				}
 			}
 		}
-		button, input.btn {
+		button, .btn, input[type="submit"] {
 			margin: @margin 0;
 		}
 	}
@@ -180,7 +59,7 @@
 		}
 	}
 
-	.row .onecol, .row .twocol, .row .threecol, .row .fourcol, .row .fivecol, .row .sixcol, .row .sevencol, .row .eightcol, .row .ninecol, .row .tencol, .row .elevencol, .row .twelvecol {
+	.col {
 		width: auto;
 		float: none;
 		margin-left: 0;

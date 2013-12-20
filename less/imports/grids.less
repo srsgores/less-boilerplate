@@ -2,7 +2,7 @@
 ----------------------------------------------------------------------------------------------------*/
 
 .col {
-	float: left;
+	&:extend(.pull-left);
 	margin-right: @col-margin-right;
 	min-height: 1px;
 	&:extend(.transition-all);
@@ -18,7 +18,7 @@
 	padding: 0 ((@line/2)/@em);
 	width: @rowWidth;
 	&:extend(.border-box); //margin: remember that this will be exclusive to media queries still, as it depends on the resolution!
-	overflow: hidden;
+	&:extend(.overflow-hidden);
 	.generate-grid(@column-selector-number-at-end, @col-identifier-named-numbers) when (@column-selector-number-at-end = true), (@col-identifier-named-numbers = false) {
 		//bootstrap syntax
 		//ex: span1, span2, etc.

@@ -1,0 +1,39 @@
+/*--------------------------------------------------------------------------------------------------------------------
+	Author: Sean Goresht
+	www: http://seangoresht.com/
+	github: https://github.com/srsgores
+
+	twitter: http://twitter.com/S.Goresht
+
+	LESS Boilerplate
+	Licensed under the GNU Public License
+
+	=============================================================================
+	Filename:  buttons.less
+	=============================================================================
+	This file is responsible for all button styles.
+--------------------------------------------------------------------------------------------------------------------- */
+
+button, input[type="submit"] {
+	background: @buttonPrimaryColour;
+	&:extend(.bordered);
+	cursor: pointer;
+	color: negation(@buttonPrimaryColour, @tertiaryColour);
+
+	font-size: @fontSizeMedium;
+	font-weight: @baseFontWeight;
+
+	margin: 0 @margin 0 0;
+	padding: @paddingSmall @padding;
+	text-shadow: 0 1px 0 spin(@primaryColour, 80deg);
+	&:extend(.text-decoration-none);
+
+	#transition > .transition(~"background, box-shadow, background-image, border-color @{transitionTime}, @{transitionTime}, @{transitionTime}, @{transitionTime} @{transitionFunction}");
+
+	&:hover, &:focus, &:active {
+		background: spin(@buttonPrimaryColour, 40deg);
+		border-color: hardlight(@primaryColour, @buttonPrimaryColour);
+		color: spin(negation(@buttonPrimaryColour, @tertiaryColour), 60);
+		text-shadow: 0 1px spin(@primaryColour, 30);
+	}
+}
