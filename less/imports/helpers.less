@@ -17,7 +17,7 @@ Measurement Creator
 Transitions
 ========================================================================== */
 .transition-all {
-	#transition > .transition(all @transitionTime linear);
+	#transition > .transition(all @transitionTime @transitionFunction);
 }
 
 /* =============================================================================
@@ -158,6 +158,29 @@ Layout
 
 	&:last-child {
 		*margin-left: 0;
+	}
+}
+
+// Centre-align a block level element
+// ----------------------------------
+.centre-block() {
+	&:extend(.block);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Clearfix
+// --------
+// For clearing floats like a boss h5bp.com/q
+.clearfix {
+	*zoom: 1;
+	&:before,
+	&:after {
+		display: table;
+		content: "";
+	}
+	&:after {
+		clear: both;
 	}
 }
 
@@ -303,7 +326,7 @@ www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden */
 	margin: -1px;
 	&:extend(.overflow-hidden);
 	&:extend(.padding-none);
-	&:extend(.absolute);;
+	&:extend(.absolute);
 	width: 1px;
 	left: -500%;
 

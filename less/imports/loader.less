@@ -16,7 +16,7 @@
 CSS loaders
 ========================================================================== */
 
-.loader { //loaders 1-5
+.loader-base {
 	width: 2em;
 	height: 2em;
 	margin: @margin auto;
@@ -24,11 +24,11 @@ CSS loaders
 	border-right-color: transparent;
 	.border-radius(50%);
 	.box-shadow(0 0 1.5em 0.1em @secondaryColour);
-	#animation > .animation(spin 1s linear infinite);
-	&:extend(.absolute);;
+	#animation > .animation(spin 1s infinite linear);
+	&:extend(.fixed);
 	top: 50%;
 	left: 50%;
-	#transition > .transition(top 2s ease);
+	#transition > .transition(top 2s @transitionFunction);
 	&.hidden {
 		top: -200%;
 	}
@@ -39,8 +39,8 @@ CSS loaders
 	cursor: wait;
 }
 
-.loader1 {
-	&:extend(.loader);
+.loader {
+	&:extend(.loader-base);
 	&:after {
 		content: "Loading...";
 		&:extend(.medium);
@@ -48,76 +48,6 @@ CSS loaders
 	}
 }
 
-.loader2 {
-	&:extend(.loader);
-	border-right: 0 none;
-}
-
-.loader3 {
-	&:extend(.loader);
-	border-left-color: transparent;
-	&:after, &:after {
-		&:extend(.block);
-		content: " ";
-		width: 9px;
-		height: 9px;
-		border: 6px solid #fff;
-		margin: @marginMini;
-		.border-radius(50%);
-	}
-	&:after {
-		border-left-color: transparent;
-		border-right-color: transparent;
-	}
-}
-
-.loader4 {
-	&:extend(.loader);
-	border-bottom-color: transparent;
-	&:after {
-		width: @em;
-		height: @em;
-		margin: 1px;
-		border-width: @borderRadiusLarge;
-		border-top-color: transparent;
-		border-left-color: transparent;
-	}
-}
-
-.loader5 {
-	&:extend(.loader);
-	border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-	border-top: 1px solid rgba(0, 0, 0, 0.3);
-	&:extend(.inline);
-	.border-radius(2em);
-	.box-shadow(inset 0 0 10px rgba(0, 0, 0, 0.5));
-	&:before, &:after {
-		content: "?";
-		line-height: 3;
-		&:extend(.absolute);;
-		text-align: left;
-		font-size: 2em;
-		font-weight: bold;
-	}
-	&:before {
-		color: rgba(0, 0, 0, .3);
-		#animation > .animation(0.6s 0.1s rotateLeft infinite linear);
-		text-shadow: @fontSizeMedium -@em;
-	}
-	&:after {
-		color: rgba(0, 0, 0, .5);
-		#animation > .animation(0.6s rotateRight infinite linear);
-		text-shadow: 23px -@em #111, 17px -21px rgba(0, 0, 0, 0.3), 8px @borderRadius rgba(0, 0, 0, 0.3);
-	}
-}
-
-.loader6 {
-	.box-shadow(none);
-	&:extend(.border-none);
-	&:before {
-		#animation > .animation(0.7s 0.05s rotateRight infinite linear);
-	}
-}
 /* =============================================================================
 Loader Animations
 ========================================================================== */
@@ -197,26 +127,3 @@ Loader Animations
 		opacity: 0.2;
 	}
 }
-
-//we can use mixin because it's 0 to 100%
-.from(rotateRight, transform) {
-	#transform > .rotate(0deg);
-	#transform .transform-origin(50% 50%);
-}
-
-.to(rotateRight, transform) {
-	#transform > .rotate(360deg);
-}
-
-#animation > .animation-keyframes(rotateRight, transform, transform);
-
-.from(rotateLeft, transform) {
-	#transform > .rotate(0deg);
-}
-
-.to(rotateLeft, transform) {
-	#transform .rotate(360deg);
-	#transform .transform-origin(50% 50%);
-}
-
-#animation > .animation-keyframes(rotateLeft, transform, transform);

@@ -7,7 +7,7 @@
     twitter: http://twitter.com/S.Goresht
 
     Licensed under the GPL License
-    Date: August 10, 2012
+    Date: December 2013
 
     ======================================
     File:  mixins.less
@@ -41,7 +41,6 @@ Site-wide rules
 .border-radius(@borderRadius: @borderRadius) {
 	-webkit-border-radius: @borderRadius;
 	-moz-border-radius: @borderRadius;
-	-khtml-border-radius: @borderRadius;
 	-o-border-radius: @borderRadius;
 	border-radius: @borderRadius;
 	.padding-fix;
@@ -51,7 +50,6 @@ Site-wide rules
 .border-top-left-radius(@radius: @borderRadius) {
 	-webkit-border-top-left-radius: @radius;
 	-moz-border-radius-topleft: @radius;
-	-khtml-border-radius-topleft: @radius;
 	border-top-left-radius: @radius;
 	.padding-fix;
 }
@@ -59,7 +57,6 @@ Site-wide rules
 .border-top-right-radius(@radius: @borderRadius) {
 	-webkit-border-top-right-radius: @radius;
 	-moz-border-radius-topright: @radius;
-	-khtml-border-radius-topright: @radius;
 	border-top-right-radius: @radius;
 	.padding-fix;
 }
@@ -67,7 +64,6 @@ Site-wide rules
 .border-bottom-right-radius(@radius: @borderRadius) {
 	-webkit-border-bottom-right-radius: @radius;
 	-moz-border-radius-bottomright: @radius;
-	-khtml-border-radius-bottomright: @radius;
 	border-bottom-right-radius: @radius;
 	.padding-fix;
 }
@@ -75,7 +71,6 @@ Site-wide rules
 .border-bottom-left-radius(@radius: @borderRadius) {
 	-webkit-border-bottom-left-radius: @radius;
 	-moz-border-radius-bottomleft: @radius;
-	-khtml-border-radius-bottomleft: @radius;
 	border-bottom-left-radius: @radius;
 	.padding-fix;
 }
@@ -156,21 +151,6 @@ Site-wide rules
 // UTILITY MIXINS
 // --------------------------------------------------
 
-// Clearfix
-// --------
-// For clearing floats like a boss h5bp.com/q
-.clearfix {
-	*zoom: 1;
-	&:before,
-	&:after {
-		display: table;
-		content: "";
-	}
-	&:after {
-		clear: both;
-	}
-}
-
 // Sizing shortcuts
 // -------------------------
 .size(@height, @width) {
@@ -224,23 +204,15 @@ Site-wide rules
 	-moz-text-shadow: @arguments;
 	text-shadow: @arguments;
 }
-// Centre-align a block level element
-// ----------------------------------
-.centre-block() {
-	&:extend(.block);
-	margin-left: auto;
-	margin-right: auto;
-}
 
 // IE7 inline-block
 // ----------------
 .ie7-inline-block() {
 	*display: inline; /* IE7 inline-block hack */
 	*zoom: 1;
-	stop: being-broken;
 }
 
-.inline-block(@alignment: auto) {
+.inline-block(@alignment: middle) {
 	display: -moz-inline-stack;
 	display: inline-block;
 	vertical-align: @alignment;
@@ -254,7 +226,6 @@ Site-wide rules
 .box-shadow(...) {
 	-webkit-box-shadow: @arguments;
 	-moz-box-shadow: @arguments;
-	-khtml-box-shadow: @arguments;
 	-o-box-shadow: @arguments;
 	box-shadow: @arguments;
 	.pie()

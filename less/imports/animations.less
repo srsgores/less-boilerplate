@@ -1,0 +1,220 @@
+/*------------------------------------------------------------------------------------------------------------------------
+	Author: Sean Goresht
+	www: http://seangoresht.com/
+	github: https://github.com/srsgores
+
+	twitter: http://twitter.com/S.Goresht
+
+	LESS Boilerplate
+	Licensed under the GNU Public License
+
+	=============================================================================
+	Filename:  animations.less
+	=============================================================================
+	This file is responsible for all CSS3 animations.  It can be included, but animations must be extended.
+--------------------------------------------------------------------------------------------------------------------- */
+
+/* =============================================================================
+Animation Classes
+========================================================================== */
+/* Fade */
+
+.fadeIn {
+	#animation > .animation(fadeIn @transitionTime @transitionFunction);
+	.from(fadeIn, opacity) {
+		.opacity(0);
+	}
+
+	.to(fadeIn, opacity) {
+		.opacity(100);
+	}
+}
+
+.fadeInUp {
+	#animation > .animation(fadeInUp @transitionTime @transitionFunction);
+}
+
+/* Scale */
+
+.scaleUp {
+	#animation > .animation(scaleUp @transitionTime @transitionFunction);
+}
+
+.scaleDown {
+	#animation > .animation(scaleDown @transitionTime @transitionFunction);
+}
+
+/* Slide */
+
+.slideTop {
+	#animation > .animation(slideTop @transitionTime @transitionFunction);
+}
+
+.slideTopFixed {
+	#animation > .animation(slideTopFixed @transitionTime @transitionFunction);
+}
+
+.slideBottom {
+	#animation > .animation(slideBottom @transitionTime @transitionFunction);
+}
+
+.slideBottomFixed {
+	#animation > .animation(slideBottomFixed @transitionTime @transitionFunction);
+}
+
+.slideLeft {
+	#animation > .animation(slideLeft @transitionTime @transitionFunction);
+}
+
+.slideRight {
+	#animation > .animation(slideRight @transitionTime @transitionFunction);
+}
+
+/* =============================================================================
+Modifiers
+========================================================================== */
+
+.animation-reverse {
+	#animation > .animation-direction(reverse);
+}
+
+/* =============================================================================
+Keyframes
+========================================================================== */
+
+/* Fade In*/
+
+.from(fadeIn, opacity) {
+	.opacity(0);
+}
+
+.to(fadeIn, opacity) {
+	.opacity(100);
+}
+
+#animation > .animation-keyframes(fadeIn, opacity, opacity);
+
+/* Fade In Up */
+
+.from(fadeInUp, opacity) {
+	.opacity(0);
+	#transform > .translate(0, @fontSizeLarge);
+}
+
+.to(fadeInUp, opacity) {
+	.opacity(1);
+	#transform > .translate(0, 0);
+}
+
+#animation > .animation-keyframes(fadeInUp, opacity, opacity);
+
+
+/* Scale Up */
+
+.from(scaleUp, scale) {
+	#transform > .scale(0.2);
+}
+
+.to(scaleUp, scale) {
+	#transform > .scale(1);
+}
+
+#animation > .animation-keyframes(scaleUp, scale, scale);
+
+/* Scale Down */
+
+.from(scaleDown, scale) {
+	#transform > .scale(1.8);
+	.opacity(0);
+}
+
+.to(scaleDown, scale) {
+	#transform > .scale(1);
+	.opacity(100);
+}
+
+#animation > .animation-keyframes(scaleDown, scale, scale);
+
+/* Slide Top */
+
+.from(slideTop, translate) {
+	.opacity(0);
+	#transform > .translate(0, -100%);
+}
+
+.to(slideTop, translate) {
+	.opacity(100);
+	#transform > .translate(0, 0);
+}
+
+#animation > .animation-keyframes(slideTop, translate, translate);
+
+/* Slide Bottom */
+
+.from(slideBottom, transform) {
+	.opacity(0);
+	#transform > .translate(0, 100%);
+}
+
+.to(slideBottom, transform) {
+	.opacity(100);
+	#transform > .translate(0, 0);
+}
+
+#animation > .animation-keyframes(slideBottom, transform, transform);
+
+/* Slide Left */
+
+.from(slideLeft, transform) {
+	.opacity(0);
+	#transform > .translate(100%, 0);
+}
+
+.to(slideLeft, transform) {
+	.opacity(100);
+	#transform > .translate(0, 0);
+}
+
+#animation > .animation-keyframes(slideLeft, transform, transform);
+
+/* Slide Right */
+
+.from(slideRight, transform) {
+	.opacity(0);
+	#transform > .translate(100%, 0);
+}
+
+.to(slideRight, transform) {
+	.opacity(100);
+	#transform > .translate(0, 0);
+}
+
+#animation > .animation-keyframes(slideRight, transform, transform);
+
+/* Slide Top Fixed */
+
+.from(slideTopFixed, transform) {
+	.opacity(0);
+	#transform > .translate(0, -0.7em);
+}
+
+.to(slideTopFixed, transform) {
+	.opacity(100);
+	#transform > .translate(0, 0);
+}
+
+#animation > .animation-keyframes(slideTopFixed, transform, transform);
+
+/* Slide Bottom Fixed */
+
+.from(slideBottomFixed, transform) {
+	.opacity(0);
+	#transform > .translate(0, 0.7em);
+}
+
+.to(slideBottomFixed, transform) {
+	.opacity(100);
+	#transform > .translate(0, 0);
+}
+
+#animation > .animation-keyframes(slideBottomFixed, transform, transform);

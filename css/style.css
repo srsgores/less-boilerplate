@@ -2426,7 +2426,16 @@ a:visited {
 	=============================================================================
 	This file is responsible for all responsiveness in the template.
  --------------------------------------------------------------------------------------------------------------------- */
-/* Mobile */
+
+@media handheld, only screen and (max-width: 47.9375em)
+	.row .onecol, .row .twocol, .row .threecol, .row .fourcol, .row .fivecol, .row .sixcol, .row .sevencol, .row .eightcol, .row .ninecol, .row .tencol, .row .elevencol, .row .twelvecol {
+		width: auto;
+		float: none;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+}
 @media handheld, only screen and (min-width: 767px) {
   .row,
   body {

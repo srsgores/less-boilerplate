@@ -18,20 +18,17 @@
 jQuery(document).ready(function ($)
 {
 	var $container = $(".container"),
-		delayClasses = $(".delay-1, .delay-2, .delay-3, .delay-4, .delay-5, .delay-6, .delay-7, .delay-8, .delay-9, .delay-10"),
 		hideClass = "hidden",
-		$loader = $(".loader1");
+		$loader = $(".loader");
 
 	function toggleLoader()
 	{
 		if (Modernizr.csstransitions) {
 			$loader.toggleClass(hideClass);
-			$(delayClasses).toggleClass(hideClass);
 			$loader.toggleClass(hideClass).toggle();
 			$container.toggleClass("loading");
 		}
 		else {
-			$loader.add(delayClasses).removeClass(hideClass);
 			$container.toggle().add($loader).toggle("slow");
 			console.log("Browser did not support transitions, so doing fallback");
 		}
