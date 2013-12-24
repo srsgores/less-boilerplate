@@ -17,17 +17,19 @@
 button, input[type="submit"] {
 	background: @buttonPrimaryColour;
 	&:extend(.bordered);
+	&:extend(.border-box);
+	.appearance(none);
 	cursor: pointer;
 	color: negation(@buttonPrimaryColour, @tertiaryColour);
 
-	font-size: @fontSizeMedium;
+	&:extend(.medium);
 	font-weight: @baseFontWeight;
 
-	margin: 0 @margin 0 0;
+	margin: 0 @margin @margin 0;
 	padding: @paddingSmall @padding;
 	text-shadow: 0 1px 0 spin(@primaryColour, 80deg);
 	&:extend(.text-decoration-none);
-
+	white-space: nowrap;
 	#transition > .transition(~"background, box-shadow, background-image, border-color @{transitionTime}, @{transitionTime}, @{transitionTime}, @{transitionTime} @{transitionFunction}");
 
 	&:hover, &:focus, &:active {
@@ -35,5 +37,13 @@ button, input[type="submit"] {
 		border-color: hardlight(@primaryColour, @buttonPrimaryColour);
 		color: spin(negation(@buttonPrimaryColour, @tertiaryColour), 60);
 		text-shadow: 0 1px spin(@primaryColour, 30);
+	}
+}
+
+.btn-group {
+	&:extend(.centred);
+	&:extend(.border-box);
+	> input, > .btn, > button {
+		margin: 0 -@marginMini 0 0;
 	}
 }

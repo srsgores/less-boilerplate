@@ -36,11 +36,11 @@
 
 <body>
 <div class = "container loading">
-<header class = "row centred delay-5 hidden">
+<header class = "row centred delayed-5 hidden">
 	<nav role = "navigation">
 		<!-- use for emmet/zen coding -->
 		<!-- ul.nav>li*5>a[data-icon=] -->
-		<ul class = "nav delay-6 hidden">
+		<ul class = "nav delayed-6 hidden">
 			<li><a href = "#">Home <i class = "icon-home"></i></a></li>
 			<li><a href = "#features">Features <i class = "icon-book-2"></i></a></li>
 			<li><a href = "#installation">Installation <i class = "icon-database"></i></a></li>
@@ -66,11 +66,13 @@
 					allowtransparency = "true" frameborder = "0" scrolling = "0" width = "95" height = "20"></iframe>
 		</div>
 		<div class = "toolbar" id = "social-media-buttons">
-			<a class = "btn" target = "_blank"
-			   href = "http://twitter.com/intent/tweet?url=http://srsgores.github.io/less-boilerplate/&text=Responsive, intuitive LESS framework @SGoresht"><i class = "icon-twitter"></i>
-				Tweet</a>
-			<a class = "btn" target = "_blank" href = "https://plus.google.com/share?url=http://srsgores.github.io/less-boilerplate/"><i class = "icon-google-plus">
-			</i> Share</a>
+			<div class="btn-group">
+				<a class = "btn" target = "_blank"
+				   href = "http://twitter.com/intent/tweet?url=http://srsgores.github.io/less-boilerplate/&text=Responsive, intuitive LESS framework @SGoresht"><i class = "icon-twitter"></i>
+					Tweet</a>
+				<a class = "btn" target = "_blank" href = "https://plus.google.com/share?url=http://srsgores.github.io/less-boilerplate/"><i class = "icon-google-plus">
+				</i> Share</a>
+			</div>
 		</div>
 
 	</div>
@@ -87,10 +89,12 @@
 	<h1 class = "centred">Edit the Beast</h1>
 
 	<form class = "box" id = "style-edit" action = "#">
-		<div class = "toolbar row">
-			<button class = "btn toggle-style-box">Show <i class = "icon-plus"></i></button>
-			<button class = "btn toggle-all">
-				Toggle All <i class = "icon-pointer"></i></button>
+		<div>
+			<div class="btn-group">
+				<button class = "btn toggle-style-box">Show <i class = "icon-plus"></i></button>
+				<button class = "btn toggle-all">
+					Toggle All <i class = "icon-pointer"></i></button>
+			</div>
 		</div>
 		<fieldset class = "box">
 			<legend>Type</legend>
@@ -564,16 +568,20 @@
 			<h4>Basic Button Group</h4>
 
 			<div class = "toolbar centred">
-				<button>Click Me</button>
-				<button>Or Me</button>
-				<button>Or Me</button>
+				<div class="btn-group">
+					<button>Click Me</button>
+					<button>Or Me</button>
+					<button>Or Me</button>
+				</div>
 			</div>
 			<h4>Advanced Button Group</h4>
 
 			<div class = "toolbar">
-				<button title = "Write a New Message"><i class = "icon-plus"></i> New Message</button>
-				<button title = "View Inbox"><i class = "icon-drawer"></i> Inbox</button>
-				<button title = "Search Messages in This Conversation"><i class = "icon-search"></i></button>
+				<div class="btn-group">
+					<button title = "Write a New Message"><i class = "icon-plus"></i> New Message</button>
+					<button title = "View Inbox"><i class = "icon-drawer"></i> Inbox</button>
+					<button title = "Search Messages in This Conversation"><i class = "icon-search"></i></button>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -857,7 +865,7 @@
 	</section>
 </section>
 </article>
-<footer class = "row centred delay-6 hidden">
+<footer class = "row centred delayed-6 hidden">
 	<nav role = "banner">
 		<ul>
 			<li><a data-icon = "" href = "#">Link 1</a></li>

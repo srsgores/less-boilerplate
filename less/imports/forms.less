@@ -35,7 +35,7 @@ input {
 		&:extend(.row-width);
 		padding: @paddingMini @paddingSmall;
 		text-overflow: ellipsis;
-		#transition > .transition(box-shadow, border @transition-time ease);
+		#transition > .transition(box-shadow, border @transitionTime ease);
 		&[required] {
 			&:active, &:focus {
 				border: (@borderWidth * 2) @borderStyle @secondaryColour;
@@ -45,7 +45,7 @@ input {
 	}
 }
 
-.form-actions, .btn-group {
+.form-actions {
 	&:extend(.bordered-top);
 	background: fade-out(@tertiaryColour, 0.2);
 	&:extend(.normal-padding-top-bottom);

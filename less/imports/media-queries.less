@@ -29,34 +29,22 @@
 
 	.container {
 		padding: 0 @padding;
-		.form-actions, .toolbar, .btn-group {
+		.form-actions, .btn-group {
 			width: @rowWidth;
 			input, .btn, button {
 				display: block;
-				margin: -1px 0 0 0;
+				margin: -@borderWidth 0 0 0;
 				width: @rowWidth;
-				&:last-child {
-					.border-radius-right(0);
-					.border-radius-bottom(@borderRadius);
-				}
-				&:first-child {
-					.border-radius-left(0);
-					.border-radius-top(@borderRadius);
-				}
 			}
 		}
 		button, .btn, input[type="submit"] {
 			margin: @margin 0;
+			white-space: normal;
 		}
 	}
 
 	input, textarea, keygen, select, button, isindex {
 		width: @rowWidth;
-	}
-	h1 {
-		&.title {
-			font-size: (@em * 3);
-		}
 	}
 
 	.col {
@@ -70,9 +58,7 @@
 		width: 100%;
 	}
 
-	.box, .alert, .pagination ul, .dataTables_paginate {
+	.box {
 		margin: @margin 0;
 	}
-
-
 }
