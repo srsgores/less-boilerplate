@@ -1,11 +1,12 @@
 # LESS Html5 Boilerplate
 LESS boilerplate is an HTML5, CSS3 boilerplate for starting up quick projects using the best standards.
 
-LESS Boilerplate is the only front-end framework built on top of LESS that allows for generable,
+LESS Boilerplate is one of the only front-end framework built on top of LESS that allows for generable,
 flexible, and fluid grid systems.  The grid can be generated and configured in real-time,
 and it can even be set to work with Bootstrap's grid syntax.
 
-Included is a bare LESS directory structure, designed to provide you with the basics for creating a nice website.
+Included is a bare LESS directory structure, designed to provide you with the basics for creating a light-weight,
+cross-browser compatible website.
 
 ## Features
 * **Configurable**, comprehensive ``variables.less`` file.  Change your site's look in seconds only by adjusting any
@@ -14,8 +15,7 @@ of the colours
 * Includes CSS3 PIE for **IE 6-8 Compatibility**
 * Uses ``em`` over ``px``, for **scalability**
 * **Icomoon integration** with LESS variables already set up.  It's a basic pack that should serve most apps.  Vector
- of
-course, and they work with IE7... out of the box!
+ of course, and they work with IE7... out of the box!
 * Integrated **Bower support** and config file, with the basics: Modernizr, jQuery to get you started quick
 * **Live previewing** and configuration using LESS.js
 * **Optimized media queries**, with nothing in them, so you can just dive right in

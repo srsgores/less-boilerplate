@@ -12,13 +12,12 @@
 	=============================================================================
 	This file is responsible for all menu styles.
 --------------------------------------------------------------------------------------------------------------------- */
-
-.menu {
-	> li {
-		> a {
-			&:extend(.bordered-right);
-			background: fade(@secondaryColour, 40%);
+nav {
+	> ul {
+		&:extend(.centred);
+		li {
+			&:extend(.inline);
+			&:extend(.normal-padding-left-right);
 		}
 	}
-	//style menu here
 }

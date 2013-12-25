@@ -18,20 +18,13 @@
 jQuery(document).ready(function ($)
 {
 	var $container = $(".container"),
-		hideClass = "hidden",
+		loadClass = "loading",
 		$loader = $(".loader");
 
 	function toggleLoader()
 	{
-		if (Modernizr.csstransitions) {
-			$loader.toggleClass(hideClass);
-			$loader.toggleClass(hideClass).toggle();
-			$container.toggleClass("loading");
-		}
-		else {
-			$container.toggle().add($loader).toggle("slow");
-			console.log("Browser did not support transitions, so doing fallback");
-		}
+		$container.toggleClass(loadClass);
+		$loader.toggle("slow");
 	}
 	toggleLoader();
 });
