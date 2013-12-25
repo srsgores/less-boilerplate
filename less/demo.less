@@ -18,11 +18,11 @@
 /* Fade In*/
 
 .from(fadeIn, opacity) {
-	opacity: 0;
+	.opacity(0);
 }
 
 .to(fadeIn, opacity) {
-	opacity: 1;
+	.opacity(100);
 }
 
 #animation > .animation-keyframes(fadeIn, opacity, opacity);
@@ -56,24 +56,77 @@
 
 .overview {
 	padding: 2% 0;
-	background: @green;
+	background: @tertiaryColour;
 	color: @white;
 	h1 {
-		line-height: 4;
-		&:extend(.normal-padding-top-bottom);
-		font-size: 4em;
+		font-size: 6em;
 	}
 	h2 {
-		line-height: 5;
+		margin-bottom: @marginLarge * 2;
 	}
 	.toolbar {
 		border: 0;
 	}
 }
 
+.feature {
+	padding: 3em 0;
+}
+
+#features {
+	padding: 3em 0;
+
+	.row {
+		&:extend(.bordered-top);
+	}
+}
+
+#what-you-get {
+	background: @tertiaryColour;
+	color: @white;
+
+}
+
+#installation {
+	background: @quinaryColour;
+	color: @white;
+}
+
+#basic-usage {
+	background: @primaryColour;
+	color: @white;
+}
+
+#contributing {
+	background: @textColour;
+	color: @white;
+}
+
 section {
 	&:extend(.padding-large);
+	padding-bottom: 5em;
 	&:extend(.normal-margin-top-bottom);
+	header {
+		padding: 4em 0;
+		h1 {
+			font-size: 4.5em;
+		}
+		h1, h2, h3, h4, h5, h6 {
+			&:extend(.margin-none);
+		}
+	}
+	h1, h2, h3, h4, h5, h6 {
+		&:extend(.normal-margin-top-bottom);
+	}
+	p {
+		font-size: 1.2em;
+		line-height: 1.5;
+	}
+}
+
+.row {
+	max-width: @container-max-width;
+	margin: 0 auto;
 }
 
 header {
@@ -105,29 +158,18 @@ header {
 }
 
 .btn.huge {
-	width: (@rowWidth / 2);
-	&:extend(.block);
 	margin: 0 auto;
-	&:extend(.normal-padding-top-bottom);
 	font-size: 2em;
 	&:extend(.relative);
+	padding: @paddingSmall @paddingLarge * 2;
 
 	& > i {
 		&:extend(.transition-all);
-		text-shadow: 0 -0.4em 0.5em rgb(255, 255, 255), 0 0 0.3em rgba(221, 221, 221, 0.45), 0 0 1.3em rgba(63, 63, 63, 0.79);
-		&:extend(.absolute);
-		padding-left: @padding;
-		font-size: 1.3em;
+		padding-left: @paddingMini;
 	}
 	&:hover > i {
 		#transform > .rotate(180deg);
-		&:extend(.absolute)
-	;
 		font-size: 3em;
-		padding: 2%;
-		top: -27%;
-		color: rgba(255, 255, 255, 0.58);
-		text-shadow: 0 -0.4em 0.5em #FFF, 0 1px #FFF, 0 0 0.1em rgba(63, 63, 63, 0.68);
 	}
 }
 
@@ -145,6 +187,11 @@ header {
 	}
 
 	.container {
+		//override for full screen
+		padding: 0 !important;
+		.row {
+			padding: 0 @padding !important;
+		}
 		input:not([type]), input[type="color"], input[type="email"], input[type="number"], input[type="password"], input[type="tel"], input[type="url"], input[type="text"] {
 			width: @rowWidth;
 		}
@@ -159,10 +206,6 @@ header {
 	.show-edit-container.fixed-left {
 		position: static;
 		#transform > .rotate(0deg);
-	}
-
-	section {
-		padding: 0;
 	}
 }
 
