@@ -4,12 +4,17 @@
 	"main": "index.html",
 	"dependencies": {
 		"jquery": "*",
-		"modernizr": "*",
-		"less.js": "*"
+		"modernizr": "~2.7.1",
+		"less.js": "~1.5.1"
 	},
 	"ignore": [
 		"**/.*",
 		"node_modules",
 		"js/components"
-	]
+	],
+	"devDependencies": {
+		"respond": "~1.4.2",
+		"prism": "gh-pages",
+		"webshim": "~1.11.6"
+	}
 }
